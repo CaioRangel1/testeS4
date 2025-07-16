@@ -51,4 +51,6 @@ End If
 
 wb.SaveAs caminhoArquivo
 
-MsgBox "Planilha criada e salva com sucesso em: " & caminhoArquivo
+wb.Close True  ' Salva e fecha a planilha
+objExcel.Quit  ' Fecha o Excel por completo
+Set objExcel = Nothing

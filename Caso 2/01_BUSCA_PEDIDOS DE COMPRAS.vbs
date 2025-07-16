@@ -17,13 +17,16 @@ End If
 session.findById("wnd[0]").maximize
 
 ' === CONEXÃO COM EXCEL ===
-Dim objExcel, objWorkbook, objSheet
-Set objExcel = GetObject(, "Excel.Application")
+Dim objExcel, objWorkbook, objSheet, caminhoArquivo
+Set objExcel = CreateObject("Excel.Application")
+objExcel.Visible = True
+
+caminhoArquivo = "C:\temp\cenario.xlsx"
 
 On Error Resume Next
-Set objWorkbook = objExcel.Workbooks("cenario.xlsx")
+Set objWorkbook = objExcel.Workbooks.Open(caminhoArquivo)
 If objWorkbook Is Nothing Then
-    MsgBox "A planilha 'cenario.xlsx' não está aberta. Abra ela primeiro com o script de criação."
+    MsgBox "Erro ao abrir o arquivo: " & caminhoArquivo
     WScript.Quit
 End If
 On Error GoTo 0

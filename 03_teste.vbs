@@ -17,21 +17,9 @@ End If
 session.findById("wnd[0]").maximize
 
 ' === CONEXÃO COM EXCEL ===
-Dim objExcel, objWorkbook, objSheet, caminhoArquivo
-Set objExcel = CreateObject("Excel.Application")
-objExcel.Visible = True
-
-caminhoArquivo = "C:\temp\cenario.xlsx"
-
-On Error Resume Next
-Set objWorkbook = objExcel.Workbooks.Open(caminhoArquivo)
-If objWorkbook Is Nothing Then
-    MsgBox "Erro ao abrir o arquivo: " & caminhoArquivo
-    WScript.Quit
-End If
-On Error GoTo 0
-
-Set objSheet = objWorkbook.Sheets("Tabela Contratos")
+Dim objExcel, objSheet
+Set objExcel = GetObject(, "Excel.Application")
+Set objSheet = objExcel.ActiveWorkbook.ActiveSheet
 
 ' === LOOP NAS LINHAS DO EXCEL ===
 Dim linha, fornecedor, tipoContrato, material, quantidade
@@ -123,4 +111,4 @@ ProximaLinha:
 
 Loop
 
-MsgBox "Criacao de contratos finalizada com sucesso!"
+MsgBox "Criação de contratos finalizada com sucesso!"
