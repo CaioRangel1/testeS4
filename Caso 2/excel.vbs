@@ -7,7 +7,7 @@ Set wb = objExcel.Workbooks.Add
 Set ws = wb.Sheets(1)
 ws.Name = "Tabela Contratos"
 
-' === CABEÇALHOS AJUSTADOS (sem "n contrato") ===
+' === CABEÇALHOS AJUSTADOS ===
 Dim headers, i
 headers = Array("antigo", "novo", "fornecedor", "tp de contrato", "data do contrato", _
                 "material", "quantidade", "orgz compra", "grupo", "fim da validade", _
@@ -38,4 +38,17 @@ For i = 0 To UBound(headers)
     End If
 Next
 
+' === SALVAR PLANILHA ===
+Dim caminhoArquivo
+caminhoArquivo = "C:\temp\cenario.xlsx"  ' Altere se quiser outro local
 
+' Cria a pasta se não existir
+Dim fso, pasta
+Set fso = CreateObject("Scripting.FileSystemObject")
+If Not fso.FolderExists("C:\temp") Then
+    fso.CreateFolder("C:\temp")
+End If
+
+wb.SaveAs caminhoArquivo
+
+MsgBox "Planilha criada e salva com sucesso em: " & caminhoArquivo
