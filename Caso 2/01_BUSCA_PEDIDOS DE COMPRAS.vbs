@@ -7,7 +7,7 @@ If Not IsObject(connection) Then
    Set connection = application.Children(0)
 End If
 If Not IsObject(session) Then
-   Set session    = connection.Children(0)
+   Set session = connection.Children(0)
 End If
 If IsObject(WScript) Then
    WScript.ConnectObject session,     "on"
@@ -17,9 +17,18 @@ End If
 session.findById("wnd[0]").maximize
 
 ' === CONEXÃO COM EXCEL ===
-Dim objExcel, objSheet
+Dim objExcel, objWorkbook, objSheet
 Set objExcel = GetObject(, "Excel.Application")
-Set objSheet = objExcel.ActiveWorkbook.ActiveSheet
+
+On Error Resume Next
+Set objWorkbook = objExcel.Workbooks("cenario.xlsx")
+If objWorkbook Is Nothing Then
+    MsgBox "A planilha 'cenario.xlsx' não está aberta. Abra ela primeiro com o script de criação."
+    WScript.Quit
+End If
+On Error GoTo 0
+
+Set objSheet = objWorkbook.Sheets("Tabela Contratos")
 
 ' === INPUT UNIFICADO COM VALIDAÇÃO ===
 Dim entrada, partes, V_Data_INI, V_Data_FIM, V_TP_PEDIDO, V_Quantidade
@@ -71,7 +80,6 @@ Dim grid, totalLinhas, linhaExcel, V_DocNum, i
 Set grid = session.findById("wnd[0]/usr/cntlRESULT_LIST/shellcont/shell")
 
 linhaExcel = 2 ' Começa na linha 2 do Excel
-'------------------------------------------------
 totalLinhas = grid.RowCount
 
 For i = 0 To totalLinhas - 1
@@ -84,13 +92,5 @@ For i = 0 To totalLinhas - 1
     objSheet.Cells(linhaExcel, 1).Value = V_DocNum
     linhaExcel = linhaExcel + 1
 Next
-'------------------------------------------------------------------
-
-'For i = 0 To grid.RowCount - 1
-'    V_DocNum = grid.GetCellValue(i, "EBELN")
-'    objSheet.Cells(linhaExcel, 1).Value = V_DocNum
-'    linhaExcel = linhaExcel + 1
-'Next
 
 MsgBox "Dados copiados para o Excel com sucesso! Total de linhas: " & linhaExcel - 2
-
