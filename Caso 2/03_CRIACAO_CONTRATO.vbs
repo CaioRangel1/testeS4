@@ -16,22 +16,23 @@ End If
 
 session.findById("wnd[0]").maximize
 
-' === CONEXÃO COM EXCEL ===
-Dim objExcel, objWorkbook, objSheet, caminhoArquivo
-Set objExcel = CreateObject("Excel.Application")
-objExcel.Visible = True
-
-caminhoArquivo = "C:\temp\cenario.xlsx"
-
+' === PEGA O PRIMEIRO EXCEL ABERTO ===
+Dim objExcel, objWorkbook, objSheet
 On Error Resume Next
-Set objWorkbook = objExcel.Workbooks.Open(caminhoArquivo)
-If objWorkbook Is Nothing Then
-    MsgBox "Erro ao abrir o arquivo: " & caminhoArquivo
+Set objExcel = GetObject(, "Excel.Application")
+If objExcel Is Nothing Then
+    MsgBox "O Excel não está aberto. Abre a planilha primeiro!"
     WScript.Quit
 End If
-On Error GoTo 0
 
-Set objSheet = objWorkbook.Sheets("Tabela Contratos")
+If objExcel.Workbooks.Count = 0 Then
+    MsgBox "Nenhuma planilha aberta no Excel."
+    WScript.Quit
+End If
+
+Set objWorkbook = objExcel.Workbooks(1)
+Set objSheet = objWorkbook.Sheets(1)
+On Error GoTo 0
 
 ' === LOOP NAS LINHAS DO EXCEL ===
 Dim linha, fornecedor, tipoContrato, material, quantidade

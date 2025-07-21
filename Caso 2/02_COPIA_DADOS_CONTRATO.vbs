@@ -21,12 +21,12 @@ Dim objExcel, objWorkbook, objSheet
 On Error Resume Next
 Set objExcel = GetObject(, "Excel.Application")
 If objExcel Is Nothing Then
-    MsgBox "❌ O Excel não está aberto. Abre a planilha primeiro!"
+    MsgBox "O Excel não está aberto. Abre a planilha primeiro!"
     WScript.Quit
 End If
 
 If objExcel.Workbooks.Count = 0 Then
-    MsgBox "❌ Nenhuma planilha aberta no Excel."
+    MsgBox "Nenhuma planilha aberta no Excel."
     WScript.Quit
 End If
 
