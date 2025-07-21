@@ -20,10 +20,12 @@ session.findById("wnd[0]").maximize
 Dim objExcel, objWorkbook, objSheet
 On Error Resume Next
 Set objExcel = GetObject(, "Excel.Application")
+
 If objExcel Is Nothing Then
     MsgBox "O Excel não está aberto. Abre a planilha primeiro!"
     WScript.Quit
 End If
+
 
 If objExcel.Workbooks.Count = 0 Then
     MsgBox "Nenhuma planilha aberta no Excel."
@@ -89,4 +91,4 @@ Do While Trim(objSheet.Cells(linhaExcel, 1).Value) <> ""
     linhaExcel = linhaExcel + 1
 Loop
 
-MsgBox "✅ Extração finalizada com sucesso!"
+MsgBox "Extracao finalizada com sucesso!"
