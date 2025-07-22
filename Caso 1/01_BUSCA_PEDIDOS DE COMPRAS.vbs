@@ -1,25 +1,68 @@
 ' === CONEXÃO COM SAP ===
 If Not IsObject(application) Then
-   Set SapGuiAuto  = GetObject("SAPGUI")
-   Set application = SapGuiAuto.GetScriptingEngine
+    Set SapGuiAuto = GetObject("SAPGUI")
+    Set application = SapGuiAuto.GetScriptingEngine
 End If
 If Not IsObject(connection) Then
-   Set connection = application.Children(0)
+    Set connection = application.Children(0)
 End If
 If Not IsObject(session) Then
-   Set session    = connection.Children(0)
+    Set session = connection.Children(0)
 End If
 If IsObject(WScript) Then
-   WScript.ConnectObject session,     "on"
-   WScript.ConnectObject application, "on"
+    WScript.ConnectObject session, "on"
+    WScript.ConnectObject application, "on"
 End If
 
 session.findById("wnd[0]").maximize
 
-' === CONEXÃO COM EXCEL ===
-Dim objExcel, objSheet
-Set objExcel = GetObject(, "Excel.Application")
-Set objSheet = objExcel.ActiveWorkbook.ActiveSheet
+' === CRIA E CONFIGURA O EXCEL ===
+Dim objExcel, objWorkbook, objSheet
+Set objExcel = CreateObject("Excel.Application")
+objExcel.Visible = True 'Torna o Excel visível
+Set objWorkbook = objExcel.Workbooks.Add
+Set objSheet = objWorkbook.Sheets(1)
+
+' === CRIAÇÃO E FORMATAÇÃO DO CABEÇALHO ===
+' -- Define os títulos das colunas
+Dim headers(15)
+headers(0) = "Pedido Origen"
+headers(1) = "Novo Pedido"
+headers(2) = "TIP DE PEDIDO"
+headers(3) = "FORNECEDOR"
+headers(4) = "COND.PAG"
+headers(5) = "INCOTERM"
+headers(6) = "ORG. COMPRAS"
+headers(7) = "GP. COMPRADOR"
+headers(8) = "EMPRESA"
+headers(9) = "MATERIAL"
+headers(10) = "QNTD"
+headers(11) = "CENTRO"
+headers(12) = "CONTRATO"
+headers(13) = "ITEM CONT."
+headers(14) = "Data de Remessa"
+headers(15) = "Status"
+
+' -- Aplica os títulos e a formatação
+Dim headerRange
+Set headerRange = objSheet.Range("A1:P1")
+
+' -- Escreve os cabeçalhos na planilha
+For i = 0 To UBound(headers)
+    objSheet.Cells(1, i + 1).Value = headers(i)
+Next
+
+' -- Formatação geral do cabeçalho
+headerRange.Font.Bold = True
+headerRange.Font.Color = vbWhite
+
+' -- Cores de fundo
+objSheet.Range("A1:O1").Interior.Color = RGB(0, 112, 192) ' Azul
+objSheet.Range("P1").Interior.Color = RGB(0, 176, 80) ' Verde
+objSheet.Range("B1").Interior.Color = RGB(0, 176, 80) 
+
+' -- AutoAjuste das colunas
+headerRange.Columns.AutoFit
 
 ' === INPUT UNIFICADO COM VALIDAÇÃO ===
 Dim entrada, partes, V_Data_INI, V_Data_FIM, V_TP_PEDIDO
@@ -28,15 +71,19 @@ entrada = InputBox("Digite os parâmetros separados por vírgula:" & vbCrLf & _
                    "Exemplo: 01.01.2024,01.12.2024,ZD")
 
 If entrada = "" Then
-   MsgBox "Entrada cancelada pelo usuário."
-   WScript.Quit
+    MsgBox "Entrada cancelada pelo usuário."
+    objExcel.Quit ' Fecha o Excel se a operação for cancelada
+    Set objExcel = Nothing
+    WScript.Quit
 End If
 
 partes = Split(entrada, ",")
 
 If UBound(partes) <> 2 Then
-   MsgBox "Por favor, preencha exatamente 3 valores separados por vírgula."
-   WScript.Quit
+    MsgBox "Por favor, preencha exatamente 3 valores separados por vírgula."
+    objExcel.Quit ' Fecha o Excel se a entrada for inválida
+    Set objExcel = Nothing
+    WScript.Quit
 End If
 
 V_Data_INI = Trim(partes(0))
@@ -69,8 +116,7 @@ session.findById("wnd[0]/tbar[1]/btn[8]").press
 Dim grid, totalLinhas, linhaExcel, V_DocNum, i
 Set grid = session.findById("wnd[0]/usr/cntlRESULT_LIST/shellcont/shell")
 
-linhaExcel = 2 ' Começa na linha 2 do Excel
-'------------------------------------------------
+linhaExcel = 2 ' Começa na linha 2 do Excel pois a linha 1 é o cabeçalho
 totalLinhas = grid.RowCount
 
 For i = 0 To totalLinhas - 1
@@ -80,16 +126,14 @@ For i = 0 To totalLinhas - 1
     End If
 
     V_DocNum = grid.GetCellValue(i, "EBELN")
-    objSheet.Cells(linhaExcel, 1).Value = V_DocNum
+    objSheet.Cells(linhaExcel, 1).Value = V_DocNum ' Coluna A: "Pedido Origen"
     linhaExcel = linhaExcel + 1
 Next
-'------------------------------------------------------------------
-
-'For i = 0 To grid.RowCount - 1
-'    V_DocNum = grid.GetCellValue(i, "EBELN")
-'    objSheet.Cells(linhaExcel, 1).Value = V_DocNum
-'    linhaExcel = linhaExcel + 1
-'Next
 
 MsgBox "Dados copiados para o Excel com sucesso! Total de linhas: " & linhaExcel - 2
 
+' === LIBERA OBJETOS ===
+Set grid = Nothing
+Set objSheet = Nothing
+Set objWorkbook = Nothing
+Set objExcel = Nothing
