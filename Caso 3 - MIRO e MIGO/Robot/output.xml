@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-19T11:21:48.974145" rpa="false" schemaversion="5">
+<suite id="s1" name="MIGO" source="C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Caso 3 - MIRO e MIGO\Robot\MIGO.robot">
+<test id="s1-t1" name="Execute MIGO Entrada de Mercadoria" line="10">
+<kw name="Connect To SAP">
+<kw name="Connect to Running SAP" owner="RoboSAPiens">
+<msg time="2025-08-19T11:21:52.956830" level="INFO">Connected to a running SAP instance.</msg>
+<doc>Connect to an already running SAP instance and take control of it.</doc>
+<status status="PASS" start="2025-08-19T11:21:49.100041" elapsed="3.856789"/>
+</kw>
+<kw name="Maximize window" owner="RoboSAPiens">
+<msg time="2025-08-19T11:21:52.956830" level="INFO">The window in the foreground was maximized.</msg>
+<doc>Maximize the window in the foreground.</doc>
+<status status="PASS" start="2025-08-19T11:21:52.956830" elapsed="0.000000"/>
+</kw>
+<doc>Conecta ao SAP</doc>
+<status status="PASS" start="2025-08-19T11:21:49.100041" elapsed="3.856789"/>
+</kw>
+<kw name="Execute Transaction" owner="RoboSAPiens">
+<msg time="2025-08-19T11:21:54.790864" level="INFO">The transaction with T-Code /nmigo was executed.</msg>
+<arg>/nmigo</arg>
+<doc>Execute the transaction with the given T-Code.</doc>
+<status status="PASS" start="2025-08-19T11:21:52.956830" elapsed="1.834034"/>
+</kw>
+<kw name="Fill Purchase Order Details">
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-19T11:21:56.938801" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
+<arg>Nº do documento de compras</arg>
+<arg>${PO_NUMBER}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-19T11:21:54.790864" elapsed="2.147937"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-19T11:21:59.007889" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-19T11:21:56.938801" elapsed="2.069088"/>
+</kw>
+<doc>Preenche o número do documento de compra</doc>
+<status status="PASS" start="2025-08-19T11:21:54.790864" elapsed="4.217025"/>
+</kw>
+<kw name="Configure Item Details">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:03.884803" level="INFO">The tab 'Od' was selected.</msg>
+<arg>Od</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-19T11:21:59.023400" elapsed="4.861403"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:03.900402" level="INFO">The text field with the locator 'Depósito' was filled.</msg>
+<arg>Depósito</arg>
+<arg>${STORAGE_LOCATION}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-19T11:22:03.884803" elapsed="0.015599"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:11.378225" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-19T11:22:03.900402" elapsed="7.477823"/>
+</kw>
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:14.042465" level="INFO">The tab 'Quantidades adiciona' was selected.</msg>
+<arg>Quantidades adiciona</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-19T11:22:11.378225" elapsed="2.664240"/>
+</kw>
+<kw name="Tick Checkbox" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:14.061674" level="INFO">The checkbox with the locator 'Item é transferido para o documento' was ticked.</msg>
+<arg>Item é transferido para o documento</arg>
+<doc>Tick the checkbox specified by the locator.</doc>
+<status status="PASS" start="2025-08-19T11:22:14.042465" elapsed="0.019209"/>
+</kw>
+<doc>Configura a localização de armazenamento e a caixa de seleção de detalhes</doc>
+<status status="PASS" start="2025-08-19T11:21:59.023400" elapsed="15.038274"/>
+</kw>
+<kw name="Set Delivery Note">
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:14.074231" level="INFO">The text field with the locator 'Nº nota de remessa externa' was filled.</msg>
+<arg>Nº nota de remessa externa</arg>
+<arg>${DELIVERY_NOTE}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-19T11:22:14.061674" elapsed="0.012557"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:17.566311" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-19T11:22:14.074231" elapsed="3.492080"/>
+</kw>
+<doc>Preenche o número da nota de remessa</doc>
+<status status="PASS" start="2025-08-19T11:22:14.061674" elapsed="3.504637"/>
+</kw>
+<kw name="Save Transaction">
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:18.771287" level="INFO">The key combination 'Ctrl+S' was pressed.</msg>
+<arg>Ctrl+S</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-19T11:22:17.567318" elapsed="1.203969"/>
+</kw>
+<kw name="Read Statusbar" owner="RoboSAPiens">
+<msg time="2025-08-19T11:22:19.201163" level="INFO">The statusbar was read.</msg>
+<msg time="2025-08-19T11:22:19.201163" level="INFO">${statusbar} = {'status': 'Empty', 'message': ''}</msg>
+<var>${statusbar}</var>
+<doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
+<status status="PASS" start="2025-08-19T11:22:18.771287" elapsed="0.429876"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-19T11:22:19.201163" level="INFO">MIGO Executada com sucesso. Documento de material: {'status': 'Empty', 'message': ''}</msg>
+<arg>MIGO Executada com sucesso. Documento de material: ${statusbar}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-19T11:22:19.201163" elapsed="0.000000"/>
+</kw>
+<doc>Salva a transação MIGO</doc>
+<status status="PASS" start="2025-08-19T11:22:17.567318" elapsed="1.633845"/>
+</kw>
+<doc>Executes goods receipt in SAP MIGO transaction</doc>
+<tag>goods_receipt</tag>
+<tag>migo</tag>
+<tag>sap</tag>
+<status status="PASS" start="2025-08-19T11:21:49.100041" elapsed="30.101122"/>
+</test>
+<status status="PASS" start="2025-08-19T11:21:48.974145" elapsed="30.227018"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">goods_receipt</stat>
+<stat pass="1" fail="0" skip="0">migo</stat>
+<stat pass="1" fail="0" skip="0">sap</stat>
+</tag>
+<suite>
+<stat name="MIGO" id="s1" pass="1" fail="0" skip="0">MIGO</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
