@@ -1,136 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-20T14:37:24.517555" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-21T15:42:11.468563" rpa="false" schemaversion="5">
 <suite id="s1" name="MIGO" source="C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Caso 3 - MIRO e MIGO\Robot\MIGO.robot">
-<test id="s1-t1" name="Execute MIGO Entrada de Mercadoria" line="10">
-<kw name="Connect To SAP">
+<test id="s1-t1" name="Executar MIGO Entrada de Mercadoria" line="12">
+<kw name="Prepare SAP">
 <kw name="Connect to Running SAP" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:28.736367" level="INFO">Connected to a running SAP instance.</msg>
+<msg time="2025-08-21T15:42:15.447114" level="INFO">Connected to a running SAP instance.</msg>
 <doc>Connect to an already running SAP instance and take control of it.</doc>
-<status status="PASS" start="2025-08-20T14:37:24.942739" elapsed="3.793628"/>
+<status status="PASS" start="2025-08-21T15:42:12.396877" elapsed="3.050237"/>
 </kw>
 <kw name="Maximize window" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:28.736367" level="INFO">The window in the foreground was maximized.</msg>
+<msg time="2025-08-21T15:42:15.450110" level="INFO">The window in the foreground was maximized.</msg>
 <doc>Maximize the window in the foreground.</doc>
-<status status="PASS" start="2025-08-20T14:37:28.736367" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-21T15:42:15.447561" elapsed="0.002549"/>
 </kw>
 <doc>Conecta ao SAP</doc>
-<status status="PASS" start="2025-08-20T14:37:24.942739" elapsed="3.793628"/>
+<status status="PASS" start="2025-08-21T15:42:12.394941" elapsed="3.055169"/>
+</kw>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-08-21T15:42:15.450110" level="FAIL">No active workbook</msg>
+<var>${testData}</var>
+<arg>header=True</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="FAIL" start="2025-08-21T15:42:15.450110" elapsed="0.000000">No active workbook</status>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Processando pedido: ${row['Pedido Origem']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-08-21T15:42:15.450110" elapsed="0.000000"/>
 </kw>
 <kw name="Execute Transaction" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:32.216505" level="INFO">The transaction with T-Code /nmigo was executed.</msg>
 <arg>/nmigo</arg>
 <doc>Execute the transaction with the given T-Code.</doc>
-<status status="PASS" start="2025-08-20T14:37:28.736367" elapsed="3.480138"/>
+<status status="NOT RUN" start="2025-08-21T15:42:15.450110" elapsed="0.000000"/>
 </kw>
 <kw name="Fill Purchase Order Details">
-<kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:35.179907" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
-<arg>Nº do documento de compras</arg>
-<arg>${PO_NUMBER}</arg>
-<doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-20T14:37:32.216505" elapsed="2.963402"/>
-</kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:37.860732" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-20T14:37:35.179907" elapsed="2.680825"/>
-</kw>
+<arg>${row['Pedido Origem']}</arg>
 <doc>Preenche o número do documento de compra</doc>
-<status status="PASS" start="2025-08-20T14:37:32.216505" elapsed="5.644227"/>
+<status status="NOT RUN" start="2025-08-21T15:42:15.450110" elapsed="0.000000"/>
 </kw>
 <kw name="Configure Item Details">
-<kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:43.135545" level="INFO">The tab 'Od' was selected.</msg>
-<arg>Od</arg>
-<doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-20T14:37:37.860732" elapsed="5.274813"/>
-</kw>
-<kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:43.159190" level="INFO">The text field with the locator 'Depósito' was filled.</msg>
-<arg>Depósito</arg>
-<arg>${STORAGE_LOCATION}</arg>
-<doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-20T14:37:43.135545" elapsed="0.023645"/>
-</kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:53.155910" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-20T14:37:43.159190" elapsed="9.996720"/>
-</kw>
-<kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:56.029428" level="INFO">The tab 'Quantidades adiciona' was selected.</msg>
-<arg>Quantidades adiciona</arg>
-<doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-20T14:37:53.155910" elapsed="2.873518"/>
-</kw>
-<kw name="Tick Checkbox" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:56.045077" level="INFO">The checkbox with the locator 'Item é transferido para o documento' was ticked.</msg>
-<arg>Item é transferido para o documento</arg>
-<doc>Tick the checkbox specified by the locator.</doc>
-<status status="PASS" start="2025-08-20T14:37:56.029428" elapsed="0.015649"/>
-</kw>
 <doc>Configura a localização de armazenamento e a caixa de seleção de detalhes</doc>
-<status status="PASS" start="2025-08-20T14:37:37.860732" elapsed="18.184345"/>
+<status status="NOT RUN" start="2025-08-21T15:42:15.450110" elapsed="0.000000"/>
 </kw>
 <kw name="Set Delivery Note">
-<kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:56.076769" level="INFO">The text field with the locator 'Nº nota de remessa externa' was filled.</msg>
-<arg>Nº nota de remessa externa</arg>
-<arg>${DELIVERY_NOTE}</arg>
-<doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-20T14:37:56.060727" elapsed="0.016042"/>
-</kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-20T14:37:59.939539" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-20T14:37:56.076769" elapsed="3.862770"/>
-</kw>
 <doc>Preenche o número da nota de remessa</doc>
-<status status="PASS" start="2025-08-20T14:37:56.060727" elapsed="3.878812"/>
+<status status="NOT RUN" start="2025-08-21T15:42:15.450110" elapsed="0.000000"/>
 </kw>
 <kw name="Save Transaction">
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-20T14:38:02.247197" level="INFO">The key combination 'Ctrl+S' was pressed.</msg>
-<arg>Ctrl+S</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-20T14:37:59.939539" elapsed="2.307658"/>
-</kw>
-<kw name="Read Statusbar" owner="RoboSAPiens">
-<msg time="2025-08-20T14:38:02.780849" level="INFO">The statusbar was read.</msg>
-<msg time="2025-08-20T14:38:02.780849" level="INFO">${statusbar} = {'status': 'Empty', 'message': ''}</msg>
-<var>${statusbar}</var>
-<doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
-<status status="PASS" start="2025-08-20T14:38:02.247197" elapsed="0.533652"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-08-20T14:38:02.780849" level="INFO">MIGO Executada com sucesso. Documento de material: {'status': 'Empty', 'message': ''}</msg>
-<arg>MIGO Executada com sucesso. Documento de material: ${statusbar}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-20T14:38:02.780849" elapsed="0.000000"/>
-</kw>
 <doc>Salva a transação MIGO</doc>
-<status status="PASS" start="2025-08-20T14:37:59.939539" elapsed="2.841310"/>
+<status status="NOT RUN" start="2025-08-21T15:42:15.450110" elapsed="0.000000"/>
 </kw>
+<var name="${row}"/>
+<status status="NOT RUN" start="2025-08-21T15:42:15.450110" elapsed="0.000000"/>
+</iter>
+<var>${row}</var>
+<value>@{testData}</value>
+<status status="NOT RUN" start="2025-08-21T15:42:15.450110" elapsed="0.000000"/>
+</for>
 <doc>Executa a transação MIGO para entrada de mercadorias no SAP</doc>
 <tag>migo</tag>
 <tag>sap</tag>
-<status status="PASS" start="2025-08-20T14:37:24.942739" elapsed="37.838110"/>
+<status status="FAIL" start="2025-08-21T15:42:12.393935" elapsed="3.056175">No active workbook</status>
 </test>
-<status status="PASS" start="2025-08-20T14:37:24.517555" elapsed="38.263294"/>
+<status status="FAIL" start="2025-08-21T15:42:11.468563" elapsed="3.981547"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">migo</stat>
-<stat pass="1" fail="0" skip="0">sap</stat>
+<stat pass="0" fail="1" skip="0">migo</stat>
+<stat pass="0" fail="1" skip="0">sap</stat>
 </tag>
 <suite>
-<stat name="MIGO" id="s1" pass="1" fail="0" skip="0">MIGO</stat>
+<stat name="MIGO" id="s1" pass="0" fail="1" skip="0">MIGO</stat>
 </suite>
 </statistics>
 <errors>
