@@ -19,10 +19,10 @@ Executar MIGO
     ${testData}=    Read Worksheet As Table    header=True
 
     FOR    ${row}    IN    @{testData}
-        Log To Console    Processando pedido: ${row['Pedido Origem']}
+        Log To Console    Processando pedido: ${row['NV PEDIDO']}
         Execute Transaction    /nmigo
         #Trocar para 'Pedido Novo'
-        Fill Purchase Order Details    ${row['Pedido Origem']} 
+        Fill Purchase Order Details    ${row['NV PEDIDO']} 
         Configure Item Details
         Set Delivery Note
         Save Transaction
