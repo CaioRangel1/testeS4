@@ -7,6 +7,9 @@ Library    RPA.Excel.Files
 *** Variables ***
 ${STORAGE_LOCATION}  tran
 ${DELIVERY_NOTE}     22222222234
+#Preencher caso = a zero
+${DENSIDADE}    0,8600
+${TEMP}     20,0
 
 *** Test Cases ***
 Executar MIGO
@@ -14,14 +17,13 @@ Executar MIGO
     [Tags]    sap    migo
 
     Prepare SAP
-
+    
     Abrir Planilha de Dados de Teste    Dados apresentação 22-08.xlsx
     ${testData}=    Read Worksheet As Table    header=True
 
     FOR    ${row}    IN    @{testData}
         Log To Console    Processando pedido: ${row['NV PEDIDO']}
         Execute Transaction    /nmigo
-        #Trocar para 'Pedido Novo'
         Fill Purchase Order Details    ${row['NV PEDIDO']} 
         Configure Item Details
         Set Delivery Note
@@ -52,6 +54,8 @@ Configure Item Details
     Press Key Combination    Enter
 
     Select Tab    Quantidades adiciona
+    #Checar se Material Temperature e Test Temperature = 0. Se sim, preencher com a constante TEMP
+    #Checar se Test density = 0. Se sim, preencher com a constante DENSIDADE
     Tick Checkbox    Item é transferido para o documento
 
 Set Delivery Note

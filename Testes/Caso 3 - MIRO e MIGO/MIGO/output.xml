@@ -1,93 +1,247 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-21T18:04:32.079869" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-21T18:46:24.827101" rpa="false" schemaversion="5">
 <suite id="s1" name="MIGO" source="C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Testes\Caso 3 - MIRO e MIGO\MIGO\MIGO.robot">
 <test id="s1-t1" name="Executar MIGO" line="12">
 <kw name="Prepare SAP">
 <kw name="Connect to Running SAP" owner="RoboSAPiens">
-<msg time="2025-08-21T18:04:36.689554" level="INFO">Connected to a running SAP instance.</msg>
+<msg time="2025-08-21T18:46:29.909236" level="INFO">Connected to a running SAP instance.</msg>
 <doc>Connect to an already running SAP instance and take control of it.</doc>
-<status status="PASS" start="2025-08-21T18:04:33.354472" elapsed="3.335082"/>
+<status status="PASS" start="2025-08-21T18:46:25.883542" elapsed="4.025694"/>
 </kw>
 <kw name="Maximize window" owner="RoboSAPiens">
-<msg time="2025-08-21T18:04:36.694602" level="INFO">The window in the foreground was maximized.</msg>
+<msg time="2025-08-21T18:46:29.912218" level="INFO">The window in the foreground was maximized.</msg>
 <doc>Maximize the window in the foreground.</doc>
-<status status="PASS" start="2025-08-21T18:04:36.689554" elapsed="0.005048"/>
+<status status="PASS" start="2025-08-21T18:46:29.909236" elapsed="0.002982"/>
 </kw>
 <doc>Conecta ao SAP</doc>
-<status status="PASS" start="2025-08-21T18:04:33.354472" elapsed="3.340130"/>
+<status status="PASS" start="2025-08-21T18:46:25.882036" elapsed="4.030182"/>
+</kw>
+<kw name="Close Workbook" owner="RPA.Excel.Files">
+<doc>Close the active workbook.</doc>
+<status status="PASS" start="2025-08-21T18:46:29.912218" elapsed="0.000000"/>
 </kw>
 <kw name="Abrir Planilha de Dados de Teste">
 <kw name="Join Path" owner="OperatingSystem">
-<msg time="2025-08-21T18:04:36.694602" level="INFO">${caminho_planilha} = C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx</msg>
+<msg time="2025-08-21T18:46:29.913720" level="INFO">${caminho_planilha} = C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx</msg>
 <var>${caminho_planilha}</var>
 <arg>C:\\Users\\ETH6\\OneDrive - VIBRA\\Documentos\\GitHub\\testeS4\\Testes\\Caso 3 - MIRO e MIGO\\MIGO</arg>
 <arg>../../..</arg>
 <arg>Dados</arg>
 <arg>${nomePlanilha}</arg>
 <doc>Joins the given path part(s) to the given base path.</doc>
-<status status="PASS" start="2025-08-21T18:04:36.694602" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-21T18:46:29.913720" elapsed="0.000000"/>
 </kw>
 <kw name="Open Workbook" owner="RPA.Excel.Files">
-<msg time="2025-08-21T18:04:36.694602" level="INFO">Failed to open as Office Open XML (.xlsx) format: [Errno 13] Permission denied: 'C:\\Users\\ETH6\\OneDrive - VIBRA\\Documentos\\GitHub\\testeS4\\Dados\\Dados apresentação 22-08.xlsx'</msg>
-<msg time="2025-08-21T18:04:36.694602" level="INFO">Failed to open as Excel Binary Format (.xls): [Errno 13] Permission denied: 'C:\\Users\\ETH6\\OneDrive - VIBRA\\Documentos\\GitHub\\testeS4\\Dados\\Dados apresentação 22-08.xlsx'</msg>
-<msg time="2025-08-21T18:04:36.694602" level="FAIL">ValueError: Failed to open Excel file (C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx), verify that the path and extension are correct</msg>
+<msg time="2025-08-21T18:46:29.923317" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002B0B0E2C4A0&gt;</msg>
 <arg>${caminho_planilha}</arg>
 <doc>Open an existing Excel workbook.</doc>
-<status status="FAIL" start="2025-08-21T18:04:36.694602" elapsed="0.000000">ValueError: Failed to open Excel file (C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx), verify that the path and extension are correct</status>
+<status status="PASS" start="2025-08-21T18:46:29.913720" elapsed="0.009597"/>
 </kw>
 <arg>Dados apresentação 22-08.xlsx</arg>
 <doc>Abre o arquivo Excel com os dados para a execução dos casos de teste.</doc>
-<status status="FAIL" start="2025-08-21T18:04:36.694602" elapsed="0.000000">ValueError: Failed to open Excel file (C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx), verify that the path and extension are correct</status>
+<status status="PASS" start="2025-08-21T18:46:29.913206" elapsed="0.010111"/>
 </kw>
 <kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-08-21T18:46:29.925319" level="INFO">Created table: Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', 'Data de Remessa', 'NV CONTRATO', 'NV PEDIDO', 'MIGO', 'MIRO'], rows=2)</msg>
+<msg time="2025-08-21T18:46:29.925319" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
 <var>${testData}</var>
 <arg>header=True</arg>
 <doc>Read the contents of a worksheet into a Table container. Allows
 sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="NOT RUN" start="2025-08-21T18:04:36.694602" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-21T18:46:29.924286" elapsed="0.001033"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Processando pedido: ${row['NV PEDIDO']}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-08-21T18:04:36.694602" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-21T18:46:29.926318" elapsed="0.000000"/>
 </kw>
 <kw name="Execute Transaction" owner="RoboSAPiens">
+<msg time="2025-08-21T18:46:32.149363" level="INFO">The transaction with T-Code /nmigo was executed.</msg>
 <arg>/nmigo</arg>
 <doc>Execute the transaction with the given T-Code.</doc>
-<status status="NOT RUN" start="2025-08-21T18:04:36.694602" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-21T18:46:29.926318" elapsed="2.223045"/>
 </kw>
 <kw name="Fill Purchase Order Details">
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-21T18:46:34.699628" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
+<arg>Nº do documento de compras</arg>
+<arg>${docPedido}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-21T18:46:32.149363" elapsed="2.550265"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-21T18:46:48.929444" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-21T18:46:34.699628" elapsed="14.229816"/>
+</kw>
 <arg>${row['NV PEDIDO']}</arg>
 <doc>Preenche o número do documento de compra</doc>
-<status status="NOT RUN" start="2025-08-21T18:04:36.694602" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-21T18:46:32.149363" elapsed="16.780081"/>
 </kw>
 <kw name="Configure Item Details">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-21T18:46:54.112129" level="INFO">The tab 'Od' was selected.</msg>
+<arg>Od</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-21T18:46:48.929444" elapsed="5.182685"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-21T18:46:54.129567" level="INFO">The text field with the locator 'Depósito' was filled.</msg>
+<arg>Depósito</arg>
+<arg>${STORAGE_LOCATION}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-21T18:46:54.112129" elapsed="0.017438"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:10.139634" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-21T18:46:54.129567" elapsed="16.010067"/>
+</kw>
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:12.880231" level="INFO">The tab 'Quantidades adiciona' was selected.</msg>
+<arg>Quantidades adiciona</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-21T18:47:10.139634" elapsed="2.740597"/>
+</kw>
+<kw name="Tick Checkbox" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:12.929688" level="INFO">The checkbox with the locator 'Item é transferido para o documento' was ticked.</msg>
+<arg>Item é transferido para o documento</arg>
+<doc>Tick the checkbox specified by the locator.</doc>
+<status status="PASS" start="2025-08-21T18:47:12.880231" elapsed="0.049457"/>
+</kw>
 <doc>Configura a localização de armazenamento e a caixa de seleção de detalhes</doc>
-<status status="NOT RUN" start="2025-08-21T18:04:36.694602" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-21T18:46:48.929444" elapsed="24.000244"/>
+</kw>
+<kw name="Set Delivery Note">
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:12.949512" level="INFO">The text field with the locator 'Nº nota de remessa externa' was filled.</msg>
+<arg>Nº nota de remessa externa</arg>
+<arg>${DELIVERY_NOTE}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-21T18:47:12.936552" elapsed="0.012960"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:16.879512" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-21T18:47:12.952557" elapsed="3.926955"/>
+</kw>
+<doc>Preenche o número da nota de remessa</doc>
+<status status="PASS" start="2025-08-21T18:47:12.929688" elapsed="3.949824"/>
+</kw>
+<kw name="Save Transaction">
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:18.259712" level="INFO">The key combination 'Ctrl+S' was pressed.</msg>
+<arg>Ctrl+S</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-21T18:47:16.879512" elapsed="1.380200"/>
+</kw>
+<kw name="Read Statusbar" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:18.899352" level="INFO">The statusbar was read.</msg>
+<msg time="2025-08-21T18:47:18.899352" level="INFO">${statusbar} = {'status': 'Empty', 'message': ''}</msg>
+<var>${statusbar}</var>
+<doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
+<status status="PASS" start="2025-08-21T18:47:18.259712" elapsed="0.639640"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-21T18:47:18.899352" level="INFO">MIGO Executada com sucesso. Documento de material: {'status': 'Empty', 'message': ''}</msg>
+<arg>MIGO Executada com sucesso. Documento de material: ${statusbar}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-21T18:47:18.899352" elapsed="0.000000"/>
+</kw>
+<doc>Salva a transação MIGO</doc>
+<status status="PASS" start="2025-08-21T18:47:16.879512" elapsed="2.019840"/>
+</kw>
+<var name="${row}">{'Pedido Origem': 4503273185, 'Preço': 6, 'TIP DE PEDIDO': 'ZD', 'FORNECEDOR': 10001859, 'COND.PAG': 'ZCTP', 'INCOTERM': 'Z13', 'ORG. COMPRAS': 5821, 'GP. COMPRADOR': 951, 'EMPRESA': 2000, 'MATERIAL':...</var>
+<status status="PASS" start="2025-08-21T18:46:29.926318" elapsed="48.973034"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Processando pedido: ${row['NV PEDIDO']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-21T18:47:18.899352" elapsed="0.000000"/>
+</kw>
+<kw name="Execute Transaction" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:21.249709" level="INFO">The transaction with T-Code /nmigo was executed.</msg>
+<arg>/nmigo</arg>
+<doc>Execute the transaction with the given T-Code.</doc>
+<status status="PASS" start="2025-08-21T18:47:18.899352" elapsed="2.350357"/>
+</kw>
+<kw name="Fill Purchase Order Details">
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:23.809588" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
+<arg>Nº do documento de compras</arg>
+<arg>${docPedido}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-21T18:47:21.249709" elapsed="2.559879"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:27.099590" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-21T18:47:23.809588" elapsed="3.290002"/>
+</kw>
+<arg>${row['NV PEDIDO']}</arg>
+<doc>Preenche o número do documento de compra</doc>
+<status status="PASS" start="2025-08-21T18:47:21.249709" elapsed="5.849881"/>
+</kw>
+<kw name="Configure Item Details">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:29.339341" level="INFO">The tab 'Od' was selected.</msg>
+<arg>Od</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-21T18:47:27.099590" elapsed="2.239751"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-21T18:47:29.359636" level="FAIL">NotFound: The text field with the locator 'Depósito' could not be found. Hint: Check the spelling</msg>
+<arg>Depósito</arg>
+<arg>${STORAGE_LOCATION}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="FAIL" start="2025-08-21T18:47:29.339341" elapsed="0.020295">NotFound: The text field with the locator 'Depósito' could not be found. Hint: Check the spelling</status>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="NOT RUN" start="2025-08-21T18:47:29.359636" elapsed="0.000000"/>
+</kw>
+<kw name="Select Tab" owner="RoboSAPiens">
+<arg>Quantidades adiciona</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="NOT RUN" start="2025-08-21T18:47:29.359636" elapsed="0.000000"/>
+</kw>
+<kw name="Tick Checkbox" owner="RoboSAPiens">
+<arg>Item é transferido para o documento</arg>
+<doc>Tick the checkbox specified by the locator.</doc>
+<status status="NOT RUN" start="2025-08-21T18:47:29.359636" elapsed="0.000000"/>
+</kw>
+<doc>Configura a localização de armazenamento e a caixa de seleção de detalhes</doc>
+<status status="FAIL" start="2025-08-21T18:47:27.099590" elapsed="2.260046">NotFound: The text field with the locator 'Depósito' could not be found. Hint: Check the spelling</status>
 </kw>
 <kw name="Set Delivery Note">
 <doc>Preenche o número da nota de remessa</doc>
-<status status="NOT RUN" start="2025-08-21T18:04:36.704786" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-21T18:47:29.364725" elapsed="0.000000"/>
 </kw>
 <kw name="Save Transaction">
 <doc>Salva a transação MIGO</doc>
-<status status="NOT RUN" start="2025-08-21T18:04:36.704786" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-21T18:47:29.364725" elapsed="0.000000"/>
 </kw>
-<var name="${row}"/>
-<status status="NOT RUN" start="2025-08-21T18:04:36.694602" elapsed="0.010184"/>
+<var name="${row}">{'Pedido Origem': 4503274856, 'Preço': 7, 'TIP DE PEDIDO': 'ZD', 'FORNECEDOR': 10068989, 'COND.PAG': 'A003', 'INCOTERM': 'Z10', 'ORG. COMPRAS': 5821, 'GP. COMPRADOR': 918, 'EMPRESA': 2000, 'MATERIAL':...</var>
+<status status="FAIL" start="2025-08-21T18:47:18.899352" elapsed="10.465373">NotFound: The text field with the locator 'Depósito' could not be found. Hint: Check the spelling</status>
 </iter>
 <var>${row}</var>
 <value>@{testData}</value>
-<status status="NOT RUN" start="2025-08-21T18:04:36.694602" elapsed="0.010184"/>
+<status status="FAIL" start="2025-08-21T18:46:29.925319" elapsed="59.439406">NotFound: The text field with the locator 'Depósito' could not be found. Hint: Check the spelling</status>
 </for>
 <doc>Executa a transação MIGO para entrada de mercadorias no SAP</doc>
 <tag>migo</tag>
 <tag>sap</tag>
-<status status="FAIL" start="2025-08-21T18:04:33.349929" elapsed="3.354857">ValueError: Failed to open Excel file (C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx), verify that the path and extension are correct</status>
+<status status="FAIL" start="2025-08-21T18:46:25.879521" elapsed="63.485204">NotFound: The text field with the locator 'Depósito' could not be found. Hint: Check the spelling</status>
 </test>
-<status status="FAIL" start="2025-08-21T18:04:32.084880" elapsed="4.619906"/>
+<status status="FAIL" start="2025-08-21T18:46:24.829206" elapsed="64.537527"/>
 </suite>
 <statistics>
 <total>
