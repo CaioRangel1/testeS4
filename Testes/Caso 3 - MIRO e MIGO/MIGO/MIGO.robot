@@ -1,4 +1,5 @@
 *** Settings ***
+Library    OperatingSystem
 Library    RoboSAPiens
 Library    RPA.Tables
 Library    RPA.Excel.Files
@@ -8,13 +9,13 @@ ${STORAGE_LOCATION}  tran
 ${DELIVERY_NOTE}     22222222234
 
 *** Test Cases ***
-Executar MIGO Entrada de Mercadoria
+Executar MIGO
     [Documentation]    Executa a transação MIGO para entrada de mercadorias no SAP
     [Tags]    sap    migo
 
     Prepare SAP
 
-    Open Workbook    C:/Users/ETH6/OneDrive - VIBRA/Documentos/GitHub/testeS4/Dados apresentação 22-08.xlsx
+    Abrir Planilha de Dados de Teste    Dados apresentação 22-08.xlsx
     ${testData}=    Read Worksheet As Table    header=True
 
     FOR    ${row}    IN    @{testData}
@@ -28,6 +29,11 @@ Executar MIGO Entrada de Mercadoria
     END
     
 *** Keywords ***
+Abrir Planilha de Dados de Teste
+    [Documentation]    Abre o arquivo Excel com os dados para a execução dos casos de teste.
+    [Arguments]    ${nomePlanilha}
+    ${caminho_planilha} =    Join Path    ${CURDIR}    ../../..    Dados    ${nomePlanilha}
+    Open Workbook    ${caminho_planilha}
 Prepare SAP
     [Documentation]    Conecta ao SAP
     Connect to Running SAP
