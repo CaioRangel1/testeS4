@@ -48,7 +48,7 @@ Do While objSheet.Cells(linha, 1).Value <> ""
     On Error Resume Next
 
     fornecedor     = Trim(objSheet.Cells(linha, 4).Value) 
-    tipoContrato   = Trim(objSheet.Cells(linha, 18).Value) 
+    tipoContrato   = Trim(objSheet.Cells(linha, 13).Value) 
     material       = Trim(objSheet.Cells(linha, 10).Value) 
     quantidade     = Trim(objSheet.Cells(linha, 11).Value) 
     orgCompra      = Trim(objSheet.Cells(linha, 7).Value) 
@@ -117,7 +117,7 @@ Do While objSheet.Cells(linha, 1).Value <> ""
     '     End If
     ' Next
 
-    objSheet.Cells(linha, 13).Value = contratoNovo
+    objSheet.Cells(linha, 16).Value = contratoNovo
 
 ProximaLinha:
     linha = linha + 1

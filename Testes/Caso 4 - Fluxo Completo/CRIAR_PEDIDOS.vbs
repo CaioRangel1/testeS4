@@ -49,7 +49,7 @@ For i = 2 To objSheet.UsedRange.Rows.Count
     material     = Trim(CStr(objSheet.Cells(i, 10).Value))
     qtd          = Trim(CStr(objSheet.Cells(i, 11).Value))
     centro       = Trim(CStr(objSheet.Cells(i, 12).Value))
-    contrato     = Trim(CStr(objSheet.Cells(i, 13).Value))
+    contrato     = Trim(CStr(objSheet.Cells(i, 16).Value))
     itemContrato = Trim(CStr(objSheet.Cells(i, 14).Value))
 
     session.findById("wnd[0]/tbar[0]/okcd").text = "/nme21n"
@@ -91,7 +91,7 @@ For i = 2 To objSheet.UsedRange.Rows.Count
     End If
 
     Novo_Pedido = Right(Session.findById("wnd[0]/sbar").Text, 10)
-    objSheet.Cells(i, 2).Value = Novo_Pedido
+    objSheet.Cells(i, 17).Value = Novo_Pedido
 
     WScript.Sleep 1000
 Next
