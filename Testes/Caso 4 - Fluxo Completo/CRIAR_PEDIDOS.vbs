@@ -22,9 +22,10 @@ End If
 session.findById("wnd[0]").maximize
 
 ' === CONEXÃO COM EXCEL ===
-Dim objExcel, objSheet
+Dim objExcel, objSheet, objWB
 Set objExcel = GetObject(, "Excel.Application")
 Set objSheet = objExcel.ActiveWorkbook.ActiveSheet
+Set objWB    = objExcel.ActiveWorkbook
 
 If objSheet Is Nothing Then
     MsgBox "Planilha ativa não encontrada. Verifique se há uma pasta de trabalho aberta."
@@ -95,5 +96,20 @@ For i = 2 To objSheet.UsedRange.Rows.Count
 
     WScript.Sleep 1000
 Next
+
+' === FECHA EXCEL NO FINAL ===
+On Error Resume Next
+objExcel.DisplayAlerts = False
+If Not objWB Is Nothing Then
+    objWB.Save
+    objWB.Close True   ' salva e fecha a planilha usada
+End If
+If objExcel.Workbooks.Count = 0 Then
+    objExcel.Quit      ' fecha o aplicativo Excel se não restou nada aberto
+End If
+Set objSheet = Nothing
+Set objWB = Nothing
+Set objExcel = Nothing
+On Error GoTo 0
 
 MsgBox "Pedidos criados com sucesso! Conferir coluna B do Excel."

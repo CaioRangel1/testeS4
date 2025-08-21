@@ -103,7 +103,7 @@ Do While objSheet.Cells(linha, 1).Value <> ""
 
     ' === CAPTURA O NÚMERO DO NOVO CONTRATO NA BARRA DE STATUS ===
     Dim contratoNovo
-    contratoNovo = Right(Session.findById("wnd[0]/sbar").Text, 13)
+    contratoNovo = Right(Session.findById("wnd[0]/sbar").Text, 10)
 
     ' Dim msg, ch, contratoNovo, k
     ' msg = session.findById("wnd[0]/sbar").Text
