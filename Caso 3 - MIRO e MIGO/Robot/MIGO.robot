@@ -1,15 +1,31 @@
 *** Settings ***
 Library    RoboSAPiens
+Library    RPA.Tables
+Library    RPA.Excel.Files
 
 *** Variables ***
 ${PO_NUMBER}         4503341943
 ${STORAGE_LOCATION}  tran
 ${DELIVERY_NOTE}     22222222234
+${worksheet} =    Get Active Worksheet
+${data} =    Read Worksheet As Table    ${worksheet}    header=True
 
 *** Test Cases ***
-Execute MIGO Entrada de Mercadoria
+Get test data
+    [Documentation]    Obtém os dados de teste do Excel
+    [Tags]    Excel    data
+
+    Set Suite Variable    ${PO_NUMBER}         ${data}[0]['PO Number']
+    Set Suite Variable    ${STORAGE_LOCATION} ${data}[0]['Storage Location']
+    Set Suite Variable    ${DELIVERY_NOTE}     ${data}[0]['Delivery Note']
+
+Executar MIGO Entrada de Mercadoria
     [Documentation]    Executa a transação MIGO para entrada de mercadorias no SAP
-    [Tags]    sap    migo    goods_receipt
+    [Tags]    sap    migo
+    FOR    ${item}    IN    @{data}
+        Log    Processando item: ${item}
+        
+    END
     
     Connect To SAP
     Execute Transaction    /nmigo
