@@ -6,6 +6,7 @@ Documentation    Caso de teste para transação MIRO - Invoice Receipt
 ...              na transação MIRO do SAP, reproduzindo exatamente o comportamento do 
 ...              script VBS original.
 Library          RoboSAPiens
+Library          String
 Library          DateTime
 
 *** Variables ***
@@ -18,9 +19,9 @@ ${SAP_PASSWORD}         sua_senha
 
 # Dados do teste - baseados no script VBS original
 ${COMPANY_CODE}         2000
-${PURCHASE_ORDER}       4503342047
+${PURCHASE_ORDER}       4503342051
 ${DOCUMENT_DATE}        22.08.2025
-${REFERENCE}            222122
+${REFERENCE}            222128
 ${PAYMENT_METHOD}       0001
 ${PAYMENT_BLOCK}        A
 ${DOCUMENT_TYPE}        RE
@@ -44,95 +45,101 @@ Create Invoice Receipt MIRO
     [Tags]             MIRO    Invoice    Receipt    SAP    Automated
     
     # Conectar ao SAP
-    Connect To SAP
-    
-    # Maximizar janela principal
-    Maximize Window
+    Prepare SAP
     
     # Navegar para transação MIRO
-    Fill TextField    wnd[0]/tbar[0]/okcd    miro
-    Press Key Combination    ENTER
+    Execute Transaction    /nmiro
     
     # Preencher código da empresa na janela popup
-    Fill TextField    wnd[1]/usr/ctxtBKPF-BUKRS    ${COMPANY_CODE}
-    Press Key Combination    ENTER
+    # Fill Text Field    Empresa    ${COMPANY_CODE}
+    # Press Key Combination    Enter
     
     # Preencher número do pedido de compra
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/subITEMS:SAPLMR1M:6010/tabsITEMTAB/tabpITEMS_PO/ssubTABS:SAPLMR1M:6020/subREFERENZBELEG:SAPLMR1M:6211/ctxtRM08M-EBELN    ${PURCHASE_ORDER}
-    Press Key Combination    ENTER
-    
-    # Preencher data do documento
-    Fill TextField    wnd[1]/usr/ctxtRBKP-BLDAT    ${DOCUMENT_DATE}
-    Press Key Combination    ENTER
-    
-    # Preencher número de referência da fatura
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_TOTAL/ssubHEADER_SCREEN:SAPLFDCB:0010/txtINVFO-XBLNR    ${REFERENCE}
-    Press Key Combination    ENTER
-    
-    # Configurar dados de pagamento
+    Fill Text Field    Nº do documento de compras    ${PURCHASE_ORDER}
+    Press Key Combination    Enter
+
+    # Preencher data do documento (Data de hoje)
+    ${DATA_HOJE} =    Get Current Date    result_format=%d.%m.%Y
+    Fill Text Field    Data no documento    ${DATA_HOJE}
+    Press Key Combination    Enter
+
+    # Preencher número de referência da fatura (sempre um N° aleatorio)
+    Fill Text Field    Referência    ${REFERENCE}
+
     Configure Payment Information
-    
-    # Configurar dados fiscais
+
+    Configure Details
+
+    Configure Basic Data
+
     Configure Fiscal Information
     
-    # Navegar entre as abas conforme script original
-    Navigate Through Tabs
-    
-    # Preencher valor da fatura
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_TOTAL/ssubHEADER_SCREEN:SAPLFDCB:0010/txtINVFO-WRBTR    ${INVOICE_AMOUNT}
-    Press Key Combination    ENTER
-    
-    # Limpar campos de retenção de impostos
-    Clear Withholding Tax Fields
-    
     # Salvar o documento
-    Press Key Combination    CTRL+S
+    # Press Key Combination    CTRL+S
     
     # Log de sucesso
     Log    Invoice Receipt MIRO criado com sucesso!
     
     # Capturar evidência (opcional)
-    Take Screenshot For Evidence
+    # Take Screenshot For Evidence
 
 *** Keywords ***
-Connect To SAP
-    [Documentation]    Conecta ao servidor SAP usando as credenciais configuradas
-    ...                NOTA: Ajustar conforme seu ambiente SAP
-    
-    # Conectar ao SAP GUI
-    Open SAP    ${SAP_SERVER}    ${SAP_CLIENT}
-    
-    # Fazer login (se necessário)
-    # Fill TextField    wnd[0]/usr/txtRSYST-BNAME    ${SAP_USER}
-    # Fill TextField    wnd[0]/usr/pwdRSYST-BCODE    ${SAP_PASSWORD}
-    # Press Key Combination    ENTER
+Prepare SAP
+    [Documentation]    Conecta ao SAP
+    Connect to Running SAP
+    Maximize Window
 
 Configure Payment Information
     [Documentation]    Configura as informações de pagamento na aba Payment
     
     # Navegar para aba Payment (usando F-key ao invés de click)
-    Press Key Combination    F5    # ou ajustar conforme necessário
+    Select Tab    Pagamento
     
     # Preencher método de pagamento
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_PAY/ssubHEADER_SCREEN:SAPLFDCB:0020/ctxtINVFO-BVTYP    ${PAYMENT_METHOD}
-    Press Key Combination    ENTER
-    
+    Fill Text Field    Tipo de banco do parceiro    ${PAYMENT_METHOD}
+    Press Key Combination    Enter
+
     # Configurar bloqueio de pagamento
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_PAY/ssubHEADER_SCREEN:SAPLFDCB:0020/cmbINVFO-ZLSPR    ${PAYMENT_BLOCK}
-    Press Key Combination    ENTER
+    Select Dropdown Menu Entry    Bloq.pgto.    ${PAYMENT_BLOCK}
+    Press Key Combination    Enter
+
+Configure Details
+    [Documentation]    Configura os detalhes do pedido de compra na aba Detalhe
+
+    # Navegar para aba Detalhe (usando F-key ao invés de click)
+    Select Tab    Detalhe
+    
+    # Preencher data do documento
+    Select Dropdown Menu Entry    Tp.doc.    ${DOCUMENT_TYPE}
+    Press Key Combination    Enter
+
+    # Preencher valor da fatura
+    Fill Text Field    Ctg.NF    ${FISCAL_TYPE}
+    Press Key Combination    Enter
+
+Configure Basic Data
+    [Documentation]    Configura os dados básicos na aba Basic Data
+    
+    # Navegar para aba Basic Data (usando F-key ao invés de click)
+    Select Tab    DdsBásicos
+    
+    ${saldoDocumento} =    Read Text Field    Saldo do documento
+    ${saldo} =    Strip String    ${saldoDocumento}    mode=RIGHT    characters=-
+    Fill Text Field    Montante em moeda do documento    ${saldo}
+    Press Key Combination    Enter
 
 Configure Fiscal Information
     [Documentation]    Configura as informações fiscais na aba FI
     
     # Navegar para aba FI (usando F-key ao invés de click)
-    Press Key Combination    F6    # ou ajustar conforme necessário
-    
-    # Configurar tipo de documento
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_FI/ssubHEADER_SCREEN:SAPLFDCB:0150/cmbINVFO-BLART    ${DOCUMENT_TYPE}
-    
-    # Preencher tipo fiscal
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_FI/ssubHEADER_SCREEN:SAPLFDCB:0150/ctxtINVFO-J_1BNFTYPE    ${FISCAL_TYPE}
-    Press Key Combination    ENTER
+    Select Tab    Imp.ret.fonte
+
+    ${rowCount} =    Get Row Count    ACWT_ITEM
+
+    FOR    ${index}    IN RANGE    1    ${rowCount}
+        Fill Cell    ${index}    Código IRF    content=${EMPTY}
+        Press Key Combination    Enter
+    END
 
 Navigate Through Tabs
     [Documentation]    Navega entre as abas conforme o script original
