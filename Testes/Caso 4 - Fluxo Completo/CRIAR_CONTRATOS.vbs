@@ -44,9 +44,9 @@ Dim orgCompra, grupoCompra, condPag
 linha = 2
 
 Do While objSheet.Cells(linha, 1).Value <> ""
-
     On Error Resume Next
 
+    preco          = Trim(objSheet.Cells(linha, 2).Value) 
     fornecedor     = Trim(objSheet.Cells(linha, 4).Value) 
     tipoContrato   = Trim(objSheet.Cells(linha, 13).Value) 
     material       = Trim(objSheet.Cells(linha, 10).Value) 
@@ -58,13 +58,11 @@ Do While objSheet.Cells(linha, 1).Value <> ""
     ' === ACESSA ME31K ===
     session.findById("wnd[0]/tbar[0]/okcd").text = "/nme31k"
     session.findById("wnd[0]").sendVKey 0
-
     session.findById("wnd[0]/usr/ctxtEKKO-LIFNR").text     = fornecedor
     session.findById("wnd[0]/usr/ctxtRM06E-EVART").text    = tipoContrato
     session.findById("wnd[0]/usr/ctxtEKKO-EKORG").text     = orgCompra
     session.findById("wnd[0]/usr/ctxtEKKO-EKGRP").text     = grupoCompra
     session.findById("wnd[0]").sendVKey 0
-
     ' === CAPTURA A DATA DE INÍCIO E ADICIONA UM ANO ===
     Dim dataInicialVal, novaDataVal, partes, dia, mes, ano
     dataInicialVal = session.findById("wnd[0]/usr/ctxtEKKO-KDATB").Text
@@ -81,20 +79,22 @@ Do While objSheet.Cells(linha, 1).Value <> ""
         MsgBox "Linha " & linha & ": Erro ao ler data de início da validade (KDATB): " & dataInicialVal
         linha = linha + 1
     End If
-
-    session.findById("wnd[0]/usr/ctxtEKKO-ZTERM").text     = condPag
+    session.findById("wnd[0]/usr/ctxtEKKO-ZTERM").text = condPag
     session.findById("wnd[0]").sendVKey 0
-
+    
     session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/ctxtEKPO-EMATN[3,0]").text = material
     session.findById("wnd[0]").sendVKey 0
     session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/txtEKPO-KTMNG[5,0]").text = quantidade
+    session.findById("wnd[0]/usr/tblSAPMM06ETC_0220/txtEKPO-NETPR[7,0]").text = preco
     session.findById("wnd[0]").sendVKey 0
-    session.findById("wnd[0]").sendVKey 11  ' Salvar
     session.findById("wnd[0]").sendVKey 0
+    session.findById("wnd[0]/usr/tblSAPMM06ETC_0220").getAbsoluteRow(0).selected = true
+    session.findById("wnd[0]/tbar[1]/btn[6]").press
+    session.findById("wnd[0]/usr/ctxtEKKO-ZTERM").text = condPag
     session.findById("wnd[0]").sendVKey 0
+    session.findById("wnd[0]/tbar[0]/btn[11]").press
     session.findById("wnd[0]").sendVKey 0
     session.findById("wnd[1]/usr/btnSPOP-OPTION1").press
-
     If session.Children.Count > 1 Then
         If session.Children(1).Type = "GuiModalWindow" Then
             session.Children(1).findById("usr/btnSPOP-OPTION1").press
@@ -105,23 +105,13 @@ Do While objSheet.Cells(linha, 1).Value <> ""
     Dim contratoNovo
     contratoNovo = Right(Session.findById("wnd[0]/sbar").Text, 10)
 
-    ' Dim msg, ch, contratoNovo, k
-    ' msg = session.findById("wnd[0]/sbar").Text
-    ' contratoNovo = ""
-    ' MsgBox "Contrato criado: " & msg
-
-    ' For k = 1 To Len(msg)
-    '     ch = Mid(msg, k, 1)
-    '     If IsNumeric(ch) Then
-    '         contratoNovo = contratoNovo & ch
-    '     End If
-    ' Next
-
     objSheet.Cells(linha, 16).Value = contratoNovo
 
 ProximaLinha:
     linha = linha + 1
     On Error GoTo 0
+    session.findById("wnd[0]/tbar[0]/okcd").text = "/n"
+    session.findById("wnd[0]").sendVKey 0
 
 Loop
 
