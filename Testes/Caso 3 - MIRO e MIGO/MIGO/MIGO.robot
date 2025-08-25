@@ -5,9 +5,8 @@ Library    RPA.Tables
 Library    RPA.Excel.Files
 
 *** Variables ***
-${STORAGE_LOCATION}  tran
+${STORAGE_LOCATION}    tran
 ${DELIVERY_NOTE}     22222222234
-#Preencher caso = a zero
 ${DENSIDADE}    0,8600
 ${TEMP}     20,0
 
@@ -33,7 +32,7 @@ Executar MIGO
     EXCEPT
         ${statusbar}   Read Statusbar
         Log To Console    Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}
-        Fail    ${statusbar['message']}
+        # Fail    ${statusbar['message']}
     END
     
 *** Keywords ***

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-22T16:53:08.959957" rpa="false" schemaversion="5">
+<suite id="s1" name="MIRO" source="C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Testes\Caso 3 - MIRO e MIGO\MIRO\MIRO.robot">
+<test id="s1-t1" name="Create Invoice Receipt MIRO" line="32">
+<kw name="Prepare SAP">
+<kw name="Connect to Running SAP" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:17.455412" level="INFO">Connected to a running SAP instance.</msg>
+<doc>Connect to an already running SAP instance and take control of it.</doc>
+<status status="PASS" start="2025-08-22T16:53:09.136808" elapsed="8.318604"/>
+</kw>
+<kw name="Maximize window" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:17.460939" level="INFO">The window in the foreground was maximized.</msg>
+<doc>Maximize the window in the foreground.</doc>
+<status status="PASS" start="2025-08-22T16:53:17.455412" elapsed="0.005527"/>
+</kw>
+<doc>Conecta ao SAP</doc>
+<status status="PASS" start="2025-08-22T16:53:09.134809" elapsed="8.326130"/>
+</kw>
+<kw name="Execute Transaction" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:19.432250" level="INFO">The transaction with T-Code /nmiro was executed.</msg>
+<arg>/nmiro</arg>
+<doc>Execute the transaction with the given T-Code.</doc>
+<status status="PASS" start="2025-08-22T16:53:17.461948" elapsed="1.970302"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:19.538114" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
+<arg>Nº do documento de compras</arg>
+<arg>${PURCHASE_ORDER}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-22T16:53:19.433247" elapsed="0.104867"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:21.103448" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-22T16:53:19.539123" elapsed="1.564325"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-08-22T16:53:21.106447" level="INFO">${DATA_HOJE} = 22.08.2025</msg>
+<var>${DATA_HOJE}</var>
+<arg>result_format=%d.%m.%Y</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-08-22T16:53:21.105449" elapsed="0.000998"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:21.735474" level="INFO">The text field with the locator 'Data no documento' was filled.</msg>
+<arg>Data no documento</arg>
+<arg>${DATA_HOJE}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-22T16:53:21.107449" elapsed="0.628025"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:23.633462" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-22T16:53:21.736477" elapsed="1.896985"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:29.208277" level="INFO">The text field with the locator 'Referência' was filled.</msg>
+<arg>Referência</arg>
+<arg>${REFERENCE}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-22T16:53:23.634464" elapsed="5.573813"/>
+</kw>
+<kw name="Configure Payment Information">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:34.815553" level="INFO">The tab 'Pagamento' was selected.</msg>
+<arg>Pagamento</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-22T16:53:29.208277" elapsed="5.607276"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:34.834607" level="INFO">The text field with the locator 'Tipo de banco do parceiro' was filled.</msg>
+<arg>Tipo de banco do parceiro</arg>
+<arg>${PAYMENT_METHOD}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-22T16:53:34.816553" elapsed="0.019054"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:39.867610" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-22T16:53:34.835607" elapsed="5.032003"/>
+</kw>
+<kw name="Select Dropdown Menu Entry" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:44.510857" level="INFO">In the dropdown menu 'Bloq.pgto.' the entry 'A' was selected.</msg>
+<arg>Bloq.pgto.</arg>
+<arg>${PAYMENT_BLOCK}</arg>
+<doc>Select the specified entry from the given dropdown menu.</doc>
+<status status="PASS" start="2025-08-22T16:53:39.868585" elapsed="4.642272"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:52.059473" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-22T16:53:44.511861" elapsed="7.547612"/>
+</kw>
+<doc>Configura as informações de pagamento na aba Payment</doc>
+<status status="PASS" start="2025-08-22T16:53:29.208277" elapsed="22.851196"/>
+</kw>
+<kw name="Configure Details">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-22T16:53:59.138819" level="INFO">The tab 'Detalhe' was selected.</msg>
+<arg>Detalhe</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-22T16:53:52.061489" elapsed="7.077330"/>
+</kw>
+<kw name="Select Dropdown Menu Entry" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:04.212434" level="INFO">In the dropdown menu 'Tp.doc.' the entry 'RE' was selected.</msg>
+<arg>Tp.doc.</arg>
+<arg>${DOCUMENT_TYPE}</arg>
+<doc>Select the specified entry from the given dropdown menu.</doc>
+<status status="PASS" start="2025-08-22T16:53:59.140297" elapsed="5.073136"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:10.482429" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-22T16:54:04.213433" elapsed="6.268996"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:10.502262" level="INFO">The text field with the locator 'Ctg.NF' was filled.</msg>
+<arg>Ctg.NF</arg>
+<arg>${FISCAL_TYPE}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-22T16:54:10.482429" elapsed="0.019833"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:17.252760" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-22T16:54:10.502262" elapsed="6.750498"/>
+</kw>
+<doc>Configura os detalhes do pedido de compra na aba Detalhe</doc>
+<status status="PASS" start="2025-08-22T16:53:52.060476" elapsed="25.192284"/>
+</kw>
+<kw name="Configure Basic Data">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:24.953108" level="INFO">The tab 'DdsBásicos' was selected.</msg>
+<arg>DdsBásicos</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-22T16:54:17.253760" elapsed="7.699348"/>
+</kw>
+<kw name="Read Text Field" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:24.968656" level="INFO">The text field with the locator 'Saldo do documento' was read.</msg>
+<msg time="2025-08-22T16:54:24.969665" level="INFO">${saldoDocumento} = 3.969,83-</msg>
+<var>${saldoDocumento}</var>
+<arg>Saldo do documento</arg>
+<doc>Read the contents of the text field specified by the locator.</doc>
+<status status="PASS" start="2025-08-22T16:54:24.953108" elapsed="0.016557"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-08-22T16:54:24.970672" level="INFO">${saldo} = 3.969,83</msg>
+<var>${saldo}</var>
+<arg>${saldoDocumento}</arg>
+<arg>mode=RIGHT</arg>
+<arg>characters=-</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-08-22T16:54:24.969665" elapsed="0.001007"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:24.990705" level="INFO">The text field with the locator 'Montante em moeda do documento' was filled.</msg>
+<arg>Montante em moeda do documento</arg>
+<arg>${saldo}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-22T16:54:24.970672" elapsed="0.020033"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:33.340352" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-22T16:54:24.990705" elapsed="8.349647"/>
+</kw>
+<doc>Configura os dados básicos na aba Basic Data</doc>
+<status status="PASS" start="2025-08-22T16:54:17.252760" elapsed="16.087592"/>
+</kw>
+<kw name="Configure Fiscal Information">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-22T16:54:33.353914" level="FAIL">NotFound: The tab 'Imp.ret.font' could not be found. Hint: Check the spelling</msg>
+<arg>Imp.ret.font</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="FAIL" start="2025-08-22T16:54:33.341350" elapsed="0.015566">NotFound: The tab 'Imp.ret.font' could not be found. Hint: Check the spelling</status>
+</kw>
+<kw name="Get Row Count" owner="RoboSAPiens">
+<var>${rowCount}</var>
+<arg>ACWT_ITEM</arg>
+<doc>Count the rows in a table.</doc>
+<status status="NOT RUN" start="2025-08-22T16:54:33.357917" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-22T16:54:33.358913" elapsed="0.000000"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="NOT RUN" start="2025-08-22T16:54:33.358913" elapsed="0.000000"/>
+</kw>
+<var name="${index}"/>
+<status status="NOT RUN" start="2025-08-22T16:54:33.357917" elapsed="0.001515"/>
+</iter>
+<var>${index}</var>
+<value>1</value>
+<value>${rowCount}</value>
+<status status="NOT RUN" start="2025-08-22T16:54:33.357917" elapsed="0.001515"/>
+</for>
+<doc>Configura as informações fiscais na aba FI</doc>
+<status status="FAIL" start="2025-08-22T16:54:33.341350" elapsed="0.018082">NotFound: The tab 'Imp.ret.font' could not be found. Hint: Check the spelling</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Invoice Receipt MIRO criado com sucesso!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-22T16:54:33.360443" elapsed="0.000000"/>
+</kw>
+<doc>Executa o processo completo de criação de Invoice Receipt na transação MIRO
+
+Passos executados:
+1. Conectar ao SAP
+2. Navegar para transação MIRO
+3. Preencher código da empresa
+4. Preencher dados do pedido de compra
+5. Configurar informações de pagamento
+6. Configurar informações fiscais
+7. Preencher valor da fatura
+8. Limpar campos de retenção de impostos
+9. Salvar o documento</doc>
+<tag>Automated</tag>
+<tag>Invoice</tag>
+<tag>MIRO</tag>
+<tag>Receipt</tag>
+<tag>SAP</tag>
+<status status="FAIL" start="2025-08-22T16:53:09.132809" elapsed="84.227634">NotFound: The tab 'Imp.ret.font' could not be found. Hint: Check the spelling</status>
+</test>
+<doc>Caso de teste para transação MIRO - Invoice Receipt
+Convertido de script VBS para Robot Framework usando RoboSAPiens
+
+Este teste automatiza a criação de um recibo de fatura (Invoice Receipt)
+na transação MIRO do SAP, reproduzindo exatamente o comportamento do
+script VBS original.</doc>
+<status status="FAIL" start="2025-08-22T16:53:08.964959" elapsed="84.397496"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Automated</stat>
+<stat pass="0" fail="1" skip="0">Invoice</stat>
+<stat pass="0" fail="1" skip="0">MIRO</stat>
+<stat pass="0" fail="1" skip="0">Receipt</stat>
+<stat pass="0" fail="1" skip="0">SAP</stat>
+</tag>
+<suite>
+<stat name="MIRO" id="s1" pass="0" fail="1" skip="0">MIRO</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
