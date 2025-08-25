@@ -19,20 +19,20 @@ Executar MIGO
     
     Abrir Planilha de Dados de Teste    Dados apresentação 22-08.xlsx
     ${testData}=    Read Worksheet As Table    header=True
-    TRY
-        FOR    ${row}    IN    @{testData}
+    FOR    ${index}    ${row}    IN ENUMERATE    @{testData}
+        TRY
             Log To Console    \nProcessando pedido: ${row['NV PEDIDO']}
             Execute Transaction    /nmigo
             Fill Purchase Order Details    ${row['NV PEDIDO']} 
             Configure Item Details
             Set Delivery Note
             Save Transaction
-            Save MIGO return to Excel    ${row}
+            Save MIGO return to Excel    ${index}
+        EXCEPT
+            ${statusbar}   Read Statusbar
+            Log To Console    Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}
+            # Fail    ${statusbar['message']}
         END
-    EXCEPT
-        ${statusbar}   Read Statusbar
-        Log To Console    Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}
-        # Fail    ${statusbar['message']}
     END
     
 *** Keywords ***
@@ -91,10 +91,10 @@ Save Transaction
     Log    MIGO Executada com sucesso. Documento de material: ${statusbar}
 Save MIGO return to Excel
     [Documentation]    Salva o retorno da transação MIGO no Excel.
-    [Arguments]    ${row}
+    [Arguments]    ${index}
+    Log    ${index}
     ${statusbar}   Read Statusbar
     ${msgStatusBar} =    Set Variable    ${statusbar['message']}
-    ${docMaterial} =    Evaluate    re.search(r'\d{10}', $msgStatusBar).group(0)    modules=re
-    Log To Console    MIGO: ${docMaterial}
-    Set Cell Value    ${row}    MIGO    ${docMaterial}
+    ${docMaterial} =    Evaluate    re.search(r'\\d{10}', $msgStatusBar)    modules=re
+    Set Cell Value    ${index}    MIGO    ${docMaterial}
     Save Workbook

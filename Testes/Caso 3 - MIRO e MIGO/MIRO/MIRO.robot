@@ -44,7 +44,7 @@ Create Invoice Receipt MIRO
             Configure Fiscal Information
             
             # Salvar o documento
-            Press Key Combination    CTRL+S
+            Press Key Combination    Ctrl+S
         EXCEPT
             ${statusbar}   Read Statusbar
             Log To Console    Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}
@@ -131,46 +131,3 @@ Configure Fiscal Information
     END
 
     Press Key Combination    Enter
-
-*** Comments ***
-# ============================================================================
-# INSTRUÇÕES DE USO:
-# ============================================================================
-# 
-# 1. CONFIGURAÇÃO INICIAL:
-#    - Ajuste as variáveis de conexão SAP (SAP_SERVER, SAP_CLIENT, etc.)
-#    - Configure as credenciais de acesso
-#    - Instale e configure a biblioteca RoboSAPiens
-#
-# 2. DADOS DE TESTE:
-#    - Os valores nas variáveis são baseados no script VBS original
-#    - Ajuste conforme necessário para seu ambiente
-#
-# 3. EXECUÇÃO:
-#    - Execute: robot MIRO_Complete.robot
-#    - Ou: robot -d results MIRO_Complete.robot (para salvar resultados)
-#
-# 4. PERSONALIZAÇÃO:
-#    - As teclas de função (F4, F5, F6, F7) podem precisar de ajuste
-#    - Alguns localizadores podem variar entre versões do SAP
-#    - Adicione validações específicas conforme necessário
-#
-# ============================================================================
-# MAPEAMENTO DO SCRIPT VBS ORIGINAL:
-# ============================================================================
-#
-# VBS: session.findById("wnd[0]").maximize
-# Robot: Maximize Window
-#
-# VBS: session.findById("wnd[0]/tbar[0]/okcd").text = "miro"
-# Robot: Fill TextField    wnd[0]/tbar[0]/okcd    miro
-#
-# VBS: session.findById("wnd[0]").sendVKey 0
-# Robot: Press Key Combination    ENTER
-#
-# VBS: session.findById("wnd[1]/usr/ctxtBKPF-BUKRS").text = "2000"
-# Robot: Fill TextField    wnd[1]/usr/ctxtBKPF-BUKRS    2000
-#
-# E assim por diante para todos os elementos...
-#
-# ============================================================================
