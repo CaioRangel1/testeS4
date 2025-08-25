@@ -93,7 +93,8 @@ Save MIGO return to Excel
     [Documentation]    Salva o retorno da transação MIGO no Excel.
     [Arguments]    ${row}
     ${statusbar}   Read Statusbar
-    ${docMaterial}=    Evaluate    re.search(r'\d{10}', '${statusbar}').group(0)    modules=re
-    Log To Console    MIGO: ${statusbar['message']}
+    ${msgStatusBar} =    Set Variable    ${statusbar['message']}
+    ${docMaterial} =    Evaluate    re.search(r'\d{10}', $msgStatusBar).group(0)    modules=re
+    Log To Console    MIGO: ${docMaterial}
     Set Cell Value    ${row}    MIGO    ${docMaterial}
     Save Workbook
