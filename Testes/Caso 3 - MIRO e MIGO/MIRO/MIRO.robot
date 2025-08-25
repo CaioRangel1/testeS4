@@ -8,80 +8,49 @@ Documentation    Caso de teste para transação MIRO - Invoice Receipt
 Library          RoboSAPiens
 Library          String
 Library          DateTime
+Library          OperatingSystem
+Library          RPA.Tables
+Library          RPA.Excel.Files
 
 *** Variables ***
-# Variáveis de configuração do SAP - AJUSTAR CONFORME SEU AMBIENTE
-${SAP_SERVER}           seu_servidor_sap
-${SAP_SYSTEM}           00
-${SAP_CLIENT}           100
-${SAP_USER}             seu_usuario
-${SAP_PASSWORD}         sua_senha
-
-# Dados do teste - baseados no script VBS original
 ${COMPANY_CODE}         2000
-${PURCHASE_ORDER}       4503342051
-${DOCUMENT_DATE}        22.08.2025
-${REFERENCE}            222128
 ${PAYMENT_METHOD}       0001
 ${PAYMENT_BLOCK}        A
 ${DOCUMENT_TYPE}        RE
 ${FISCAL_TYPE}          W1
-${INVOICE_AMOUNT}       3.969,83
 
 *** Test Cases ***
 Create Invoice Receipt MIRO
     [Documentation]    Executa o processo completo de criação de Invoice Receipt na transação MIRO
-    ...                
-    ...                Passos executados:
-    ...                1. Conectar ao SAP
-    ...                2. Navegar para transação MIRO
-    ...                3. Preencher código da empresa
-    ...                4. Preencher dados do pedido de compra
-    ...                5. Configurar informações de pagamento
-    ...                6. Configurar informações fiscais
-    ...                7. Preencher valor da fatura
-    ...                8. Limpar campos de retenção de impostos
-    ...                9. Salvar o documento
-    [Tags]             MIRO    Invoice    Receipt    SAP    Automated
+    [Tags]             MIRO    Invoice    Receipt    SAP    Pedido    Fatura    robot:recursive-continue-on-failure
     
-    # Conectar ao SAP
     Prepare SAP
     
-    # Navegar para transação MIRO
-    Execute Transaction    /nmiro
+    Execute Transaction    /nmiro    
     
-    # Preencher código da empresa na janela popup
-    # Fill Text Field    Empresa    ${COMPANY_CODE}
-    # Press Key Combination    Enter
+    Abrir Planilha de Dados de Teste    Dados apresentação 22-08.xlsx
     
-    # Preencher número do pedido de compra
-    Fill Text Field    Nº do documento de compras    ${PURCHASE_ORDER}
-    Press Key Combination    Enter
+    ${testData} =    Read Worksheet As Table    header=True
+    FOR    ${row}    IN    @{testData}
+        TRY
+            Configure Initial Data    ${row['NV PEDIDO']}
 
-    # Preencher data do documento (Data de hoje)
-    ${DATA_HOJE} =    Get Current Date    result_format=%d.%m.%Y
-    Fill Text Field    Data no documento    ${DATA_HOJE}
-    Press Key Combination    Enter
+            Configure Payment Information
 
-    # Preencher número de referência da fatura (sempre um N° aleatorio)
-    Fill Text Field    Referência    ${REFERENCE}
+            Configure Details
 
-    Configure Payment Information
+            Configure Basic Data
 
-    Configure Details
-
-    Configure Basic Data
-
-    Configure Fiscal Information
-    
-    # Salvar o documento
-    # Press Key Combination    CTRL+S
-    
-    # Log de sucesso
-    Log    Invoice Receipt MIRO criado com sucesso!
-    
-    # Capturar evidência (opcional)
-    # Take Screenshot For Evidence
+            Configure Fiscal Information
+            
+            # Salvar o documento
+            Press Key Combination    CTRL+S
+        EXCEPT
+            ${statusbar}   Read Statusbar
+            Log To Console    Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}
+            # Fail    Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}
+        END        
+    END
 
 *** Keywords ***
 Prepare SAP
@@ -89,38 +58,58 @@ Prepare SAP
     Connect to Running SAP
     Maximize Window
 
+Abrir Planilha de Dados de Teste
+    [Documentation]    Abre o arquivo Excel com os dados para a execução dos casos de teste.
+    [Arguments]    ${nomePlanilha}
+    ${caminho_planilha} =    Join Path    ${CURDIR}    ../../..    Dados    ${nomePlanilha}
+    Open Workbook    ${caminho_planilha}
+
+Configure Initial Data
+    [Documentation]    Configura os dados iniciais na aba inicial da MIRO
+    [Arguments]    ${numPedido}
+    
+    # Preencher código da empresa na janela popup
+    ${window_title} =    Get Window Title
+    IF    '${window_title}' == 'Entrar empresa'
+        Fill Text Field    Empresa    ${COMPANY_CODE}
+        Press Key Combination    Enter
+    END
+
+    Fill Text Field    Nº do documento de compras    ${numPedido}
+    Press Key Combination    Enter
+
+    # Preencher data do documento (Data de hoje)
+    ${curDate} =    Get Current Date    result_format=%d.%m.%Y
+    Fill Text Field    Data no documento    ${curDate}
+    Press Key Combination    Enter
+    
+    ${referencia} =    Generate Random String    6    [NUMBERS]
+    
+    # Preencher número de referência da fatura (sempre um N° aleatorio)
+    Fill Text Field    Referência    ${referencia}
+
 Configure Payment Information
     [Documentation]    Configura as informações de pagamento na aba Payment
     
-    # Navegar para aba Payment (usando F-key ao invés de click)
     Select Tab    Pagamento
     
-    # Preencher método de pagamento
     Fill Text Field    Tipo de banco do parceiro    ${PAYMENT_METHOD}
-    Press Key Combination    Enter
-
-    # Configurar bloqueio de pagamento
     Select Dropdown Menu Entry    Bloq.pgto.    ${PAYMENT_BLOCK}
     Press Key Combination    Enter
 
 Configure Details
     [Documentation]    Configura os detalhes do pedido de compra na aba Detalhe
 
-    # Navegar para aba Detalhe (usando F-key ao invés de click)
     Select Tab    Detalhe
     
-    # Preencher data do documento
     Select Dropdown Menu Entry    Tp.doc.    ${DOCUMENT_TYPE}
-    Press Key Combination    Enter
 
-    # Preencher valor da fatura
     Fill Text Field    Ctg.NF    ${FISCAL_TYPE}
     Press Key Combination    Enter
 
 Configure Basic Data
     [Documentation]    Configura os dados básicos na aba Basic Data
     
-    # Navegar para aba Basic Data (usando F-key ao invés de click)
     Select Tab    DdsBásicos
     
     ${saldoDocumento} =    Read Text Field    Saldo do documento
@@ -131,55 +120,17 @@ Configure Basic Data
 Configure Fiscal Information
     [Documentation]    Configura as informações fiscais na aba FI
     
-    # Navegar para aba FI (usando F-key ao invés de click)
     Select Tab    Imp.ret.fonte
 
-    ${rowCount} =    Get Row Count    ACWT_ITEM
-
+    ${rowCount} =    Get Row Count
     FOR    ${index}    IN RANGE    1    ${rowCount}
-        Fill Cell    ${index}    Código IRF    content=${EMPTY}
-        Press Key Combination    Enter
+        ${status}    ${cellValue} =    Run Keyword And Ignore Error    Read Cell    ${index}    Código IRF
+        IF    $status == 'PASS' and $cellValue != '${EMPTY}'
+            Fill Cell    ${index}    Código IRF    content=${EMPTY}
+        END
     END
 
-Navigate Through Tabs
-    [Documentation]    Navega entre as abas conforme o script original
-    ...                Simula a navegação usando teclas de função
-    
-    # Navegar para aba WT (Withholding Tax)
-    Press Key Combination    F7    # ajustar conforme necessário
-    
-    # Navegar para aba FI
-    Press Key Combination    F6
-    
-    # Navegar para aba PAY
-    Press Key Combination    F5
-    
-    # Voltar para aba TOTAL
-    Press Key Combination    F4    # ajustar conforme necessário
-
-Clear Withholding Tax Fields
-    [Documentation]    Limpa os campos de retenção de impostos conforme script original
-    
-    # Navegar para aba WT
-    Press Key Combination    F7
-    
-    # Limpar os campos de código de retenção
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_WT/ssubHEADER_SCREEN:SAPLFDCB:0080/subSUB_WT:SAPLFWTD:0120/tblSAPLFWTDWT_DIALOG/ctxtACWT_ITEM-WT_WITHCD[1,0]    ${EMPTY}
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_WT/ssubHEADER_SCREEN:SAPLFDCB:0080/subSUB_WT:SAPLFWTD:0120/tblSAPLFWTDWT_DIALOG/ctxtACWT_ITEM-WT_WITHCD[1,1]    ${EMPTY}
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_WT/ssubHEADER_SCREEN:SAPLFDCB:0080/subSUB_WT:SAPLFWTD:0120/tblSAPLFWTDWT_DIALOG/ctxtACWT_ITEM-WT_WITHCD[1,2]    ${EMPTY}
-    Fill TextField    wnd[0]/usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_WT/ssubHEADER_SCREEN:SAPLFDCB:0080/subSUB_WT:SAPLFWTD:0120/tblSAPLFWTDWT_DIALOG/ctxtACWT_ITEM-WT_WITHCD[1,3]    ${EMPTY}
-    Press Key Combination    ENTER
-
-Take Screenshot For Evidence
-    [Documentation]    Captura screenshot para evidência do teste
-    ...                Esta implementação pode variar dependendo da versão da RoboSAPiens
-    
-    # Método 1: Usando Log com timestamp
-    ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
-    Log    Screenshot capturado em ${timestamp}
-    
-    # Método 2: Se disponível na sua versão da RoboSAPiens
-    # Take Screenshot    MIRO_Invoice_Receipt_${timestamp}.png
+    Press Key Combination    Enter
 
 *** Comments ***
 # ============================================================================

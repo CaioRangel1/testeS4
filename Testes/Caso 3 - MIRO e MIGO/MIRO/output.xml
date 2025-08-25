@@ -1,240 +1,1145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-22T16:53:08.959957" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-25T15:41:40.820453" rpa="false" schemaversion="5">
 <suite id="s1" name="MIRO" source="C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Testes\Caso 3 - MIRO e MIGO\MIRO\MIRO.robot">
-<test id="s1-t1" name="Create Invoice Receipt MIRO" line="32">
+<test id="s1-t1" name="Create Invoice Receipt MIRO" line="23">
 <kw name="Prepare SAP">
 <kw name="Connect to Running SAP" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:17.455412" level="INFO">Connected to a running SAP instance.</msg>
+<msg time="2025-08-25T15:41:45.620491" level="INFO">Connected to a running SAP instance.</msg>
 <doc>Connect to an already running SAP instance and take control of it.</doc>
-<status status="PASS" start="2025-08-22T16:53:09.136808" elapsed="8.318604"/>
+<status status="PASS" start="2025-08-25T15:41:41.760490" elapsed="3.860001"/>
 </kw>
 <kw name="Maximize window" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:17.460939" level="INFO">The window in the foreground was maximized.</msg>
+<msg time="2025-08-25T15:41:45.630093" level="INFO">The window in the foreground was maximized.</msg>
 <doc>Maximize the window in the foreground.</doc>
-<status status="PASS" start="2025-08-22T16:53:17.455412" elapsed="0.005527"/>
+<status status="PASS" start="2025-08-25T15:41:45.620491" elapsed="0.009602"/>
 </kw>
 <doc>Conecta ao SAP</doc>
-<status status="PASS" start="2025-08-22T16:53:09.134809" elapsed="8.326130"/>
+<status status="PASS" start="2025-08-25T15:41:41.760490" elapsed="3.869603"/>
 </kw>
 <kw name="Execute Transaction" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:19.432250" level="INFO">The transaction with T-Code /nmiro was executed.</msg>
+<msg time="2025-08-25T15:41:47.597662" level="INFO">The transaction with T-Code /nmiro was executed.</msg>
 <arg>/nmiro</arg>
 <doc>Execute the transaction with the given T-Code.</doc>
-<status status="PASS" start="2025-08-22T16:53:17.461948" elapsed="1.970302"/>
+<status status="PASS" start="2025-08-25T15:41:45.630093" elapsed="1.967569"/>
 </kw>
+<kw name="Abrir Planilha de Dados de Teste">
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-08-25T15:41:47.600169" level="INFO">${caminho_planilha} = C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx</msg>
+<var>${caminho_planilha}</var>
+<arg>C:\\Users\\ETH6\\OneDrive - VIBRA\\Documentos\\GitHub\\testeS4\\Testes\\Caso 3 - MIRO e MIGO\\MIRO</arg>
+<arg>../../..</arg>
+<arg>Dados</arg>
+<arg>${nomePlanilha}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-08-25T15:41:47.597662" elapsed="0.002507"/>
+</kw>
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2025-08-25T15:41:47.610559" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002A65C5E5C40&gt;</msg>
+<arg>${caminho_planilha}</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2025-08-25T15:41:47.600169" elapsed="0.010390"/>
+</kw>
+<arg>Dados apresentação 22-08.xlsx</arg>
+<doc>Abre o arquivo Excel com os dados para a execução dos casos de teste.</doc>
+<status status="PASS" start="2025-08-25T15:41:47.597662" elapsed="0.012897"/>
+</kw>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-08-25T15:41:47.610559" level="INFO">Created table: Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', 'Data de Remessa', 'NV CONTRATO', 'NV PEDIDO', 'MIGO', 'MIRO'], rows=2)</msg>
+<msg time="2025-08-25T15:41:47.613568" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
+<var>${testData}</var>
+<arg>header=True</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="PASS" start="2025-08-25T15:41:47.610559" elapsed="0.003009"/>
+</kw>
+<for flavor="IN">
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Configure Initial Data">
+<kw name="Get Window Title" owner="RoboSAPiens">
+<msg time="2025-08-25T15:41:47.620131" level="INFO">The title of the window was obtained.</msg>
+<msg time="2025-08-25T15:41:47.620131" level="INFO">${window_title} = Inserir fatura recebida: empresa 2000</msg>
+<var>${window_title}</var>
+<doc>Get the title of the currently active window.</doc>
+<status status="PASS" start="2025-08-25T15:41:47.613568" elapsed="0.006563"/>
+</kw>
+<if>
+<branch type="IF" condition="'${window_title}' == 'Entrar empresa'">
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:19.538114" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
-<arg>Nº do documento de compras</arg>
-<arg>${PURCHASE_ORDER}</arg>
+<arg>Empresa</arg>
+<arg>${COMPANY_CODE}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-22T16:53:19.433247" elapsed="0.104867"/>
+<status status="NOT RUN" start="2025-08-25T15:41:47.620131" elapsed="0.000000"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:21.103448" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-22T16:53:19.539123" elapsed="1.564325"/>
+<status status="NOT RUN" start="2025-08-25T15:41:47.620131" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:41:47.620131" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:41:47.620131" elapsed="0.000000"/>
+</if>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-25T15:41:47.680543" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
+<arg>Nº do documento de compras</arg>
+<arg>${numPedido}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:41:47.620131" elapsed="0.060412"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:41:49.050496" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-25T15:41:47.680543" elapsed="1.369953"/>
 </kw>
 <kw name="Get Current Date" owner="DateTime">
-<msg time="2025-08-22T16:53:21.106447" level="INFO">${DATA_HOJE} = 22.08.2025</msg>
-<var>${DATA_HOJE}</var>
+<msg time="2025-08-25T15:41:49.050496" level="INFO">${curDate} = 25.08.2025</msg>
+<var>${curDate}</var>
 <arg>result_format=%d.%m.%Y</arg>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-08-22T16:53:21.105449" elapsed="0.000998"/>
+<status status="PASS" start="2025-08-25T15:41:49.050496" elapsed="0.000000"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:21.735474" level="INFO">The text field with the locator 'Data no documento' was filled.</msg>
+<msg time="2025-08-25T15:41:49.180436" level="INFO">The text field with the locator 'Data no documento' was filled.</msg>
 <arg>Data no documento</arg>
-<arg>${DATA_HOJE}</arg>
+<arg>${curDate}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-22T16:53:21.107449" elapsed="0.628025"/>
+<status status="PASS" start="2025-08-25T15:41:49.050496" elapsed="0.129940"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:23.633462" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T15:41:50.820149" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-22T16:53:21.736477" elapsed="1.896985"/>
+<status status="PASS" start="2025-08-25T15:41:49.180436" elapsed="1.639713"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2025-08-25T15:41:50.820149" level="INFO">${referencia} = 648572</msg>
+<var>${referencia}</var>
+<arg>6</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-08-25T15:41:50.820149" elapsed="0.000000"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:29.208277" level="INFO">The text field with the locator 'Referência' was filled.</msg>
+<msg time="2025-08-25T15:41:54.195198" level="INFO">The text field with the locator 'Referência' was filled.</msg>
 <arg>Referência</arg>
-<arg>${REFERENCE}</arg>
+<arg>${referencia}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-22T16:53:23.634464" elapsed="5.573813"/>
+<status status="PASS" start="2025-08-25T15:41:50.820149" elapsed="3.375049"/>
+</kw>
+<arg>${row['NV PEDIDO']}</arg>
+<doc>Configura os dados iniciais na aba inicial da MIRO</doc>
+<status status="PASS" start="2025-08-25T15:41:47.613568" elapsed="6.581630"/>
 </kw>
 <kw name="Configure Payment Information">
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:34.815553" level="INFO">The tab 'Pagamento' was selected.</msg>
+<msg time="2025-08-25T15:41:58.420581" level="INFO">The tab 'Pagamento' was selected.</msg>
 <arg>Pagamento</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-22T16:53:29.208277" elapsed="5.607276"/>
+<status status="PASS" start="2025-08-25T15:41:54.200343" elapsed="4.220238"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:34.834607" level="INFO">The text field with the locator 'Tipo de banco do parceiro' was filled.</msg>
+<msg time="2025-08-25T15:41:58.440441" level="INFO">The text field with the locator 'Tipo de banco do parceiro' was filled.</msg>
 <arg>Tipo de banco do parceiro</arg>
 <arg>${PAYMENT_METHOD}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-22T16:53:34.816553" elapsed="0.019054"/>
-</kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:39.867610" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-22T16:53:34.835607" elapsed="5.032003"/>
+<status status="PASS" start="2025-08-25T15:41:58.420581" elapsed="0.019860"/>
 </kw>
 <kw name="Select Dropdown Menu Entry" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:44.510857" level="INFO">In the dropdown menu 'Bloq.pgto.' the entry 'A' was selected.</msg>
+<msg time="2025-08-25T15:42:01.180263" level="INFO">In the dropdown menu 'Bloq.pgto.' the entry 'A' was selected.</msg>
 <arg>Bloq.pgto.</arg>
 <arg>${PAYMENT_BLOCK}</arg>
 <doc>Select the specified entry from the given dropdown menu.</doc>
-<status status="PASS" start="2025-08-22T16:53:39.868585" elapsed="4.642272"/>
+<status status="PASS" start="2025-08-25T15:41:58.440441" elapsed="2.739822"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:52.059473" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T15:42:08.050495" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-22T16:53:44.511861" elapsed="7.547612"/>
+<status status="PASS" start="2025-08-25T15:42:01.180263" elapsed="6.870232"/>
 </kw>
 <doc>Configura as informações de pagamento na aba Payment</doc>
-<status status="PASS" start="2025-08-22T16:53:29.208277" elapsed="22.851196"/>
+<status status="PASS" start="2025-08-25T15:41:54.195198" elapsed="13.855297"/>
 </kw>
 <kw name="Configure Details">
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-22T16:53:59.138819" level="INFO">The tab 'Detalhe' was selected.</msg>
+<msg time="2025-08-25T15:42:12.490501" level="INFO">The tab 'Detalhe' was selected.</msg>
 <arg>Detalhe</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-22T16:53:52.061489" elapsed="7.077330"/>
+<status status="PASS" start="2025-08-25T15:42:08.050495" elapsed="4.440006"/>
 </kw>
 <kw name="Select Dropdown Menu Entry" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:04.212434" level="INFO">In the dropdown menu 'Tp.doc.' the entry 'RE' was selected.</msg>
+<msg time="2025-08-25T15:42:15.250402" level="INFO">In the dropdown menu 'Tp.doc.' the entry 'RE' was selected.</msg>
 <arg>Tp.doc.</arg>
 <arg>${DOCUMENT_TYPE}</arg>
 <doc>Select the specified entry from the given dropdown menu.</doc>
-<status status="PASS" start="2025-08-22T16:53:59.140297" elapsed="5.073136"/>
-</kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:10.482429" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-22T16:54:04.213433" elapsed="6.268996"/>
+<status status="PASS" start="2025-08-25T15:42:12.490501" elapsed="2.759901"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:10.502262" level="INFO">The text field with the locator 'Ctg.NF' was filled.</msg>
+<msg time="2025-08-25T15:42:15.270417" level="INFO">The text field with the locator 'Ctg.NF' was filled.</msg>
 <arg>Ctg.NF</arg>
 <arg>${FISCAL_TYPE}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-22T16:54:10.482429" elapsed="0.019833"/>
+<status status="PASS" start="2025-08-25T15:42:15.250402" elapsed="0.020015"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:17.252760" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T15:42:19.365367" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-22T16:54:10.502262" elapsed="6.750498"/>
+<status status="PASS" start="2025-08-25T15:42:15.270417" elapsed="4.094950"/>
 </kw>
 <doc>Configura os detalhes do pedido de compra na aba Detalhe</doc>
-<status status="PASS" start="2025-08-22T16:53:52.060476" elapsed="25.192284"/>
+<status status="PASS" start="2025-08-25T15:42:08.050495" elapsed="11.314872"/>
 </kw>
 <kw name="Configure Basic Data">
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:24.953108" level="INFO">The tab 'DdsBásicos' was selected.</msg>
+<msg time="2025-08-25T15:42:24.130263" level="INFO">The tab 'DdsBásicos' was selected.</msg>
 <arg>DdsBásicos</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-22T16:54:17.253760" elapsed="7.699348"/>
+<status status="PASS" start="2025-08-25T15:42:19.370470" elapsed="4.759793"/>
 </kw>
 <kw name="Read Text Field" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:24.968656" level="INFO">The text field with the locator 'Saldo do documento' was read.</msg>
-<msg time="2025-08-22T16:54:24.969665" level="INFO">${saldoDocumento} = 3.969,83-</msg>
+<msg time="2025-08-25T15:42:24.144859" level="INFO">The text field with the locator 'Saldo do documento' was read.</msg>
+<msg time="2025-08-25T15:42:24.144859" level="INFO">${saldoDocumento} = 3.969,83-</msg>
 <var>${saldoDocumento}</var>
 <arg>Saldo do documento</arg>
 <doc>Read the contents of the text field specified by the locator.</doc>
-<status status="PASS" start="2025-08-22T16:54:24.953108" elapsed="0.016557"/>
+<status status="PASS" start="2025-08-25T15:42:24.130263" elapsed="0.014596"/>
 </kw>
 <kw name="Strip String" owner="String">
-<msg time="2025-08-22T16:54:24.970672" level="INFO">${saldo} = 3.969,83</msg>
+<msg time="2025-08-25T15:42:24.144859" level="INFO">${saldo} = 3.969,83</msg>
 <var>${saldo}</var>
 <arg>${saldoDocumento}</arg>
 <arg>mode=RIGHT</arg>
 <arg>characters=-</arg>
 <doc>Remove leading and/or trailing whitespaces from the given string.</doc>
-<status status="PASS" start="2025-08-22T16:54:24.969665" elapsed="0.001007"/>
+<status status="PASS" start="2025-08-25T15:42:24.144859" elapsed="0.000000"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:24.990705" level="INFO">The text field with the locator 'Montante em moeda do documento' was filled.</msg>
+<msg time="2025-08-25T15:42:24.155519" level="INFO">The text field with the locator 'Montante em moeda do documento' was filled.</msg>
 <arg>Montante em moeda do documento</arg>
 <arg>${saldo}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-22T16:54:24.970672" elapsed="0.020033"/>
+<status status="PASS" start="2025-08-25T15:42:24.144859" elapsed="0.010660"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:33.340352" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T15:42:28.980233" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-22T16:54:24.990705" elapsed="8.349647"/>
+<status status="PASS" start="2025-08-25T15:42:24.155519" elapsed="4.824714"/>
 </kw>
 <doc>Configura os dados básicos na aba Basic Data</doc>
-<status status="PASS" start="2025-08-22T16:54:17.252760" elapsed="16.087592"/>
+<status status="PASS" start="2025-08-25T15:42:19.365367" elapsed="9.614866"/>
 </kw>
 <kw name="Configure Fiscal Information">
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-22T16:54:33.353914" level="FAIL">NotFound: The tab 'Imp.ret.font' could not be found. Hint: Check the spelling</msg>
-<arg>Imp.ret.font</arg>
+<msg time="2025-08-25T15:42:33.171221" level="INFO">The tab 'Imp.ret.fonte' was selected.</msg>
+<arg>Imp.ret.fonte</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="FAIL" start="2025-08-22T16:54:33.341350" elapsed="0.015566">NotFound: The tab 'Imp.ret.font' could not be found. Hint: Check the spelling</status>
+<status status="PASS" start="2025-08-25T15:42:28.980233" elapsed="4.190988"/>
 </kw>
 <kw name="Get Row Count" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.186858" level="INFO">Counted the number of rows in the table.</msg>
+<msg time="2025-08-25T15:42:33.186858" level="INFO">${rowCount} = 9</msg>
 <var>${rowCount}</var>
-<arg>ACWT_ITEM</arg>
 <doc>Count the rows in a table.</doc>
-<status status="NOT RUN" start="2025-08-22T16:54:33.357917" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T15:42:33.171221" elapsed="0.015637"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.270305" level="INFO">The cell with the locator '1, Código IRF' was read.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.190370" elapsed="0.079935"/>
+</kw>
+<msg time="2025-08-25T15:42:33.270305" level="INFO">${status} = PASS</msg>
+<msg time="2025-08-25T15:42:33.270305" level="INFO">${cellValue} = NG</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.186858" elapsed="0.083447"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.325213" level="INFO">The cell with the locator '1, Código IRF' was filled.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.280512" elapsed="0.044701"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:42:33.270305" elapsed="0.054908"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:33.270305" elapsed="0.058960"/>
+</if>
+<var name="${index}">1</var>
+<status status="PASS" start="2025-08-25T15:42:33.186858" elapsed="0.142407"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.370473" level="INFO">The cell with the locator '2, Código IRF' was read.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.329265" elapsed="0.041208"/>
+</kw>
+<msg time="2025-08-25T15:42:33.370473" level="INFO">${status} = PASS</msg>
+<msg time="2025-08-25T15:42:33.370473" level="INFO">${cellValue} = RG</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.329265" elapsed="0.041208"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.420347" level="INFO">The cell with the locator '2, Código IRF' was filled.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.370473" elapsed="0.049874"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:42:33.370473" elapsed="0.049874"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:33.370473" elapsed="0.049874"/>
+</if>
+<var name="${index}">2</var>
+<status status="PASS" start="2025-08-25T15:42:33.329265" elapsed="0.091082"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.465602" level="INFO">The cell with the locator '3, Código IRF' was read.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.420347" elapsed="0.045255"/>
+</kw>
+<msg time="2025-08-25T15:42:33.465602" level="INFO">${status} = PASS</msg>
+<msg time="2025-08-25T15:42:33.465602" level="INFO">${cellValue} = SG</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.420347" elapsed="0.045255"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.525187" level="INFO">The cell with the locator '3, Código IRF' was filled.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.465602" elapsed="0.059585"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:42:33.465602" elapsed="0.059585"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:33.465602" elapsed="0.059585"/>
+</if>
+<var name="${index}">3</var>
+<status status="PASS" start="2025-08-25T15:42:33.420347" elapsed="0.104840"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.570320" level="INFO">The cell with the locator '4, Código IRF' was read.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.525187" elapsed="0.045133"/>
+</kw>
+<msg time="2025-08-25T15:42:33.570320" level="INFO">${status} = PASS</msg>
+<msg time="2025-08-25T15:42:33.570320" level="INFO">${cellValue} = SG</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.525187" elapsed="0.045133"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.630535" level="INFO">The cell with the locator '4, Código IRF' was filled.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.580099" elapsed="0.050436"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:42:33.570320" elapsed="0.060215"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:33.570320" elapsed="0.060215"/>
+</if>
+<var name="${index}">4</var>
+<status status="PASS" start="2025-08-25T15:42:33.525187" elapsed="0.115203"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.750176" level="FAIL">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:42:33.640390" elapsed="0.109786">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</status>
+</kw>
+<msg time="2025-08-25T15:42:33.750176" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:42:33.750176" level="INFO">${cellValue} = The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.640390" elapsed="0.109786"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
 <kw name="Fill Cell" owner="RoboSAPiens">
 <arg>${index}</arg>
 <arg>Código IRF</arg>
 <arg>content=${EMPTY}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="NOT RUN" start="2025-08-22T16:54:33.358913" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T15:42:33.750176" elapsed="0.000000"/>
 </kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="NOT RUN" start="2025-08-22T16:54:33.358913" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T15:42:33.750176" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:33.750176" elapsed="0.000000"/>
+</if>
+<var name="${index}">5</var>
+<status status="PASS" start="2025-08-25T15:42:33.640390" elapsed="0.109786"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:33.780124" level="FAIL">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:42:33.750176" elapsed="0.029948">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</status>
 </kw>
-<var name="${index}"/>
-<status status="NOT RUN" start="2025-08-22T16:54:33.357917" elapsed="0.001515"/>
+<msg time="2025-08-25T15:42:33.780124" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:42:33.780124" level="INFO">${cellValue} = The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.750176" elapsed="0.029948"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:42:33.780124" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:42:33.780124" elapsed="0.005048"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:33.780124" elapsed="0.005048"/>
+</if>
+<var name="${index}">6</var>
+<status status="PASS" start="2025-08-25T15:42:33.750176" elapsed="0.034996"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:35.310407" level="FAIL">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:42:33.785172" elapsed="1.525235">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</status>
+</kw>
+<msg time="2025-08-25T15:42:35.320595" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:42:35.320595" level="INFO">${cellValue} = The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:42:33.785172" elapsed="1.535423"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:42:35.320595" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:42:35.320595" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:35.320595" elapsed="0.000000"/>
+</if>
+<var name="${index}">7</var>
+<status status="PASS" start="2025-08-25T15:42:33.785172" elapsed="1.535423"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:36.960610" level="FAIL">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:42:35.320595" elapsed="1.640015">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</status>
+</kw>
+<msg time="2025-08-25T15:42:36.960610" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:42:36.960610" level="INFO">${cellValue} = The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:42:35.320595" elapsed="1.640015"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:42:36.960610" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:42:36.960610" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:36.960610" elapsed="0.000000"/>
+</if>
+<var name="${index}">8</var>
+<status status="PASS" start="2025-08-25T15:42:35.320595" elapsed="1.640015"/>
 </iter>
 <var>${index}</var>
 <value>1</value>
 <value>${rowCount}</value>
-<status status="NOT RUN" start="2025-08-22T16:54:33.357917" elapsed="0.001515"/>
+<status status="PASS" start="2025-08-25T15:42:33.186858" elapsed="3.773752"/>
 </for>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:41.260175" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-25T15:42:36.960610" elapsed="4.299565"/>
+</kw>
 <doc>Configura as informações fiscais na aba FI</doc>
-<status status="FAIL" start="2025-08-22T16:54:33.341350" elapsed="0.018082">NotFound: The tab 'Imp.ret.font' could not be found. Hint: Check the spelling</status>
+<status status="PASS" start="2025-08-25T15:42:28.980233" elapsed="12.279942"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<arg>Invoice Receipt MIRO criado com sucesso!</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-08-22T16:54:33.360443" elapsed="0.000000"/>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:41.260175" level="FAIL">NotFound: The key combination 'CTRL+S' is not supported. See the keyword documentation for valid key combinations.</msg>
+<arg>CTRL+S</arg>
+<doc>Press the given key combination.</doc>
+<status status="FAIL" start="2025-08-25T15:42:41.260175" elapsed="0.003100">NotFound: The key combination 'CTRL+S' is not supported. See the keyword documentation for valid key combinations.</status>
 </kw>
-<doc>Executa o processo completo de criação de Invoice Receipt na transação MIRO
+<status status="FAIL" start="2025-08-25T15:41:47.613568" elapsed="53.649707">NotFound: The key combination 'CTRL+S' is not supported. See the keyword documentation for valid key combinations.</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Read Statusbar" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:41.280492" level="INFO">The statusbar was read.</msg>
+<msg time="2025-08-25T15:42:41.280492" level="INFO">${statusbar} = {'status': 'Empty', 'message': ''}</msg>
+<var>${statusbar}</var>
+<doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
+<status status="PASS" start="2025-08-25T15:42:41.263275" elapsed="0.017217"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-25T15:42:41.280492" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:42:41.263275" elapsed="0.017217"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:41:47.613568" elapsed="53.666924"/>
+</try>
+<var name="${row}">{'Pedido Origem': 4503273185, 'Preço': 6, 'TIP DE PEDIDO': 'ZD', 'FORNECEDOR': 10001859, 'COND.PAG': 'Z000', 'INCOTERM': 'Z13', 'ORG. COMPRAS': 5821, 'GP. COMPRADOR': 951, 'EMPRESA': 2000, 'MATERIAL':...</var>
+<status status="PASS" start="2025-08-25T15:41:47.613568" elapsed="53.666924"/>
+</iter>
+<iter>
+<try>
+<branch type="TRY">
+<kw name="Configure Initial Data">
+<kw name="Get Window Title" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:41.280492" level="INFO">The title of the window was obtained.</msg>
+<msg time="2025-08-25T15:42:41.280492" level="INFO">${window_title} = Inserir fatura recebida: empresa 2000</msg>
+<var>${window_title}</var>
+<doc>Get the title of the currently active window.</doc>
+<status status="PASS" start="2025-08-25T15:42:41.280492" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${window_title}' == 'Entrar empresa'">
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<arg>Empresa</arg>
+<arg>${COMPANY_CODE}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:42:41.280492" elapsed="0.000000"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="NOT RUN" start="2025-08-25T15:42:41.280492" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:42:41.280492" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:41.280492" elapsed="0.000000"/>
+</if>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:41.303275" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
+<arg>Nº do documento de compras</arg>
+<arg>${numPedido}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:41.280492" elapsed="0.022783"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:42.965512" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-25T15:42:41.303275" elapsed="1.662237"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-08-25T15:42:42.965512" level="INFO">${curDate} = 25.08.2025</msg>
+<var>${curDate}</var>
+<arg>result_format=%d.%m.%Y</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-08-25T15:42:42.965512" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:43.080296" level="FAIL">NotFound: The text field with the locator 'Data no documento' could not be found. Hint: Check the spelling</msg>
+<arg>Data no documento</arg>
+<arg>${curDate}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="FAIL" start="2025-08-25T15:42:42.965512" elapsed="0.114784">NotFound: The text field with the locator 'Data no documento' could not be found. Hint: Check the spelling</status>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:44.550486" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-25T15:42:43.080296" elapsed="1.470190"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2025-08-25T15:42:44.550486" level="INFO">${referencia} = 949074</msg>
+<var>${referencia}</var>
+<arg>6</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-08-25T15:42:44.550486" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:47.335150" level="FAIL">NotFound: The text field with the locator 'Referência' could not be found. Hint: Check the spelling</msg>
+<arg>Referência</arg>
+<arg>${referencia}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="FAIL" start="2025-08-25T15:42:44.550486" elapsed="2.784664">NotFound: The text field with the locator 'Referência' could not be found. Hint: Check the spelling</status>
+</kw>
+<arg>${row['NV PEDIDO']}</arg>
+<doc>Configura os dados iniciais na aba inicial da MIRO</doc>
+<status status="FAIL" start="2025-08-25T15:42:41.280492" elapsed="6.054658">Several failures occurred:
 
-Passos executados:
-1. Conectar ao SAP
-2. Navegar para transação MIRO
-3. Preencher código da empresa
-4. Preencher dados do pedido de compra
-5. Configurar informações de pagamento
-6. Configurar informações fiscais
-7. Preencher valor da fatura
-8. Limpar campos de retenção de impostos
-9. Salvar o documento</doc>
-<tag>Automated</tag>
+1) NotFound: The text field with the locator 'Data no documento' could not be found. Hint: Check the spelling
+
+2) NotFound: The text field with the locator 'Referência' could not be found. Hint: Check the spelling</status>
+</kw>
+<kw name="Configure Payment Information">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:51.380694" level="INFO">The tab 'Pagamento' was selected.</msg>
+<arg>Pagamento</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:47.335150" elapsed="4.045544"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:51.390350" level="INFO">The text field with the locator 'Tipo de banco do parceiro' was filled.</msg>
+<arg>Tipo de banco do parceiro</arg>
+<arg>${PAYMENT_METHOD}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:51.380694" elapsed="0.009656"/>
+</kw>
+<kw name="Select Dropdown Menu Entry" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:54.140021" level="INFO">In the dropdown menu 'Bloq.pgto.' the entry 'A' was selected.</msg>
+<arg>Bloq.pgto.</arg>
+<arg>${PAYMENT_BLOCK}</arg>
+<doc>Select the specified entry from the given dropdown menu.</doc>
+<status status="PASS" start="2025-08-25T15:42:51.390350" elapsed="2.749671"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:42:58.450478" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-25T15:42:54.140021" elapsed="4.310457"/>
+</kw>
+<doc>Configura as informações de pagamento na aba Payment</doc>
+<status status="PASS" start="2025-08-25T15:42:47.335150" elapsed="11.115328"/>
+</kw>
+<kw name="Configure Details">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:02.492039" level="INFO">The tab 'Detalhe' was selected.</msg>
+<arg>Detalhe</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-25T15:42:58.450478" elapsed="4.041561"/>
+</kw>
+<kw name="Select Dropdown Menu Entry" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:05.434541" level="INFO">In the dropdown menu 'Tp.doc.' the entry 'RE' was selected.</msg>
+<arg>Tp.doc.</arg>
+<arg>${DOCUMENT_TYPE}</arg>
+<doc>Select the specified entry from the given dropdown menu.</doc>
+<status status="PASS" start="2025-08-25T15:43:02.492039" elapsed="2.942502"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:05.445610" level="INFO">The text field with the locator 'Ctg.NF' was filled.</msg>
+<arg>Ctg.NF</arg>
+<arg>${FISCAL_TYPE}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:43:05.434541" elapsed="0.011069"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:09.660633" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-25T15:43:05.445610" elapsed="4.215023"/>
+</kw>
+<doc>Configura os detalhes do pedido de compra na aba Detalhe</doc>
+<status status="PASS" start="2025-08-25T15:42:58.450478" elapsed="11.210155"/>
+</kw>
+<kw name="Configure Basic Data">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:14.420519" level="INFO">The tab 'DdsBásicos' was selected.</msg>
+<arg>DdsBásicos</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-25T15:43:09.660633" elapsed="4.759886"/>
+</kw>
+<kw name="Read Text Field" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:14.430562" level="INFO">The text field with the locator 'Saldo do documento' was read.</msg>
+<msg time="2025-08-25T15:43:14.435106" level="INFO">${saldoDocumento} = 0,00 </msg>
+<var>${saldoDocumento}</var>
+<arg>Saldo do documento</arg>
+<doc>Read the contents of the text field specified by the locator.</doc>
+<status status="PASS" start="2025-08-25T15:43:14.420519" elapsed="0.014587"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-08-25T15:43:14.435106" level="INFO">${saldo} = 0,00 </msg>
+<var>${saldo}</var>
+<arg>${saldoDocumento}</arg>
+<arg>mode=RIGHT</arg>
+<arg>characters=-</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-08-25T15:43:14.435106" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:14.440195" level="INFO">The text field with the locator 'Montante em moeda do documento' was filled.</msg>
+<arg>Montante em moeda do documento</arg>
+<arg>${saldo}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:43:14.435106" elapsed="0.005089"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:19.140379" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-25T15:43:14.440195" elapsed="4.700184"/>
+</kw>
+<doc>Configura os dados básicos na aba Basic Data</doc>
+<status status="PASS" start="2025-08-25T15:43:09.660633" elapsed="9.479746"/>
+</kw>
+<kw name="Configure Fiscal Information">
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.061308" level="INFO">The tab 'Imp.ret.fonte' was selected.</msg>
+<arg>Imp.ret.fonte</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-25T15:43:19.140379" elapsed="3.920929"/>
+</kw>
+<kw name="Get Row Count" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.070185" level="INFO">Counted the number of rows in the table.</msg>
+<msg time="2025-08-25T15:43:23.070185" level="INFO">${rowCount} = 9</msg>
+<var>${rowCount}</var>
+<doc>Count the rows in a table.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.061308" elapsed="0.008877"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.100380" level="FAIL">NotFound: The cell with the locator '1, Código IRF' could not be found. Hints: Check the spelling, maximize the SAP window</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:43:23.070185" elapsed="0.030195">NotFound: The cell with the locator '1, Código IRF' could not be found. Hints: Check the spelling, maximize the SAP window</status>
+</kw>
+<msg time="2025-08-25T15:43:23.100380" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:43:23.100380" level="INFO">${cellValue} = NotFound: The cell with the locator '1, Código IRF' could not be found. Hints: Check the spelling, maximize the SAP window</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.070185" elapsed="0.030195"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:43:23.100380" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:43:23.100380" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:43:23.100380" elapsed="0.000000"/>
+</if>
+<var name="${index}">1</var>
+<status status="PASS" start="2025-08-25T15:43:23.070185" elapsed="0.030195"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.124906" level="FAIL">NotFound: The cell with the locator '2, Código IRF' could not be found. Hints: Check the spelling, maximize the SAP window</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:43:23.100380" elapsed="0.024526">NotFound: The cell with the locator '2, Código IRF' could not be found. Hints: Check the spelling, maximize the SAP window</status>
+</kw>
+<msg time="2025-08-25T15:43:23.124906" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:43:23.124906" level="INFO">${cellValue} = NotFound: The cell with the locator '2, Código IRF' could not be found. Hints: Check the spelling, maximize the SAP window</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.100380" elapsed="0.024526"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:43:23.124906" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:43:23.124906" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:43:23.124906" elapsed="0.000000"/>
+</if>
+<var name="${index}">2</var>
+<status status="PASS" start="2025-08-25T15:43:23.100380" elapsed="0.024526"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.160560" level="INFO">The cell with the locator '3, Código IRF' was read.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.124906" elapsed="0.035654"/>
+</kw>
+<msg time="2025-08-25T15:43:23.160560" level="INFO">${status} = PASS</msg>
+<msg time="2025-08-25T15:43:23.160560" level="INFO">${cellValue} = SG</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.124906" elapsed="0.035654"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.219962" level="INFO">The cell with the locator '3, Código IRF' was filled.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.160560" elapsed="0.059402"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:43:23.160560" elapsed="0.059402"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:43:23.160560" elapsed="0.059402"/>
+</if>
+<var name="${index}">3</var>
+<status status="PASS" start="2025-08-25T15:43:23.124906" elapsed="0.095056"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.260492" level="INFO">The cell with the locator '4, Código IRF' was read.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.220603" elapsed="0.039889"/>
+</kw>
+<msg time="2025-08-25T15:43:23.260492" level="INFO">${status} = PASS</msg>
+<msg time="2025-08-25T15:43:23.260492" level="INFO">${cellValue} = SG</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.220506" elapsed="0.039986"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.310596" level="INFO">The cell with the locator '4, Código IRF' was filled.</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.260492" elapsed="0.050104"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:43:23.260492" elapsed="0.050104"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:43:23.260492" elapsed="0.050104"/>
+</if>
+<var name="${index}">4</var>
+<status status="PASS" start="2025-08-25T15:43:23.219962" elapsed="0.090634"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.340554" level="FAIL">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:43:23.310596" elapsed="0.029958">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</status>
+</kw>
+<msg time="2025-08-25T15:43:23.340554" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:43:23.340554" level="INFO">${cellValue} = The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.310596" elapsed="0.029958"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:43:23.340554" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:43:23.340554" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:43:23.340554" elapsed="0.000000"/>
+</if>
+<var name="${index}">5</var>
+<status status="PASS" start="2025-08-25T15:43:23.310596" elapsed="0.029958"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.370633" level="FAIL">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:43:23.340554" elapsed="0.030079">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</status>
+</kw>
+<msg time="2025-08-25T15:43:23.370633" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:43:23.370633" level="INFO">${cellValue} = The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.340554" elapsed="0.030079"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:43:23.370633" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:43:23.370633" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:43:23.370633" elapsed="0.000000"/>
+</if>
+<var name="${index}">6</var>
+<status status="PASS" start="2025-08-25T15:43:23.340554" elapsed="0.030079"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.400554" level="FAIL">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:43:23.370633" elapsed="0.029921">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</status>
+</kw>
+<msg time="2025-08-25T15:43:23.400554" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:43:23.400554" level="INFO">${cellValue} = The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.370633" elapsed="0.029921"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:43:23.400554" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:43:23.400554" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:43:23.400554" elapsed="0.000000"/>
+</if>
+<var name="${index}">7</var>
+<status status="PASS" start="2025-08-25T15:43:23.370633" elapsed="0.029921"/>
+</iter>
+<iter>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Read Cell" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:23.426185" level="FAIL">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
+<status status="FAIL" start="2025-08-25T15:43:23.400554" elapsed="0.025631">The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</status>
+</kw>
+<msg time="2025-08-25T15:43:23.426185" level="INFO">${status} = FAIL</msg>
+<msg time="2025-08-25T15:43:23.426185" level="INFO">${cellValue} = The cell could not be read. Exception has been thrown by the target of an invocation.
+For more details run 'robot --loglevel DEBUG test.robot' and consult the file log.html</msg>
+<var>${status}</var>
+<var>${cellValue}</var>
+<arg>Read Cell</arg>
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.400554" elapsed="0.025631"/>
+</kw>
+<if>
+<branch type="IF" condition="$status == 'PASS' and $cellValue != '${EMPTY}'">
+<kw name="Fill Cell" owner="RoboSAPiens">
+<arg>${index}</arg>
+<arg>Código IRF</arg>
+<arg>content=${EMPTY}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="NOT RUN" start="2025-08-25T15:43:23.430326" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-25T15:43:23.426185" elapsed="0.004141"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:43:23.426185" elapsed="0.004141"/>
+</if>
+<var name="${index}">8</var>
+<status status="PASS" start="2025-08-25T15:43:23.400554" elapsed="0.029772"/>
+</iter>
+<var>${index}</var>
+<value>1</value>
+<value>${rowCount}</value>
+<status status="PASS" start="2025-08-25T15:43:23.070185" elapsed="0.360141"/>
+</for>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:27.380566" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-25T15:43:23.430326" elapsed="3.950240"/>
+</kw>
+<doc>Configura as informações fiscais na aba FI</doc>
+<status status="PASS" start="2025-08-25T15:43:19.140379" elapsed="8.240187"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:27.380566" level="FAIL">NotFound: The key combination 'CTRL+S' is not supported. See the keyword documentation for valid key combinations.</msg>
+<arg>CTRL+S</arg>
+<doc>Press the given key combination.</doc>
+<status status="FAIL" start="2025-08-25T15:43:27.380566" elapsed="0.000000">NotFound: The key combination 'CTRL+S' is not supported. See the keyword documentation for valid key combinations.</status>
+</kw>
+<status status="FAIL" start="2025-08-25T15:42:41.280492" elapsed="46.100074">Several failures occurred:
+
+1) NotFound: The text field with the locator 'Data no documento' could not be found. Hint: Check the spelling
+
+2) NotFound: The text field with the locator 'Referência' could not be found. Hint: Check the spelling
+
+3) NotFound: The key combination 'CTRL+S' is not supported. See the keyword documentation for valid key combinations.</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Read Statusbar" owner="RoboSAPiens">
+<msg time="2025-08-25T15:43:27.391293" level="INFO">The statusbar was read.</msg>
+<msg time="2025-08-25T15:43:27.391293" level="INFO">${statusbar} = {'status': 'Empty', 'message': ''}</msg>
+<var>${statusbar}</var>
+<doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
+<status status="PASS" start="2025-08-25T15:43:27.380566" elapsed="0.010727"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-08-25T15:43:27.391293" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-08-25T15:43:27.380566" elapsed="0.010727"/>
+</branch>
+<status status="PASS" start="2025-08-25T15:42:41.280492" elapsed="46.119785"/>
+</try>
+<var name="${row}">{'Pedido Origem': 4503274856, 'Preço': 7, 'TIP DE PEDIDO': 'ZD', 'FORNECEDOR': 10068989, 'COND.PAG': 'Z000', 'INCOTERM': 'Z10', 'ORG. COMPRAS': 5821, 'GP. COMPRADOR': 918, 'EMPRESA': 2000, 'MATERIAL':...</var>
+<status status="PASS" start="2025-08-25T15:42:41.280492" elapsed="46.119785"/>
+</iter>
+<var>${row}</var>
+<value>@{testData}</value>
+<status status="PASS" start="2025-08-25T15:41:47.613568" elapsed="99.786709"/>
+</for>
+<doc>Executa o processo completo de criação de Invoice Receipt na transação MIRO</doc>
+<tag>Fatura</tag>
 <tag>Invoice</tag>
 <tag>MIRO</tag>
+<tag>Pedido</tag>
 <tag>Receipt</tag>
+<tag>robot:recursive-continue-on-failure</tag>
 <tag>SAP</tag>
-<status status="FAIL" start="2025-08-22T16:53:09.132809" elapsed="84.227634">NotFound: The tab 'Imp.ret.font' could not be found. Hint: Check the spelling</status>
+<status status="PASS" start="2025-08-25T15:41:41.760490" elapsed="105.639787"/>
 </test>
 <doc>Caso de teste para transação MIRO - Invoice Receipt
 Convertido de script VBS para Robot Framework usando RoboSAPiens
@@ -242,21 +1147,22 @@ Convertido de script VBS para Robot Framework usando RoboSAPiens
 Este teste automatiza a criação de um recibo de fatura (Invoice Receipt)
 na transação MIRO do SAP, reproduzindo exatamente o comportamento do
 script VBS original.</doc>
-<status status="FAIL" start="2025-08-22T16:53:08.964959" elapsed="84.397496"/>
+<status status="PASS" start="2025-08-25T15:41:40.820453" elapsed="106.579824"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">Automated</stat>
-<stat pass="0" fail="1" skip="0">Invoice</stat>
-<stat pass="0" fail="1" skip="0">MIRO</stat>
-<stat pass="0" fail="1" skip="0">Receipt</stat>
-<stat pass="0" fail="1" skip="0">SAP</stat>
+<stat pass="1" fail="0" skip="0">Fatura</stat>
+<stat pass="1" fail="0" skip="0">Invoice</stat>
+<stat pass="1" fail="0" skip="0">MIRO</stat>
+<stat pass="1" fail="0" skip="0">Pedido</stat>
+<stat pass="1" fail="0" skip="0">Receipt</stat>
+<stat pass="1" fail="0" skip="0">SAP</stat>
 </tag>
 <suite>
-<stat name="MIRO" id="s1" pass="0" fail="1" skip="0">MIRO</stat>
+<stat name="MIRO" id="s1" pass="1" fail="0" skip="0">MIRO</stat>
 </suite>
 </statistics>
 <errors>
