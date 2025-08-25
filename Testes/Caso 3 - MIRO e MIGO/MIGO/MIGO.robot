@@ -18,6 +18,7 @@ Executar MIGO
     Prepare SAP
     
     Abrir Planilha de Dados de Teste    Dados apresentação 22-08.xlsx
+    
     ${testData}=    Read Worksheet As Table    header=True
     FOR    ${index}    ${row}    IN ENUMERATE    @{testData}
         TRY
@@ -27,7 +28,7 @@ Executar MIGO
             Configure Item Details
             Set Delivery Note
             Save Transaction
-            Save MIGO return to Excel    ${index}
+            Save MIGO return to Excel    ${{${index}+2}}
         EXCEPT
             ${statusbar}   Read Statusbar
             Log To Console    Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}
@@ -92,9 +93,8 @@ Save Transaction
 Save MIGO return to Excel
     [Documentation]    Salva o retorno da transação MIGO no Excel.
     [Arguments]    ${index}
-    Log    ${index}
     ${statusbar}   Read Statusbar
     ${msgStatusBar} =    Set Variable    ${statusbar['message']}
-    ${docMaterial} =    Evaluate    re.search(r'\\d{10}', $msgStatusBar)    modules=re
-    Set Cell Value    ${index}    MIGO    ${docMaterial}
+    ${docMaterial} =    Evaluate    re.search(r'\\d{10}', $msgStatusBar).group(0)    modules=re
+    Set Cell Value    ${index}    18    ${docMaterial}
     Save Workbook

@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-25T17:33:56.348643" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-25T18:18:27.873005" rpa="false" schemaversion="5">
 <suite id="s1" name="MIGO" source="C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Testes\Caso 3 - MIRO e MIGO\MIGO\MIGO.robot">
 <test id="s1-t1" name="Executar MIGO" line="14">
 <kw name="Prepare SAP">
 <kw name="Connect to Running SAP" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:00.921839" level="INFO">Connected to a running SAP instance.</msg>
+<msg time="2025-08-25T18:18:31.858530" level="INFO">Connected to a running SAP instance.</msg>
 <doc>Connect to an already running SAP instance and take control of it.</doc>
-<status status="PASS" start="2025-08-25T17:33:57.213840" elapsed="3.707999"/>
+<status status="PASS" start="2025-08-25T18:18:29.113559" elapsed="2.744971"/>
 </kw>
 <kw name="Maximize window" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:00.924358" level="INFO">The window in the foreground was maximized.</msg>
+<msg time="2025-08-25T18:18:31.858530" level="INFO">The window in the foreground was maximized.</msg>
 <doc>Maximize the window in the foreground.</doc>
-<status status="PASS" start="2025-08-25T17:34:00.922351" elapsed="0.002007"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="0.000000"/>
 </kw>
 <doc>Conecta ao SAP</doc>
-<status status="PASS" start="2025-08-25T17:33:57.213840" elapsed="3.710518"/>
+<status status="PASS" start="2025-08-25T18:18:29.113559" elapsed="2.744971"/>
 </kw>
 <kw name="Abrir Planilha de Dados de Teste">
 <kw name="Join Path" owner="OperatingSystem">
-<msg time="2025-08-25T17:34:00.925358" level="INFO">${caminho_planilha} = C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx</msg>
+<msg time="2025-08-25T18:18:31.858530" level="INFO">${caminho_planilha} = C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx</msg>
 <var>${caminho_planilha}</var>
 <arg>C:\\Users\\ETH6\\OneDrive - VIBRA\\Documentos\\GitHub\\testeS4\\Testes\\Caso 3 - MIRO e MIGO\\MIGO</arg>
 <arg>../../..</arg>
 <arg>Dados</arg>
 <arg>${nomePlanilha}</arg>
 <doc>Joins the given path part(s) to the given base path.</doc>
-<status status="PASS" start="2025-08-25T17:34:00.925358" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="0.000000"/>
 </kw>
 <kw name="Open Workbook" owner="RPA.Excel.Files">
-<msg time="2025-08-25T17:34:00.961543" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000002059A0C9490&gt;</msg>
+<msg time="2025-08-25T18:18:31.858530" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x00000265BA73CE30&gt;</msg>
 <arg>${caminho_planilha}</arg>
 <doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2025-08-25T17:34:00.925358" elapsed="0.036185"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="0.000000"/>
 </kw>
 <arg>Dados apresentação 22-08.xlsx</arg>
 <doc>Abre o arquivo Excel com os dados para a execução dos casos de teste.</doc>
-<status status="PASS" start="2025-08-25T17:34:00.925358" elapsed="0.036185"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="0.000000"/>
 </kw>
 <kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2025-08-25T17:34:00.962543" level="INFO">Created table: Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', 'Data de Remessa', 'NV CONTRATO', 'NV PEDIDO', 'MIGO', 'MIRO'], rows=2)</msg>
-<msg time="2025-08-25T17:34:00.962543" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
+<msg time="2025-08-25T18:18:31.858530" level="INFO">Created table: Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', 'Data de Remessa', 'NV CONTRATO', 'NV PEDIDO', 'MIGO', 'MIRO'], rows=2)</msg>
+<msg time="2025-08-25T18:18:31.858530" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
 <var>${testData}</var>
 <arg>header=True</arg>
 <doc>Read the contents of a worksheet into a Table container. Allows
 sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2025-08-25T17:34:00.961543" elapsed="0.001000"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="0.000000"/>
 </kw>
 <for flavor="IN ENUMERATE">
 <iter>
@@ -53,243 +53,234 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>\nProcessando pedido: ${row['NV PEDIDO']}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-25T17:34:00.963543" elapsed="0.000999"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="0.015628"/>
 </kw>
 <kw name="Execute Transaction" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:04.243601" level="INFO">The transaction with T-Code /nmigo was executed.</msg>
+<msg time="2025-08-25T18:18:35.425857" level="INFO">The transaction with T-Code /nmigo was executed.</msg>
 <arg>/nmigo</arg>
 <doc>Execute the transaction with the given T-Code.</doc>
-<status status="PASS" start="2025-08-25T17:34:00.964542" elapsed="3.279059"/>
+<status status="PASS" start="2025-08-25T18:18:31.874158" elapsed="3.551699"/>
 </kw>
 <kw name="Fill Purchase Order Details">
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:06.818309" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
+<msg time="2025-08-25T18:18:37.684152" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
 <arg>Nº do documento de compras</arg>
 <arg>${docPedido}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:04.244634" elapsed="2.574677"/>
+<status status="PASS" start="2025-08-25T18:18:35.425857" elapsed="2.258295"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:19.289054" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T18:18:50.444765" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-25T17:34:06.819311" elapsed="12.469743"/>
+<status status="PASS" start="2025-08-25T18:18:37.684152" elapsed="12.760613"/>
 </kw>
 <arg>${row['NV PEDIDO']}</arg>
 <doc>Preenche o número do documento de compra.</doc>
-<status status="PASS" start="2025-08-25T17:34:04.243601" elapsed="15.045453"/>
+<status status="PASS" start="2025-08-25T18:18:35.425857" elapsed="15.018908"/>
 </kw>
 <kw name="Configure Item Details">
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:24.840631" level="INFO">The tab 'Od' was selected.</msg>
+<msg time="2025-08-25T18:18:55.226169" level="INFO">The tab 'Od' was selected.</msg>
 <arg>Od</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:19.290565" elapsed="5.550066"/>
+<status status="PASS" start="2025-08-25T18:18:50.444765" elapsed="4.781404"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:24.862135" level="INFO">The text field with the locator 'Depósito' was filled.</msg>
+<msg time="2025-08-25T18:18:55.241794" level="INFO">The text field with the locator 'Depósito' was filled.</msg>
 <arg>Depósito</arg>
 <arg>${STORAGE_LOCATION}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:24.842090" elapsed="0.020045"/>
+<status status="PASS" start="2025-08-25T18:18:55.226169" elapsed="0.015625"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:39.245466" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T18:19:09.915931" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-25T17:34:24.862135" elapsed="14.384325"/>
+<status status="PASS" start="2025-08-25T18:18:55.241794" elapsed="14.674137"/>
 </kw>
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:42.214749" level="INFO">The tab 'Quantidades adiciona' was selected.</msg>
+<msg time="2025-08-25T18:19:12.552109" level="INFO">The tab 'Quantidades adiciona' was selected.</msg>
 <arg>Quantidades adiciona</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:39.246460" elapsed="2.968289"/>
+<status status="PASS" start="2025-08-25T18:19:09.915931" elapsed="2.636178"/>
 </kw>
 <kw name="Read Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:43.017322" level="INFO">The cell with the locator 'Material temperature., Valor' was read.</msg>
-<msg time="2025-08-25T17:34:43.017322" level="INFO">${materialTemperature} = 0,0</msg>
+<msg time="2025-08-25T18:19:13.148416" level="INFO">The cell with the locator 'Material temperature., Valor' was read.</msg>
+<msg time="2025-08-25T18:19:13.148416" level="INFO">${materialTemperature} = 0,0</msg>
 <var>${materialTemperature}</var>
 <arg>Material temperature.</arg>
 <arg>Valor</arg>
 <doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:42.214749" elapsed="0.802573"/>
+<status status="PASS" start="2025-08-25T18:19:12.552109" elapsed="0.596307"/>
 </kw>
 <kw name="Read Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:43.050406" level="INFO">The cell with the locator 'Test temperature., Valor' was read.</msg>
-<msg time="2025-08-25T17:34:43.051412" level="INFO">${testTemperature} = 0,0</msg>
+<msg time="2025-08-25T18:19:13.195408" level="INFO">The cell with the locator 'Test temperature., Valor' was read.</msg>
+<msg time="2025-08-25T18:19:13.195408" level="INFO">${testTemperature} = 0,0</msg>
 <var>${testTemperature}</var>
 <arg>Test temperature.</arg>
 <arg>Valor</arg>
 <doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.017322" elapsed="0.034090"/>
+<status status="PASS" start="2025-08-25T18:19:13.148416" elapsed="0.046992"/>
 </kw>
 <kw name="Read Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:43.088695" level="INFO">The cell with the locator 'Test density., Valor' was read.</msg>
-<msg time="2025-08-25T17:34:43.088695" level="INFO">${testDensity} = 0,0000</msg>
+<msg time="2025-08-25T18:19:13.258338" level="INFO">The cell with the locator 'Test density., Valor' was read.</msg>
+<msg time="2025-08-25T18:19:13.258338" level="INFO">${testDensity} = 0,0000</msg>
 <var>${testDensity}</var>
 <arg>Test density.</arg>
 <arg>Valor</arg>
 <doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.051412" elapsed="0.037283"/>
+<status status="PASS" start="2025-08-25T18:19:13.195408" elapsed="0.062930"/>
 </kw>
 <if>
 <branch type="IF" condition="'${materialTemperature}' == '0,0'">
 <kw name="Fill Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:43.128046" level="INFO">The cell with the locator 'Material temperature., Valor' was filled.</msg>
+<msg time="2025-08-25T18:19:13.289623" level="INFO">The cell with the locator 'Material temperature., Valor' was filled.</msg>
 <arg>Material temperature.</arg>
 <arg>Valor</arg>
 <arg>${TEMP}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.088695" elapsed="0.039351"/>
+<status status="PASS" start="2025-08-25T18:19:13.258338" elapsed="0.031285"/>
 </kw>
-<status status="PASS" start="2025-08-25T17:34:43.088695" elapsed="0.039351"/>
+<status status="PASS" start="2025-08-25T18:19:13.258338" elapsed="0.031285"/>
 </branch>
-<status status="PASS" start="2025-08-25T17:34:43.088695" elapsed="0.040347"/>
+<status status="PASS" start="2025-08-25T18:19:13.258338" elapsed="0.031285"/>
 </if>
 <if>
 <branch type="IF" condition="'${testTemperature}' == '0,0'">
 <kw name="Fill Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:43.166879" level="INFO">The cell with the locator 'Test temperature., Valor' was filled.</msg>
+<msg time="2025-08-25T18:19:13.336892" level="INFO">The cell with the locator 'Test temperature., Valor' was filled.</msg>
 <arg>Test temperature.</arg>
 <arg>Valor</arg>
 <arg>${TEMP}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.129042" elapsed="0.038804"/>
+<status status="PASS" start="2025-08-25T18:19:13.289623" elapsed="0.047269"/>
 </kw>
-<status status="PASS" start="2025-08-25T17:34:43.129042" elapsed="0.038804"/>
+<status status="PASS" start="2025-08-25T18:19:13.289623" elapsed="0.047269"/>
 </branch>
-<status status="PASS" start="2025-08-25T17:34:43.129042" elapsed="0.038804"/>
+<status status="PASS" start="2025-08-25T18:19:13.289623" elapsed="0.047269"/>
 </if>
 <if>
 <branch type="IF" condition="'${testDensity}' == '0,0000'">
 <kw name="Fill Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:43.206921" level="INFO">The cell with the locator 'Test density., Valor' was filled.</msg>
+<msg time="2025-08-25T18:19:13.368153" level="INFO">The cell with the locator 'Test density., Valor' was filled.</msg>
 <arg>Test density.</arg>
 <arg>Valor</arg>
 <arg>${DENSIDADE}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.167846" elapsed="0.039075"/>
+<status status="PASS" start="2025-08-25T18:19:13.336892" elapsed="0.031261"/>
 </kw>
-<status status="PASS" start="2025-08-25T17:34:43.167846" elapsed="0.039075"/>
+<status status="PASS" start="2025-08-25T18:19:13.336892" elapsed="0.031261"/>
 </branch>
-<status status="PASS" start="2025-08-25T17:34:43.167846" elapsed="0.039075"/>
+<status status="PASS" start="2025-08-25T18:19:13.336892" elapsed="0.031261"/>
 </if>
 <kw name="Tick Checkbox" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:43.241597" level="INFO">The checkbox with the locator 'Item é transferido para o documento' was ticked.</msg>
+<msg time="2025-08-25T18:19:13.383777" level="INFO">The checkbox with the locator 'Item é transferido para o documento' was ticked.</msg>
 <arg>Item é transferido para o documento</arg>
 <doc>Tick the checkbox specified by the locator.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.206921" elapsed="0.034676"/>
+<status status="PASS" start="2025-08-25T18:19:13.368153" elapsed="0.015624"/>
 </kw>
 <doc>Configura a localização de armazenamento, temperaturas e densidade do material.</doc>
-<status status="PASS" start="2025-08-25T17:34:19.289054" elapsed="23.952543"/>
+<status status="PASS" start="2025-08-25T18:18:50.444765" elapsed="22.939012"/>
 </kw>
 <kw name="Set Delivery Note">
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:43.260668" level="INFO">The text field with the locator 'Nº nota de remessa externa' was filled.</msg>
+<msg time="2025-08-25T18:19:13.399401" level="INFO">The text field with the locator 'Nº nota de remessa externa' was filled.</msg>
 <arg>Nº nota de remessa externa</arg>
 <arg>${DELIVERY_NOTE}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.242591" elapsed="0.018077"/>
+<status status="PASS" start="2025-08-25T18:19:13.383777" elapsed="0.015624"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:47.935637" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T18:19:18.691797" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.260668" elapsed="4.674969"/>
+<status status="PASS" start="2025-08-25T18:19:13.399401" elapsed="5.292396"/>
 </kw>
 <doc>Preenche o número da nota de remessa.</doc>
-<status status="PASS" start="2025-08-25T17:34:43.241597" elapsed="4.694040"/>
+<status status="PASS" start="2025-08-25T18:19:13.383777" elapsed="5.308020"/>
 </kw>
 <kw name="Save Transaction">
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:51.379340" level="INFO">The key combination 'Ctrl+S' was pressed.</msg>
+<msg time="2025-08-25T18:19:22.436361" level="INFO">The key combination 'Ctrl+S' was pressed.</msg>
 <arg>Ctrl+S</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-25T17:34:47.936630" elapsed="3.442710"/>
+<status status="PASS" start="2025-08-25T18:19:18.691797" elapsed="3.744564"/>
 </kw>
 <kw name="Read Statusbar" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:53.694072" level="INFO">The statusbar was read.</msg>
-<msg time="2025-08-25T17:34:53.694072" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660850 registrado'}</msg>
+<msg time="2025-08-25T18:19:24.605812" level="INFO">The statusbar was read.</msg>
+<msg time="2025-08-25T18:19:24.605812" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660856 registrado'}</msg>
 <var>${statusbar}</var>
 <doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
-<status status="PASS" start="2025-08-25T17:34:51.380339" elapsed="2.313733"/>
+<status status="PASS" start="2025-08-25T18:19:22.436361" elapsed="2.169451"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-08-25T17:34:53.694072" level="INFO">MIGO Executada com sucesso. Documento de material: {'status': 'Success', 'message': 'Doc.material 5014660850 registrado'}</msg>
+<msg time="2025-08-25T18:19:24.605812" level="INFO">MIGO Executada com sucesso. Documento de material: {'status': 'Success', 'message': 'Doc.material 5014660856 registrado'}</msg>
 <arg>MIGO Executada com sucesso. Documento de material: ${statusbar}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.694072" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:19:24.605812" elapsed="0.000000"/>
 </kw>
 <doc>Salva a transação MIGO.</doc>
-<status status="PASS" start="2025-08-25T17:34:47.935637" elapsed="5.759435"/>
+<status status="PASS" start="2025-08-25T18:19:18.691797" elapsed="5.914015"/>
 </kw>
 <kw name="Save MIGO return to Excel">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-08-25T17:34:53.695072" level="INFO">0</msg>
-<arg>${index}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.695072" elapsed="0.000000"/>
-</kw>
 <kw name="Read Statusbar" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:53.704633" level="INFO">The statusbar was read.</msg>
-<msg time="2025-08-25T17:34:53.705630" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660850 registrado'}</msg>
+<msg time="2025-08-25T18:19:24.605812" level="INFO">The statusbar was read.</msg>
+<msg time="2025-08-25T18:19:24.605812" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660856 registrado'}</msg>
 <var>${statusbar}</var>
 <doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.695072" elapsed="0.010558"/>
+<status status="PASS" start="2025-08-25T18:19:24.605812" elapsed="0.000000"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-25T17:34:53.705630" level="INFO">${msgStatusBar} = Doc.material 5014660850 registrado</msg>
+<msg time="2025-08-25T18:19:24.605812" level="INFO">${msgStatusBar} = Doc.material 5014660856 registrado</msg>
 <var>${msgStatusBar}</var>
 <arg>${statusbar['message']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.705630" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:19:24.605812" elapsed="0.000000"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-25T17:34:53.706630" level="INFO">${docMaterial} = &lt;re.Match object; span=(13, 23), match='5014660850'&gt;</msg>
+<msg time="2025-08-25T18:19:24.605812" level="INFO">${docMaterial} = 5014660856</msg>
 <var>${docMaterial}</var>
-<arg>re.search(r'\\d{10}', $msgStatusBar)</arg>
+<arg>re.search(r'\\d{10}', $msgStatusBar).group(0)</arg>
 <arg>modules=re</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.705630" elapsed="0.001000"/>
+<status status="PASS" start="2025-08-25T18:19:24.605812" elapsed="0.000000"/>
 </kw>
 <kw name="Set Cell Value" owner="RPA.Excel.Files">
-<msg time="2025-08-25T17:34:53.706630" level="FAIL">ValueError: MIGO0 is not a valid coordinate or range</msg>
 <arg>${index}</arg>
-<arg>MIGO</arg>
+<arg>18</arg>
 <arg>${docMaterial}</arg>
 <doc>Set a cell value in the given worksheet.</doc>
-<status status="FAIL" start="2025-08-25T17:34:53.706630" elapsed="0.005121">ValueError: MIGO0 is not a valid coordinate or range</status>
+<status status="PASS" start="2025-08-25T18:19:24.605812" elapsed="0.000000"/>
 </kw>
 <kw name="Save Workbook" owner="RPA.Excel.Files">
 <doc>Save the active workbook.</doc>
-<status status="NOT RUN" start="2025-08-25T17:34:53.711751" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:19:24.605812" elapsed="0.062635"/>
 </kw>
-<arg>${index}</arg>
+<arg>${{${index}+2}}</arg>
 <doc>Salva o retorno da transação MIGO no Excel.</doc>
-<status status="FAIL" start="2025-08-25T17:34:53.695072" elapsed="0.016679">ValueError: MIGO0 is not a valid coordinate or range</status>
+<status status="PASS" start="2025-08-25T18:19:24.605812" elapsed="0.062635"/>
 </kw>
-<status status="FAIL" start="2025-08-25T17:34:00.963543" elapsed="52.748208">ValueError: MIGO0 is not a valid coordinate or range</status>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="52.809917"/>
 </branch>
 <branch type="EXCEPT">
 <kw name="Read Statusbar" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:53.721263" level="INFO">The statusbar was read.</msg>
-<msg time="2025-08-25T17:34:53.721263" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660850 registrado'}</msg>
 <var>${statusbar}</var>
 <doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.711751" elapsed="0.009512"/>
+<status status="NOT RUN" start="2025-08-25T18:19:24.668447" elapsed="0.000000"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.721263" elapsed="0.001002"/>
+<status status="NOT RUN" start="2025-08-25T18:19:24.668447" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-08-25T17:34:53.711751" elapsed="0.010514"/>
+<status status="NOT RUN" start="2025-08-25T18:19:24.668447" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-08-25T17:34:00.963543" elapsed="52.758722"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="52.809917"/>
 </try>
 <var name="${index}">0</var>
 <var name="${row}">{'Pedido Origem': 4503273185, 'Preço': 6, 'TIP DE PEDIDO': 'ZD', 'FORNECEDOR': 10001859, 'COND.PAG': 'Z000', 'INCOTERM': 'Z13', 'ORG. COMPRAS': 5821, 'GP. COMPRADOR': 951, 'EMPRESA': 2000, 'MATERIAL':...</var>
-<status status="PASS" start="2025-08-25T17:34:00.963543" elapsed="52.758722"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="52.809917"/>
 </iter>
 <iter>
 <try>
@@ -297,84 +288,84 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>\nProcessando pedido: ${row['NV PEDIDO']}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.723300" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:19:24.668447" elapsed="0.000000"/>
 </kw>
 <kw name="Execute Transaction" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:56.852745" level="INFO">The transaction with T-Code /nmigo was executed.</msg>
+<msg time="2025-08-25T18:19:27.982145" level="INFO">The transaction with T-Code /nmigo was executed.</msg>
 <arg>/nmigo</arg>
 <doc>Execute the transaction with the given T-Code.</doc>
-<status status="PASS" start="2025-08-25T17:34:53.723300" elapsed="3.129445"/>
+<status status="PASS" start="2025-08-25T18:19:24.668447" elapsed="3.313698"/>
 </kw>
 <kw name="Fill Purchase Order Details">
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-25T17:34:56.890629" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
+<msg time="2025-08-25T18:19:28.060659" level="INFO">The text field with the locator 'Nº do documento de compras' was filled.</msg>
 <arg>Nº do documento de compras</arg>
 <arg>${docPedido}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:34:56.853745" elapsed="0.036884"/>
+<status status="PASS" start="2025-08-25T18:19:27.982145" elapsed="0.078514"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:04.207392" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T18:19:35.751456" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-25T17:34:56.890629" elapsed="7.316763"/>
+<status status="PASS" start="2025-08-25T18:19:28.060659" elapsed="7.690797"/>
 </kw>
 <arg>${row['NV PEDIDO']}</arg>
 <doc>Preenche o número do documento de compra.</doc>
-<status status="PASS" start="2025-08-25T17:34:56.852745" elapsed="7.354647"/>
+<status status="PASS" start="2025-08-25T18:19:27.982145" elapsed="7.769311"/>
 </kw>
 <kw name="Configure Item Details">
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:09.380589" level="INFO">The tab 'Od' was selected.</msg>
+<msg time="2025-08-25T18:19:40.631869" level="INFO">The tab 'Od' was selected.</msg>
 <arg>Od</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-25T17:35:04.208394" elapsed="5.172195"/>
+<status status="PASS" start="2025-08-25T18:19:35.751456" elapsed="4.880413"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:09.395402" level="INFO">The text field with the locator 'Depósito' was filled.</msg>
+<msg time="2025-08-25T18:19:40.631869" level="INFO">The text field with the locator 'Depósito' was filled.</msg>
 <arg>Depósito</arg>
 <arg>${STORAGE_LOCATION}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:35:09.380589" elapsed="0.015811"/>
+<status status="PASS" start="2025-08-25T18:19:40.631869" elapsed="0.000000"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:23.531417" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T18:19:54.774814" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-25T17:35:09.396400" elapsed="14.135017"/>
+<status status="PASS" start="2025-08-25T18:19:40.631869" elapsed="14.142945"/>
 </kw>
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:26.372401" level="INFO">The tab 'Quantidades adiciona' was selected.</msg>
+<msg time="2025-08-25T18:19:57.458200" level="INFO">The tab 'Quantidades adiciona' was selected.</msg>
 <arg>Quantidades adiciona</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-25T17:35:23.532448" elapsed="2.839953"/>
+<status status="PASS" start="2025-08-25T18:19:54.774814" elapsed="2.683386"/>
 </kw>
 <kw name="Read Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:26.973378" level="INFO">The cell with the locator 'Material temperature., Valor' was read.</msg>
-<msg time="2025-08-25T17:35:26.973378" level="INFO">${materialTemperature} = 29,5</msg>
+<msg time="2025-08-25T18:19:58.044519" level="INFO">The cell with the locator 'Material temperature., Valor' was read.</msg>
+<msg time="2025-08-25T18:19:58.044519" level="INFO">${materialTemperature} = 29,5</msg>
 <var>${materialTemperature}</var>
 <arg>Material temperature.</arg>
 <arg>Valor</arg>
 <doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
-<status status="PASS" start="2025-08-25T17:35:26.372401" elapsed="0.600977"/>
+<status status="PASS" start="2025-08-25T18:19:57.458200" elapsed="0.586319"/>
 </kw>
 <kw name="Read Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:27.002921" level="INFO">The cell with the locator 'Test temperature., Valor' was read.</msg>
-<msg time="2025-08-25T17:35:27.002921" level="INFO">${testTemperature} = 20,0</msg>
+<msg time="2025-08-25T18:19:58.069736" level="INFO">The cell with the locator 'Test temperature., Valor' was read.</msg>
+<msg time="2025-08-25T18:19:58.069736" level="INFO">${testTemperature} = 20,0</msg>
 <var>${testTemperature}</var>
 <arg>Test temperature.</arg>
 <arg>Valor</arg>
 <doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
-<status status="PASS" start="2025-08-25T17:35:26.974378" elapsed="0.028543"/>
+<status status="PASS" start="2025-08-25T18:19:58.044519" elapsed="0.025217"/>
 </kw>
 <kw name="Read Cell" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:27.033532" level="INFO">The cell with the locator 'Test density., Valor' was read.</msg>
-<msg time="2025-08-25T17:35:27.033532" level="INFO">${testDensity} = 0,8792</msg>
+<msg time="2025-08-25T18:19:58.085324" level="INFO">The cell with the locator 'Test density., Valor' was read.</msg>
+<msg time="2025-08-25T18:19:58.085324" level="INFO">${testDensity} = 0,8792</msg>
 <var>${testDensity}</var>
 <arg>Test density.</arg>
 <arg>Valor</arg>
 <doc>Read the contents of the cell at the intersection of the row and column provided.</doc>
-<status status="PASS" start="2025-08-25T17:35:27.002921" elapsed="0.030611"/>
+<status status="PASS" start="2025-08-25T18:19:58.069736" elapsed="0.015588"/>
 </kw>
 <if>
 <branch type="IF" condition="'${materialTemperature}' == '0,0'">
@@ -383,11 +374,11 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <arg>Valor</arg>
 <arg>${TEMP}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="NOT RUN" start="2025-08-25T17:35:27.033532" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T18:19:58.100985" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-08-25T17:35:27.033532" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T18:19:58.085324" elapsed="0.015661"/>
 </branch>
-<status status="PASS" start="2025-08-25T17:35:27.033532" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:19:58.085324" elapsed="0.015661"/>
 </if>
 <if>
 <branch type="IF" condition="'${testTemperature}' == '0,0'">
@@ -396,11 +387,11 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <arg>Valor</arg>
 <arg>${TEMP}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="NOT RUN" start="2025-08-25T17:35:27.034535" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T18:19:58.100985" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-08-25T17:35:27.034535" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T18:19:58.100985" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-08-25T17:35:27.034535" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:19:58.100985" elapsed="0.000000"/>
 </if>
 <if>
 <branch type="IF" condition="'${testDensity}' == '0,0000'">
@@ -409,140 +400,131 @@ sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
 <arg>Valor</arg>
 <arg>${DENSIDADE}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="NOT RUN" start="2025-08-25T17:35:27.034535" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T18:19:58.100985" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-08-25T17:35:27.034535" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T18:19:58.100985" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-08-25T17:35:27.034535" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:19:58.100985" elapsed="0.000000"/>
 </if>
 <kw name="Tick Checkbox" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:27.048130" level="INFO">The checkbox with the locator 'Item é transferido para o documento' was ticked.</msg>
+<msg time="2025-08-25T18:19:58.100985" level="INFO">The checkbox with the locator 'Item é transferido para o documento' was ticked.</msg>
 <arg>Item é transferido para o documento</arg>
 <doc>Tick the checkbox specified by the locator.</doc>
-<status status="PASS" start="2025-08-25T17:35:27.034535" elapsed="0.013595"/>
+<status status="PASS" start="2025-08-25T18:19:58.100985" elapsed="0.000000"/>
 </kw>
 <doc>Configura a localização de armazenamento, temperaturas e densidade do material.</doc>
-<status status="PASS" start="2025-08-25T17:35:04.208394" elapsed="22.839736"/>
+<status status="PASS" start="2025-08-25T18:19:35.751456" elapsed="22.349529"/>
 </kw>
 <kw name="Set Delivery Note">
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:27.064690" level="INFO">The text field with the locator 'Nº nota de remessa externa' was filled.</msg>
+<msg time="2025-08-25T18:19:58.116574" level="INFO">The text field with the locator 'Nº nota de remessa externa' was filled.</msg>
 <arg>Nº nota de remessa externa</arg>
 <arg>${DELIVERY_NOTE}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-25T17:35:27.049126" elapsed="0.015564"/>
+<status status="PASS" start="2025-08-25T18:19:58.100985" elapsed="0.015589"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:31.872343" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-25T18:20:02.970351" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-25T17:35:27.064690" elapsed="4.807653"/>
+<status status="PASS" start="2025-08-25T18:19:58.116574" elapsed="4.853777"/>
 </kw>
 <doc>Preenche o número da nota de remessa.</doc>
-<status status="PASS" start="2025-08-25T17:35:27.048130" elapsed="4.824213"/>
+<status status="PASS" start="2025-08-25T18:19:58.100985" elapsed="4.869366"/>
 </kw>
 <kw name="Save Transaction">
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:35.138382" level="INFO">The key combination 'Ctrl+S' was pressed.</msg>
+<msg time="2025-08-25T18:20:06.539195" level="INFO">The key combination 'Ctrl+S' was pressed.</msg>
 <arg>Ctrl+S</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-25T17:35:31.872343" elapsed="3.266039"/>
+<status status="PASS" start="2025-08-25T18:20:02.970351" elapsed="3.568844"/>
 </kw>
 <kw name="Read Statusbar" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:37.576125" level="INFO">The statusbar was read.</msg>
-<msg time="2025-08-25T17:35:37.576125" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660851 registrado'}</msg>
+<msg time="2025-08-25T18:20:08.942882" level="INFO">The statusbar was read.</msg>
+<msg time="2025-08-25T18:20:08.942882" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660857 registrado'}</msg>
 <var>${statusbar}</var>
 <doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
-<status status="PASS" start="2025-08-25T17:35:35.139395" elapsed="2.436730"/>
+<status status="PASS" start="2025-08-25T18:20:06.539195" elapsed="2.403687"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-08-25T17:35:37.576125" level="INFO">MIGO Executada com sucesso. Documento de material: {'status': 'Success', 'message': 'Doc.material 5014660851 registrado'}</msg>
+<msg time="2025-08-25T18:20:08.942882" level="INFO">MIGO Executada com sucesso. Documento de material: {'status': 'Success', 'message': 'Doc.material 5014660857 registrado'}</msg>
 <arg>MIGO Executada com sucesso. Documento de material: ${statusbar}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-25T17:35:37.576125" elapsed="0.001002"/>
+<status status="PASS" start="2025-08-25T18:20:08.942882" elapsed="0.000000"/>
 </kw>
 <doc>Salva a transação MIGO.</doc>
-<status status="PASS" start="2025-08-25T17:35:31.872343" elapsed="5.704784"/>
+<status status="PASS" start="2025-08-25T18:20:02.970351" elapsed="5.972531"/>
 </kw>
 <kw name="Save MIGO return to Excel">
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-08-25T17:35:37.577127" level="INFO">1</msg>
-<arg>${index}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-08-25T17:35:37.577127" elapsed="0.000000"/>
-</kw>
 <kw name="Read Statusbar" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:37.589083" level="INFO">The statusbar was read.</msg>
-<msg time="2025-08-25T17:35:37.589083" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660851 registrado'}</msg>
+<msg time="2025-08-25T18:20:08.969938" level="INFO">The statusbar was read.</msg>
+<msg time="2025-08-25T18:20:08.971923" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660857 registrado'}</msg>
 <var>${statusbar}</var>
 <doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
-<status status="PASS" start="2025-08-25T17:35:37.577127" elapsed="0.011956"/>
+<status status="PASS" start="2025-08-25T18:20:08.942882" elapsed="0.029041"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-25T17:35:37.589083" level="INFO">${msgStatusBar} = Doc.material 5014660851 registrado</msg>
+<msg time="2025-08-25T18:20:08.972936" level="INFO">${msgStatusBar} = Doc.material 5014660857 registrado</msg>
 <var>${msgStatusBar}</var>
 <arg>${statusbar['message']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-25T17:35:37.589083" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:20:08.971923" elapsed="0.001013"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-08-25T17:35:37.590589" level="INFO">${docMaterial} = &lt;re.Match object; span=(13, 23), match='5014660851'&gt;</msg>
+<msg time="2025-08-25T18:20:08.973936" level="INFO">${docMaterial} = 5014660857</msg>
 <var>${docMaterial}</var>
-<arg>re.search(r'\\d{10}', $msgStatusBar)</arg>
+<arg>re.search(r'\\d{10}', $msgStatusBar).group(0)</arg>
 <arg>modules=re</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-08-25T17:35:37.589083" elapsed="0.001506"/>
+<status status="PASS" start="2025-08-25T18:20:08.973936" elapsed="0.000000"/>
 </kw>
 <kw name="Set Cell Value" owner="RPA.Excel.Files">
-<msg time="2025-08-25T17:35:37.590589" level="FAIL">ValueError: MIGO1 is not a valid coordinate or range</msg>
 <arg>${index}</arg>
-<arg>MIGO</arg>
+<arg>18</arg>
 <arg>${docMaterial}</arg>
 <doc>Set a cell value in the given worksheet.</doc>
-<status status="FAIL" start="2025-08-25T17:35:37.590589" elapsed="0.001009">ValueError: MIGO1 is not a valid coordinate or range</status>
+<status status="PASS" start="2025-08-25T18:20:08.974942" elapsed="0.000150"/>
 </kw>
 <kw name="Save Workbook" owner="RPA.Excel.Files">
 <doc>Save the active workbook.</doc>
-<status status="NOT RUN" start="2025-08-25T17:35:37.591598" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-25T18:20:08.975092" elapsed="0.016731"/>
 </kw>
-<arg>${index}</arg>
+<arg>${{${index}+2}}</arg>
 <doc>Salva o retorno da transação MIGO no Excel.</doc>
-<status status="FAIL" start="2025-08-25T17:35:37.577127" elapsed="0.014471">ValueError: MIGO1 is not a valid coordinate or range</status>
+<status status="PASS" start="2025-08-25T18:20:08.942882" elapsed="0.048941"/>
 </kw>
-<status status="FAIL" start="2025-08-25T17:34:53.723300" elapsed="43.868298">ValueError: MIGO1 is not a valid coordinate or range</status>
+<status status="PASS" start="2025-08-25T18:19:24.668447" elapsed="44.336857"/>
 </branch>
 <branch type="EXCEPT">
 <kw name="Read Statusbar" owner="RoboSAPiens">
-<msg time="2025-08-25T17:35:37.601713" level="INFO">The statusbar was read.</msg>
-<msg time="2025-08-25T17:35:37.601713" level="INFO">${statusbar} = {'status': 'Success', 'message': 'Doc.material 5014660851 registrado'}</msg>
 <var>${statusbar}</var>
 <doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
-<status status="PASS" start="2025-08-25T17:35:37.591598" elapsed="0.010115"/>
+<status status="NOT RUN" start="2025-08-25T18:20:09.005304" elapsed="0.000000"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-25T17:35:37.602708" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-25T18:20:09.005304" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-08-25T17:35:37.591598" elapsed="0.011110"/>
+<status status="NOT RUN" start="2025-08-25T18:20:09.005304" elapsed="0.000000"/>
 </branch>
-<status status="PASS" start="2025-08-25T17:34:53.723300" elapsed="43.879408"/>
+<status status="PASS" start="2025-08-25T18:19:24.668447" elapsed="44.336857"/>
 </try>
 <var name="${index}">1</var>
 <var name="${row}">{'Pedido Origem': 4503274856, 'Preço': 7, 'TIP DE PEDIDO': 'ZD', 'FORNECEDOR': 10068989, 'COND.PAG': 'Z000', 'INCOTERM': 'Z10', 'ORG. COMPRAS': 5821, 'GP. COMPRADOR': 918, 'EMPRESA': 2000, 'MATERIAL':...</var>
-<status status="PASS" start="2025-08-25T17:34:53.723300" elapsed="43.879408"/>
+<status status="PASS" start="2025-08-25T18:19:24.668447" elapsed="44.336857"/>
 </iter>
 <var>${index}</var>
 <var>${row}</var>
 <value>@{testData}</value>
-<status status="PASS" start="2025-08-25T17:34:00.962543" elapsed="96.640165"/>
+<status status="PASS" start="2025-08-25T18:18:31.858530" elapsed="97.147786"/>
 </for>
 <doc>Executa a transação MIGO para entrada de mercadorias no SAP</doc>
 <tag>migo</tag>
 <tag>sap</tag>
-<status status="PASS" start="2025-08-25T17:33:57.212838" elapsed="100.390869"/>
+<status status="PASS" start="2025-08-25T18:18:29.113559" elapsed="99.892757"/>
 </test>
-<status status="PASS" start="2025-08-25T17:33:56.354835" elapsed="101.248872"/>
+<status status="PASS" start="2025-08-25T18:18:27.873005" elapsed="101.134311"/>
 </suite>
 <statistics>
 <total>

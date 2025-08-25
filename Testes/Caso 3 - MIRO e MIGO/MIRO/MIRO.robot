@@ -26,25 +26,20 @@ Create Invoice Receipt MIRO
     
     Prepare SAP
     
-    Execute Transaction    /nmiro    
-    
     Abrir Planilha de Dados de Teste    Dados apresentação 22-08.xlsx
     
     ${testData} =    Read Worksheet As Table    header=True
-    FOR    ${row}    IN    @{testData}
+    FOR    ${index}    ${row}    IN ENUMERATE    @{testData}
         TRY
+            Execute Transaction    /nmiro
             Configure Initial Data    ${row['NV PEDIDO']}
-
             Configure Payment Information
-
             Configure Details
-
             Configure Basic Data
-
             Configure Fiscal Information
-            
             # Salvar o documento
             Press Key Combination    Ctrl+S
+            Save MIRO return to Excel    ${{${index}+2}}
         EXCEPT
             ${statusbar}   Read Statusbar
             Log To Console    Erro ao processar pedido: ${row['NV PEDIDO']} - Mensagem de erro: ${statusbar['message']}
@@ -131,3 +126,12 @@ Configure Fiscal Information
     END
 
     Press Key Combination    Enter
+
+Save MIRO return to Excel
+    [Documentation]    Salva o retorno da transação MIRO no Excel.
+    [Arguments]    ${index}
+    ${statusbar}   Read Statusbar
+    ${msgStatusBar} =    Set Variable    ${statusbar['message']}
+    ${docMaterial} =    Evaluate    re.search(r'\\d{10}', $msgStatusBar).group(0)    modules=re
+    Set Cell Value    ${index}    19    ${docMaterial}
+    Save Workbook
