@@ -18,7 +18,7 @@ Executar MIGO
     
     Prepare SAP
     
-    Abrir Planilha de Dados de Teste    Dados apresentação 22-08.xlsx
+    ${testData} =    Open Excel Worksheet    Dados apresentação 22-08.xlsx
     
     ${testData}=    Read Worksheet As Table    header=True
     FOR    ${index}    ${row}    IN ENUMERATE    @{testData}

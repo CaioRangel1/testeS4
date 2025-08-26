@@ -26,10 +26,9 @@ Create Invoice Receipt MIRO
     [Tags]             MIRO    Invoice    Receipt    SAP    Pedido    Fatura    robot:recursive-continue-on-failure
     
     Prepare SAP
-    
-    Abrir Planilha de Dados de Teste    Dados apresentação 22-08.xlsx
-    
-    ${testData} =    Read Worksheet As Table    header=True
+
+    ${testData} =    Open Excel Worksheet    Dados apresentação 22-08.xlsx
+
     FOR    ${index}    ${row}    IN ENUMERATE    @{testData}
         TRY
             Execute Transaction    /nmiro
