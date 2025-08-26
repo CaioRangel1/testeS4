@@ -17,7 +17,7 @@ Prepare SAP
 Open Excel Worksheet
     [Documentation]    Abre o arquivo Excel com os dados para a execução dos casos de teste.
     [Arguments]    ${nomePlanilha}
-    ${caminho_planilha} =    Join Path    ${CURDIR}    ../../..    Dados    ${nomePlanilha}
+    ${caminho_planilha} =    Join Path    ${CURDIR}   ..  Dados    ${nomePlanilha}
     Open Workbook    ${caminho_planilha}
     ${testData} =    Read Worksheet As Table    header=True
 

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.0 on win32)" generated="2025-08-26T11:33:58.480698" rpa="false" schemaversion="5">
+<suite id="s1" name="CRIAR PEDIDOS" source="C:\Users\P60P\OneDrive - VIBRA\Documentos\github\testeS4\Testes\Caso 4 - Fluxo Completo\Criar Pedidos\CRIAR_PEDIDOS.robot">
+<test id="s1-t1" name="Create Purchase Orders From Excel" line="25">
+<kw name="Open Excel Worksheet" owner="sap_common">
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-08-26T11:33:59.753986" level="INFO">${caminho_planilha} = C:\Users\P60P\OneDrive - VIBRA\Documentos\Dados\Dados apresentação 22-08.xlsx</msg>
+<var>${caminho_planilha}</var>
+<arg>C:\\Users\\P60P\\OneDrive - VIBRA\\Documentos\\github\\testeS4\\Resources</arg>
+<arg>../../..</arg>
+<arg>Dados</arg>
+<arg>${nomePlanilha}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-08-26T11:33:59.753986" elapsed="0.000000"/>
+</kw>
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2025-08-26T11:33:59.753986" level="FAIL">FileNotFoundError: [WinError 3] O sistema não pode encontrar o caminho especificado: 'C:\\Users\\P60P\\OneDrive - VIBRA\\Documentos\\Dados\\Dados apresentação 22-08.xlsx'</msg>
+<arg>${caminho_planilha}</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="FAIL" start="2025-08-26T11:33:59.753986" elapsed="0.000000">FileNotFoundError: [WinError 3] O sistema não pode encontrar o caminho especificado: 'C:\\Users\\P60P\\OneDrive - VIBRA\\Documentos\\Dados\\Dados apresentação 22-08.xlsx'</status>
+</kw>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<var>${testData}</var>
+<arg>header=True</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="NOT RUN" start="2025-08-26T11:33:59.753986" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${testData}</value>
+<status status="NOT RUN" start="2025-08-26T11:33:59.753986" elapsed="0.000000"/>
+</return>
+<var>${testData}</var>
+<arg>Dados apresentação 22-08.xlsx</arg>
+<doc>Abre o arquivo Excel com os dados para a execução dos casos de teste.</doc>
+<status status="FAIL" start="2025-08-26T11:33:59.753986" elapsed="0.000000">FileNotFoundError: [WinError 3] O sistema não pode encontrar o caminho especificado: 'C:\\Users\\P60P\\OneDrive - VIBRA\\Documentos\\Dados\\Dados apresentação 22-08.xlsx'</status>
+</kw>
+<kw name="Connect To SAP">
+<doc>Conecta ao servidor SAP</doc>
+<status status="NOT RUN" start="2025-08-26T11:33:59.753986" elapsed="0.000000"/>
+</kw>
+<kw name="Maximize window" owner="RoboSAPiens">
+<doc>Maximize the window in the foreground.</doc>
+<status status="NOT RUN" start="2025-08-26T11:33:59.753986" elapsed="0.000000"/>
+</kw>
+<kw name="Read Excel Data">
+<var>${excel_data}</var>
+<doc>Lê os dados do arquivo Excel
+Retorna uma lista de dicionários com os dados de cada linha</doc>
+<status status="NOT RUN" start="2025-08-26T11:33:59.753986" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Create Single Purchase Order">
+<var>${purchase_order_number}</var>
+<arg>${row_data}</arg>
+<doc>Cria um único pedido de compra com os dados fornecidos</doc>
+<status status="NOT RUN" start="2025-08-26T11:33:59.761288" elapsed="0.000000"/>
+</kw>
+<kw name="Update Excel With PO Number">
+<arg>${row_data}</arg>
+<arg>${purchase_order_number}</arg>
+<doc>Atualiza a planilha Excel com o número do pedido gerado</doc>
+<status status="NOT RUN" start="2025-08-26T11:33:59.761288" elapsed="0.000000"/>
+</kw>
+<var name="${row_data}"/>
+<status status="NOT RUN" start="2025-08-26T11:33:59.761288" elapsed="0.000000"/>
+</iter>
+<var>${row_data}</var>
+<value>@{excel_data}</value>
+<status status="NOT RUN" start="2025-08-26T11:33:59.753986" elapsed="0.007302"/>
+</for>
+<kw name="Save And Close Excel">
+<doc>Salva e fecha a planilha Excel</doc>
+<status status="NOT RUN" start="2025-08-26T11:33:59.761288" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Pedidos criados com sucesso! Conferir coluna Q do Excel.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-26T11:33:59.762377" elapsed="0.000000"/>
+</kw>
+<doc>Cria múltiplos pedidos de compra lendo dados do Excel
+
+Colunas do Excel esperadas:
+A: Contador/ID (não usado)
+C: Tipo de Pedido
+D: Fornecedor
+E: Condições de Pagamento
+F: Incoterm
+G: Organização de Compras
+H: Grupo de Compradores
+I: Empresa
+J: Material
+K: Quantidade
+L: Centro
+M: Contrato (opcional)
+N: Item do Contrato (opcional)
+Q: Número do Pedido (será preenchido)</doc>
+<tag>Automated</tag>
+<tag>Excel</tag>
+<tag>ME21N</tag>
+<tag>Order</tag>
+<tag>Purchase</tag>
+<status status="FAIL" start="2025-08-26T11:33:59.752947" elapsed="0.009976">FileNotFoundError: [WinError 3] O sistema não pode encontrar o caminho especificado: 'C:\\Users\\P60P\\OneDrive - VIBRA\\Documentos\\Dados\\Dados apresentação 22-08.xlsx'</status>
+</test>
+<doc>Caso de teste para criação de Pedidos de Compra (ME21N)
+Convertido de script VBS para Robot Framework usando RoboSAPiens
+
+Este teste automatiza a criação de múltiplos pedidos de compra
+na transação ME21N do SAP, lendo os dados de uma planilha Excel
+e salvando os números dos pedidos gerados.</doc>
+<status status="FAIL" start="2025-08-26T11:33:58.495705" elapsed="1.267218"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Automated</stat>
+<stat pass="0" fail="1" skip="0">Excel</stat>
+<stat pass="0" fail="1" skip="0">ME21N</stat>
+<stat pass="0" fail="1" skip="0">Order</stat>
+<stat pass="0" fail="1" skip="0">Purchase</stat>
+</tag>
+<suite>
+<stat name="CRIAR PEDIDOS" id="s1" pass="0" fail="1" skip="0">CRIAR PEDIDOS</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
