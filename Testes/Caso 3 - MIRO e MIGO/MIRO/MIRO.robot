@@ -11,6 +11,7 @@ Library          DateTime
 Library          OperatingSystem
 Library          RPA.Tables
 Library          RPA.Excel.Files
+Resource         ../../../Resources/sap_common.robot
 
 *** Variables ***
 ${COMPANY_CODE}         2000
@@ -48,17 +49,6 @@ Create Invoice Receipt MIRO
     END
 
 *** Keywords ***
-Prepare SAP
-    [Documentation]    Conecta ao SAP
-    Connect to Running SAP
-    Maximize Window
-
-Abrir Planilha de Dados de Teste
-    [Documentation]    Abre o arquivo Excel com os dados para a execução dos casos de teste.
-    [Arguments]    ${nomePlanilha}
-    ${caminho_planilha} =    Join Path    ${CURDIR}    ../../..    Dados    ${nomePlanilha}
-    Open Workbook    ${caminho_planilha}
-
 Configure Initial Data
     [Documentation]    Configura os dados iniciais na aba inicial da MIRO
     [Arguments]    ${numPedido}

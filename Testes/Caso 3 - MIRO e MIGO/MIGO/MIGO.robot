@@ -3,6 +3,7 @@ Library    OperatingSystem
 Library    RoboSAPiens
 Library    RPA.Tables
 Library    RPA.Excel.Files
+Resource         ../../../Resources/sap_common.robot
 
 *** Variables ***
 ${STORAGE_LOCATION}    tran
@@ -37,17 +38,6 @@ Executar MIGO
     END
     
 *** Keywords ***
-Abrir Planilha de Dados de Teste
-    [Documentation]    Abre o arquivo Excel com os dados para a execução dos casos de teste.
-    [Arguments]    ${nomePlanilha}
-    ${caminho_planilha} =    Join Path    ${CURDIR}    ../../..    Dados    ${nomePlanilha}
-    Open Workbook    ${caminho_planilha}
-
-Prepare SAP
-    [Documentation]    Conecta ao SAP
-    Connect to Running SAP
-    Maximize Window
-
 Fill Purchase Order Details
     [Documentation]    Preenche o número do documento de compra.
     [Arguments]    ${docPedido}
