@@ -1,0 +1,317 @@
+[
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB1:SAPLMEVIEWS:1100/subSUB1:SAPLMEVIEWS:4000/btnDYN_4000-BUTTON",
+    "Left": 17,
+    "Top": 172,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB1:SAPLMEVIEWS:4001/btnDYN_4000-BUTTON",
+    "Left": 17,
+    "Top": 194,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnDETAIL",
+    "Left": 38,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnSELECTBLOCK",
+    "Left": 66,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnSELECT_ALL",
+    "Left": 87,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnDESELECT_ALL",
+    "Left": 108,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnDELETE",
+    "Left": 136,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnLOCK",
+    "Left": 157,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnUNLOCK",
+    "Left": 178,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnITEMCOPY",
+    "Left": 206,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnSCHNELLAEND",
+    "Left": 227,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnSORTUP",
+    "Left": 255,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnSORTDOWN",
+    "Left": 276,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnEDITFILTER",
+    "Left": 297,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnUNDOFILTER",
+    "Left": 318,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnLNKDOCS",
+    "Left": 346,
+    "Top": 304,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "Vals.propostos",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnITEMPROPOSAL",
+    "Left": 458,
+    "Top": 304,
+    "Width": 111,
+    "Height": 22
+  },
+  {
+    "Text": "MRP adicional",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB2:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1211/btnONLINEDISPO",
+    "Left": 577,
+    "Top": 304,
+    "Width": 125,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB1:SAPLMEVIEWS:4002/btnDYN_4000-BUTTON",
+    "Left": 17,
+    "Top": 348,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB1:SAPLMEGUI:6000/btn%#AUTOTEXT001",
+    "Left": 444,
+    "Top": 348,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB1:SAPLMEGUI:6000/btn%#AUTOTEXT002",
+    "Left": 465,
+    "Top": 348,
+    "Width": 20,
+    "Height": 22
+  },
+  {
+    "Text": "Data doc.",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB0:SAPLMEGUI:0030/subSUB1:SAPLMEGUI:1105/lblMEPO_TOPLINE-BEDAT",
+    "Left": 591,
+    "Top": 151,
+    "Width": 76,
+    "Height": 20
+  },
+  {
+    "Text": "Item",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB1:SAPLMEGUI:6000/lbl%#AUTOTEXT003",
+    "Left": 38,
+    "Top": 349,
+    "Width": 83,
+    "Height": 20
+  },
+  {
+    "Text": "CtgClsCnt",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB2:SAPLMEGUI:1303/tabsITEM_DETAIL/tabpTABIDT13/ssubTABSTRIPCONTROL1SUB:SAPLMEVIEWS:1101/subSUB1:SAPLMEACCTVI:1200/lblMEACCT1200-KNTTP",
+    "Left": 136,
+    "Top": 415,
+    "Width": 69,
+    "Height": 20
+  },
+  {
+    "Text": "Distribuição",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB2:SAPLMEGUI:1303/tabsITEM_DETAIL/tabpTABIDT13/ssubTABSTRIPCONTROL1SUB:SAPLMEVIEWS:1101/subSUB1:SAPLMEACCTVI:1200/lblMEACCT1200-VRTKZ",
+    "Left": 318,
+    "Top": 415,
+    "Width": 90,
+    "Height": 20
+  },
+  {
+    "Text": "Empr.",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB2:SAPLMEGUI:1303/tabsITEM_DETAIL/tabpTABIDT13/ssubTABSTRIPCONTROL1SUB:SAPLMEVIEWS:1101/subSUB1:SAPLMEACCTVI:1200/lblMEACCT1200-BUKRS",
+    "Left": 577,
+    "Top": 415,
+    "Width": 48,
+    "Height": 20
+  },
+  {
+    "Text": "Cen.financeiro",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB2:SAPLMEGUI:1303/tabsITEM_DETAIL/tabpTABIDT13/ssubTABSTRIPCONTROL1SUB:SAPLMEVIEWS:1101/subSUB2:SAPLMEACCTVI:0100/subSUB1:SAPLMEACCTVI:1100/subKONTBLOCK:SAPLKACB:1013/lblCOBL-FISTL",
+    "Left": 45,
+    "Top": 437,
+    "Width": 111,
+    "Height": 20
+  },
+  {
+    "Text": "Item financeiro",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB2:SAPLMEGUI:1303/tabsITEM_DETAIL/tabpTABIDT13/ssubTABSTRIPCONTROL1SUB:SAPLMEVIEWS:1101/subSUB2:SAPLMEACCTVI:0100/subSUB1:SAPLMEACCTVI:1100/subKONTBLOCK:SAPLKACB:1013/lblCOBL-FIPEX",
+    "Left": 332,
+    "Top": 437,
+    "Width": 111,
+    "Height": 20
+  },
+  {
+    "Text": "",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB0:SAPLMEGUI:0030/subSUB1:SAPLMEGUI:1105/txtMEPO_TOPLINE-EBELN",
+    "Left": 192,
+    "Top": 151,
+    "Width": 76,
+    "Height": 20
+  },
+  {
+    "Text": "Fornecedor",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB0:SAPLMEGUI:0030/subSUB1:SAPLMEGUI:1105/txtMEPO_TOPLINE-SCRTEXT",
+    "Left": 276,
+    "Top": 151,
+    "Width": 111,
+    "Height": 20
+  },
+  {
+    "Text": "10001859 PETROLEO BRASILEIRO SA PETROBRAS",
+    "Label": "Fornecedor",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB0:SAPLMEGUI:0030/subSUB1:SAPLMEGUI:1105/ctxtMEPO_TOPLINE-SUPERFIELD",
+    "Left": 388,
+    "Top": 151,
+    "Width": 195,
+    "Height": 20
+  },
+  {
+    "Text": "28.08.2025",
+    "Label": "Data doc.",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB0:SAPLMEGUI:0030/subSUB1:SAPLMEGUI:1105/ctxtMEPO_TOPLINE-BEDAT",
+    "Left": 668,
+    "Top": 151,
+    "Width": 76,
+    "Height": 20
+  },
+  {
+    "Text": "Cabeçalho",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB1:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEVIEWS:2000/txtDYN_2000-LABEL",
+    "Left": 38,
+    "Top": 173,
+    "Width": 566,
+    "Height": 20
+  },
+  {
+    "Text": "",
+    "Label": "Cen.financeiro",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB2:SAPLMEGUI:1303/tabsITEM_DETAIL/tabpTABIDT13/ssubTABSTRIPCONTROL1SUB:SAPLMEVIEWS:1101/subSUB2:SAPLMEACCTVI:0100/subSUB1:SAPLMEACCTVI:1100/subKONTBLOCK:SAPLKACB:1013/ctxtCOBL-FISTL",
+    "Left": 157,
+    "Top": 437,
+    "Width": 118,
+    "Height": 20
+  },
+  {
+    "Text": "1105200002",
+    "Label": "Item financeiro",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/subSUB0:SAPLMEGUI:0019/subSUB3:SAPLMEVIEWS:1100/subSUB2:SAPLMEVIEWS:1200/subSUB1:SAPLMEGUI:1301/subSUB2:SAPLMEGUI:1303/tabsITEM_DETAIL/tabpTABIDT13/ssubTABSTRIPCONTROL1SUB:SAPLMEVIEWS:1101/subSUB2:SAPLMEACCTVI:0100/subSUB1:SAPLMEACCTVI:1100/subKONTBLOCK:SAPLKACB:1013/ctxtCOBL-FIPEX",
+    "Left": 444,
+    "Top": 437,
+    "Width": 174,
+    "Height": 20
+  }
+]
