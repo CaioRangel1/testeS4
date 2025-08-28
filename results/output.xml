@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.10 on win32)" generated="2025-08-28T16:29:16.197311" rpa="false" schemaversion="5">
+<suite id="s1" name="CRIAR CONTRATOS" source="C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Testes\Caso 4 - Fluxo Completo\Criar contratos\CRIAR_CONTRATOS.robot">
+<test id="s1-t1" name="Criar Contratos SAP" line="16">
+<kw name="Prepare SAP" owner="sap_common">
+<kw name="Connect to Running SAP" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:19.860168" level="INFO">Connected to a running SAP instance.</msg>
+<doc>Connect to an already running SAP instance and take control of it.</doc>
+<status status="PASS" start="2025-08-28T16:29:17.045794" elapsed="2.814374"/>
+</kw>
+<kw name="Maximize window" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:19.860168" level="INFO">The window in the foreground was maximized.</msg>
+<doc>Maximize the window in the foreground.</doc>
+<status status="PASS" start="2025-08-28T16:29:19.860168" elapsed="0.000000"/>
+</kw>
+<doc>Conecta e prepara a instância do SAP</doc>
+<status status="PASS" start="2025-08-28T16:29:17.034274" elapsed="2.825894"/>
+</kw>
+<kw name="Open Excel Worksheet" owner="sap_common">
+<kw name="Join Path" owner="OperatingSystem">
+<msg time="2025-08-28T16:29:19.860168" level="INFO">${caminho_planilha} = C:\Users\ETH6\OneDrive - VIBRA\Documentos\GitHub\testeS4\Dados\Dados apresentação 22-08.xlsx</msg>
+<var>${caminho_planilha}</var>
+<arg>C:\\Users\\ETH6\\OneDrive - VIBRA\\Documentos\\GitHub\\testeS4\\Resources</arg>
+<arg>..</arg>
+<arg>Dados</arg>
+<arg>${nomePlanilha}</arg>
+<doc>Joins the given path part(s) to the given base path.</doc>
+<status status="PASS" start="2025-08-28T16:29:19.860168" elapsed="0.000000"/>
+</kw>
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2025-08-28T16:29:19.882803" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000017BF9A07740&gt;</msg>
+<arg>${caminho_planilha}</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2025-08-28T16:29:19.860168" elapsed="0.022635"/>
+</kw>
+<kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
+<msg time="2025-08-28T16:29:19.882803" level="INFO">Created table: Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', 'Data de Remessa', 'NV CONTRATO', 'NV PEDIDO', 'MIGO', 'MIRO'], rows=2)</msg>
+<msg time="2025-08-28T16:29:19.882803" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
+<var>${testData}</var>
+<arg>header=True</arg>
+<doc>Read the contents of a worksheet into a Table container. Allows
+sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
+<status status="PASS" start="2025-08-28T16:29:19.882803" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${testData}</value>
+<status status="PASS" start="2025-08-28T16:29:19.882803" elapsed="0.000000"/>
+</return>
+<msg time="2025-08-28T16:29:19.882803" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
+<var>${testData}</var>
+<arg>Dados apresentação 22-08.xlsx</arg>
+<doc>Abre o arquivo Excel com os dados para a execução dos casos de teste.</doc>
+<status status="PASS" start="2025-08-28T16:29:19.860168" elapsed="0.022635"/>
+</kw>
+<kw name="Execute Transaction" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:20.293354" level="INFO">The transaction with T-Code /nme31k was executed.</msg>
+<arg>/nme31k</arg>
+<doc>Execute the transaction with the given T-Code.</doc>
+<status status="PASS" start="2025-08-28T16:29:19.882803" elapsed="0.410551"/>
+</kw>
+<kw name="Process Contracts">
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-08-28T16:29:20.293354" level="INFO">Length is 2.</msg>
+<msg time="2025-08-28T16:29:20.293354" level="INFO">${total_rows} = 2</msg>
+<var>${total_rows}</var>
+<arg>${testData}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-08-28T16:29:20.293354" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-08-28T16:29:20.293354" level="INFO">Total de linhas para processar: 2</msg>
+<arg>Total de linhas para processar: ${total_rows}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-08-28T16:29:20.293354" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-28T16:29:20.293354" level="INFO">${row_number} = 2</msg>
+<var>${row_number}</var>
+<arg>${LINHA_INICIAL}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-28T16:29:20.293354" elapsed="0.000000"/>
+</kw>
+<for flavor="IN ENUMERATE">
+<iter>
+<kw name="Create Contract">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-28T16:29:20.308991" level="INFO">${fornecedor} = 10001859</msg>
+<var>${fornecedor}</var>
+<arg>${contract_data['FORNECEDOR']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-28T16:29:20.293354" elapsed="0.015637"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-28T16:29:20.308991" level="INFO">${tipo_contrato} = ZDDR</msg>
+<var>${tipo_contrato}</var>
+<arg>${contract_data['TP CONTRATO']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-28T16:29:20.308991" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-28T16:29:20.308991" level="INFO">${org_compra} = 5821</msg>
+<var>${org_compra}</var>
+<arg>${contract_data['ORG. COMPRAS']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-28T16:29:20.308991" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-28T16:29:20.308991" level="INFO">${grp_comprador} = 951</msg>
+<var>${grp_comprador}</var>
+<arg>${contract_data['GP. COMPRADOR']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-28T16:29:20.308991" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:22.588215" level="INFO">The text field with the locator 'Nº conta do fornecedor' was filled.</msg>
+<arg>Nº conta do fornecedor</arg>
+<arg>${fornecedor}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:20.308991" elapsed="2.279224"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:22.594225" level="INFO">The text field with the locator 'Tipo de contrato' was filled.</msg>
+<arg>Tipo de contrato</arg>
+<arg>${tipo_contrato}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:22.588215" elapsed="0.006010"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:22.609862" level="INFO">The text field with the locator 'Organização de compras' was filled.</msg>
+<arg>Organização de compras</arg>
+<arg>${org_compra}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:22.594225" elapsed="0.015637"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:22.625487" level="INFO">The text field with the locator 'Grupo de compradores' was filled.</msg>
+<arg>Grupo de compradores</arg>
+<arg>${grp_comprador}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:22.609862" elapsed="0.015625"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:23.111790" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-28T16:29:22.625487" elapsed="0.486303"/>
+</kw>
+<kw name="Read Text Field" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:25.904016" level="INFO">The text field with the locator 'Início do período de validade' was read.</msg>
+<msg time="2025-08-28T16:29:25.904016" level="INFO">${data_inicial} = 28.08.2025</msg>
+<var>${data_inicial}</var>
+<arg>Início do período de validade</arg>
+<doc>Read the contents of the text field specified by the locator.</doc>
+<status status="PASS" start="2025-08-28T16:29:23.111790" elapsed="2.792226"/>
+</kw>
+<kw name="Calculate Final Date">
+<kw name="Split String" owner="String">
+<msg time="2025-08-28T16:29:25.904016" level="INFO">${partes} = ['28', '08', '2025']</msg>
+<var>${partes}</var>
+<arg>${data_inicial}</arg>
+<arg>.</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2025-08-28T16:29:25.904016" level="INFO">${dia} = 28</msg>
+<var>${dia}</var>
+<arg>${partes}[0]</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2025-08-28T16:29:25.904016" level="INFO">${mes} = 8</msg>
+<var>${mes}</var>
+<arg>${partes}[1]</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-08-28T16:29:25.904016" level="INFO">${ano} = 2026</msg>
+<var>${ano}</var>
+<arg>${partes}[2] + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.000000"/>
+</kw>
+<kw name="Format String" owner="String">
+<msg time="2025-08-28T16:29:25.904016" level="INFO">${dia_formatado} = 28</msg>
+<var>${dia_formatado}</var>
+<arg>{:02d}</arg>
+<arg>${dia}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.000000"/>
+</kw>
+<kw name="Format String" owner="String">
+<msg time="2025-08-28T16:29:25.904016" level="INFO">${mes_formatado} = 08</msg>
+<var>${mes_formatado}</var>
+<arg>{:02d}</arg>
+<arg>${mes}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-28T16:29:25.904016" level="INFO">${data_final} = 28.08.2026</msg>
+<var>${data_final}</var>
+<arg>${dia_formatado}.${mes_formatado}.${ano}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${data_final}</value>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.015636"/>
+</return>
+<msg time="2025-08-28T16:29:25.919652" level="INFO">${data_final} = 28.08.2026</msg>
+<var>${data_final}</var>
+<arg>${data_inicial}</arg>
+<doc>Calcula data final adicionando 1 ano à data inicial</doc>
+<status status="PASS" start="2025-08-28T16:29:25.904016" elapsed="0.015636"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:25.935283" level="INFO">The text field with the locator 'Fim da validade' was filled.</msg>
+<arg>Fim da validade</arg>
+<arg>${data_final}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.919652" elapsed="0.015631"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-28T16:29:25.935283" level="INFO">${cond_pagto} = Z000</msg>
+<var>${cond_pagto}</var>
+<arg>${contract_data['COND.PAG']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.935283" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Text Field" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:25.950907" level="INFO">The text field with the locator 'Condições pgto.' was filled.</msg>
+<arg>Condições pgto.</arg>
+<arg>${cond_pagto}</arg>
+<doc>Fill the text field specified by the locator with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.935283" elapsed="0.015624"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:26.406367" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-28T16:29:25.950907" elapsed="0.455460"/>
+</kw>
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:28.774716" level="INFO">The cell with the locator '1, Material' was filled.</msg>
+<arg>1</arg>
+<arg>Material</arg>
+<arg>${contract_data['MATERIAL']}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:26.406367" elapsed="2.368349"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:31.331820" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-28T16:29:28.774716" elapsed="2.557104"/>
+</kw>
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:31.394322" level="INFO">The cell with the locator '1, Qtd.prev.' was filled.</msg>
+<arg>1</arg>
+<arg>Qtd.prev.</arg>
+<arg>${contract_data['QNTD']}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:31.331820" elapsed="0.062502"/>
+</kw>
+<kw name="Fill Cell" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:31.441597" level="INFO">The cell with the locator '1, Preço líq.' was filled.</msg>
+<arg>1</arg>
+<arg>Preço líq.</arg>
+<arg>${contract_data['Preço']}</arg>
+<doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
+<status status="PASS" start="2025-08-28T16:29:31.394322" elapsed="0.047275"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:33.920764" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-28T16:29:31.441597" elapsed="2.479167"/>
+</kw>
+<kw name="Save Contract">
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:37.487742" level="INFO">The key combination 'Ctrl+S' was pressed.</msg>
+<arg>Ctrl+S</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-28T16:29:33.920764" elapsed="3.567943"/>
+</kw>
+<kw name="Select Text Field" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:38.667050" level="INFO">The text field with the locator 'Item' was selected.</msg>
+<arg>Item</arg>
+<doc>Select the text field specified by the locator or with the given content.</doc>
+<status status="PASS" start="2025-08-28T16:29:37.488707" elapsed="1.178343"/>
+</kw>
+<kw name="Press Key Combination" owner="RoboSAPiens">
+<msg time="2025-08-28T16:29:42.318241" level="INFO">The key combination 'Enter' was pressed.</msg>
+<arg>Enter</arg>
+<doc>Press the given key combination.</doc>
+<status status="PASS" start="2025-08-28T16:29:38.667050" elapsed="3.657201"/>
+</kw>
+<kw name="Get Window Title" owner="RoboSAPiens">
+<var>${window_title}</var>
+<doc>Get the title of the currently active window.</doc>
+<status status="FAIL" start="2025-08-28T16:29:42.324251" elapsed="6.314549">Execution terminated by signal</status>
+</kw>
+<if>
+<branch type="IF" condition="$window_title == 'Gravar doc.'">
+<kw name="Push Button" owner="RoboSAPiens">
+<arg>Sim</arg>
+<doc>Push the button with the given locator.</doc>
+<status status="NOT RUN" start="2025-08-28T16:29:48.640853" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-28T16:29:48.639851" elapsed="0.002004"/>
+</branch>
+<status status="NOT RUN" start="2025-08-28T16:29:48.639851" elapsed="0.002004"/>
+</if>
+<kw name="Get Window Title" owner="RoboSAPiens">
+<var>${window_title2}</var>
+<doc>Get the title of the currently active window.</doc>
+<status status="NOT RUN" start="2025-08-28T16:29:48.641855" elapsed="0.000996"/>
+</kw>
+<if>
+<branch type="IF" condition="$window_title2 == 'Gravar doc.'">
+<kw name="Push Button" owner="RoboSAPiens">
+<arg>Sim</arg>
+<doc>Push the button with the given locator.</doc>
+<status status="NOT RUN" start="2025-08-28T16:29:48.643848" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-08-28T16:29:48.642851" elapsed="0.000997"/>
+</branch>
+<status status="NOT RUN" start="2025-08-28T16:29:48.642851" elapsed="0.000997"/>
+</if>
+<kw name="Read Statusbar" owner="RoboSAPiens">
+<var>${statusBar}</var>
+<doc>Read the contents of the statusbar. The return value is a dictionary with the entries 'status' and 'message'.</doc>
+<status status="NOT RUN" start="2025-08-28T16:29:48.644849" elapsed="0.000000"/>
+</kw>
+<kw name="Get Substring" owner="String">
+<var>${contract_number}</var>
+<arg>${statusBar['message']}</arg>
+<arg>-10</arg>
+<doc>Returns a substring from ``start`` index to ``end`` index.</doc>
+<status status="NOT RUN" start="2025-08-28T16:29:48.645850" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${contract_number}</value>
+<status status="NOT RUN" start="2025-08-28T16:29:48.645850" elapsed="0.001000"/>
+</return>
+<var>${new_contract_number}</var>
+<doc>Salva o contrato e captura o número gerado</doc>
+<status status="FAIL" start="2025-08-28T16:29:33.920764" elapsed="14.726086">Execution terminated by signal</status>
+</kw>
+<return>
+<value>${new_contract_number}</value>
+<status status="NOT RUN" start="2025-08-28T16:29:48.646850" elapsed="0.000000"/>
+</return>
+<var>${new_contract_number}</var>
+<arg>${row_data}</arg>
+<doc>Cria um contrato no SAP ME31K</doc>
+<status status="FAIL" start="2025-08-28T16:29:20.293354" elapsed="28.353496">Execution terminated by signal</status>
+</kw>
+<kw name="Save Return to Excel">
+<arg>${row_number}</arg>
+<arg>${new_contract_number}</arg>
+<doc>Salva o retorno da transação no Excel.</doc>
+<status status="NOT RUN" start="2025-08-28T16:29:48.647846" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${row_number}</var>
+<arg>${row_number} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-08-28T16:29:48.648847" elapsed="0.000000"/>
+</kw>
+<var name="${index}">0</var>
+<var name="${row_data}">{'Pedido Origem': 4503273185, 'Preço': 6, 'TIP DE PEDIDO': 'ZD', 'FORNECEDOR': 10001859, 'COND.PAG': 'Z000', 'INCOTERM': 'Z13', 'ORG. COMPRAS': 5821, 'GP. COMPRADOR': 951, 'EMPRESA': 2000, 'MATERIAL':...</var>
+<status status="FAIL" start="2025-08-28T16:29:20.293354" elapsed="28.355493">Execution terminated by signal</status>
+</iter>
+<var>${index}</var>
+<var>${row_data}</var>
+<value>@{testData}</value>
+<status status="FAIL" start="2025-08-28T16:29:20.293354" elapsed="28.356494">Execution terminated by signal</status>
+</for>
+<arg>${testData}</arg>
+<doc>Processa cada linha do excel para criar contratos</doc>
+<status status="FAIL" start="2025-08-28T16:29:20.293354" elapsed="28.356494">Execution terminated by signal</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Criação de contratos finalizada com sucesso!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-08-28T16:29:48.649848" elapsed="0.001000"/>
+</kw>
+<doc>Cria contratos no SAP ME31K baseado em dados do Excel</doc>
+<tag>contratos</tag>
+<tag>excel</tag>
+<tag>me31k</tag>
+<tag>sap</tag>
+<status status="FAIL" start="2025-08-28T16:29:17.034274" elapsed="31.617575">Execution terminated by signal</status>
+</test>
+<doc>Automação para criação de contratos no SAP via transação ME31K
+Lê dados do Excel e cria contratos automaticamente</doc>
+<status status="FAIL" start="2025-08-28T16:29:16.197311" elapsed="32.475848"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">contratos</stat>
+<stat pass="0" fail="1" skip="0">excel</stat>
+<stat pass="0" fail="1" skip="0">me31k</stat>
+<stat pass="0" fail="1" skip="0">sap</stat>
+</tag>
+<suite>
+<stat name="CRIAR CONTRATOS" id="s1" pass="0" fail="1" skip="0">CRIAR CONTRATOS</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

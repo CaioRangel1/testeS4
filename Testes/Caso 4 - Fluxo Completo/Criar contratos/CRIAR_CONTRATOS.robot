@@ -18,13 +18,10 @@ Criar Contratos SAP
     [Tags]             sap    me31k    contratos    excel
     
     Prepare SAP
+
     ${testData} =    Open Excel Worksheet    Dados apresentação 22-08.xlsx
     
-    Execute Transaction    /nme31k
     Process Contracts    ${testData}
-    
-    # Salva e fecha Excel
-    Save And Close Excel
     
     Log    Criação de contratos finalizada com sucesso!
 
@@ -37,87 +34,47 @@ Process Contracts
     
     Log    Total de linhas para processar: ${total_rows}
     
-    # Processa cada linha (contrato)
     ${row_number}=    Set Variable    ${LINHA_INICIAL}
     FOR    ${index}    ${row_data}    IN ENUMERATE    @{testData}        
-        # Extrai dados da linha atual
-        # ${contract_data}=    Extract Contract Data From Row    ${row_data}
-        
         # Cria contrato no SAP
         ${new_contract_number}=    Create Contract    ${row_data}
         
-        # Atualiza Excel com número do novo contrato
-        Fill Cell   ${row_number}    16    value=${new_contract_number}
+        Save Return to Excel    ${row_number}    ${new_contract_number}
         
         ${row_number}=    Evaluate    ${row_number} + 1
-        Sleep    1s
     END
-
-Extract Contract Data From Row
-    [Documentation]    Extrai dados necessários de uma linha do Excel
-    [Arguments]    ${row_data}
-    
-    ${values_list}=    Get Dictionary Values    ${row_data}
-    
-    # Mapeia colunas para variáveis (baseado na ordem das colunas do script VBS)
-    ${contract_data}=    Create Dictionary
-    ...    preco=${values_list}[1]              # Coluna B (2)
-    ...    fornecedor=${values_list}[3]         # Coluna D (4)
-    ...    cond_pagto=${values_list}[4]         # Coluna E (5)
-    ...    org_compra=${values_list}[6]         # Coluna G (7)
-    ...    grp_comprador=${values_list}[7]      # Coluna H (8)
-    ...    material=${values_list}[9]           # Coluna J (10)
-    ...    quantidade=${values_list}[10]        # Coluna K (11)
-    ...    tipo_contrato=${values_list}[12]     # Coluna M (13)
-    
-    # Remove espaços em branco
-    FOR    ${key}    IN    @{contract_data.keys()}
-        ${value}=    Get From Dictionary    ${contract_data}    ${key}
-        ${cleaned_value}=    Strip String    ${value}
-        Set To Dictionary    ${contract_data}    ${key}    ${cleaned_value}
-    END
-    
-    RETURN    ${contract_data}
 
 Create Contract
-    [Documentation]    Cria um contrato no SAP ME31K
+    [Documentation]    Cria um contrato no SAP pela transação ME31K
     [Arguments]    ${contract_data}
-
-    # Preenche dados do cabeçalho
-    ${fornecedor}=    Set Variable    ${contract_data['FORNECEDOR']}
-    ${tipo_contrato}=    Set Variable    ${contract_data['TP CONTRATO']}
-    ${org_compra}=    Set Variable    ${contract_data['ORG. COMPRAS']}
-    ${grp_comprador}=    Set Variable    ${contract_data['GP. COMPRADOR']}
-
-    Fill Text Field    Nº conta do fornecedor    ${fornecedor}
-    Fill Text Field    Tipo de contrato    ${tipo_contrato}
-    Fill Text Field    Organização de compras    ${org_compra}
-    Fill Text Field    Grupo de compradores    ${grp_comprador}
+    
+    # Preenche dados iniciais
+    Fill Text Field    Nº conta do fornecedor    ${contract_data['FORNECEDOR']}
+    Fill Text Field    Tipo de contrato    ${contract_data['TP CONTRATO']}
+    Fill Text Field    Organização de compras    ${contract_data['ORG. COMPRAS']}
+    Fill Text Field    Grupo de compradores    ${contract_data['GP. COMPRADOR']}
     Press Key Combination    Enter
     
-    # Captura data inicial e calcula data final
+    # Captura data inicial, calcula e preenche a data final
     ${data_inicial}=    Read Text Field    Início do período de validade
     ${data_final}=    Calculate Final Date    ${data_inicial}
     Fill Text Field    Fim da validade    ${data_final}
-    # Press Key Combination    Enter
     
-    # Preenche condições de pagamento
-    ${cond_pagto}=    Set Variable    ${contract_data['COND.PAG']}
-    Export Window    window    C:/Users/ETH6/OneDrive - VIBRA/Documentos/GitHub/testeS4/Testes/Caso 4 - Fluxo Completo/Criar contratos/
-    Fill Text Field    Condições pgto.    ${cond_pagto}
+    Fill Text Field    Condições pgto.    ${contract_data['COND.PAG']}
+    Press Key Combination    Enter
     
     # Preenche dados do item
-    Fill Item Data    ${contract_data}
-    
+    Fill Cell    1    Material    ${contract_data['MATERIAL']}
+    Press Key Combination    Enter
+    Fill Cell    1    Qtd.prev.    ${contract_data['QNTD']}
+    Fill Cell    1    Preço líq.    ${contract_data['Preço']}
+    Press Key Combination    Enter
+
     # Configura condições do item
-    Configure Item Conditions    ${contract_data}
+    # Configure Item Conditions    ${contract_data}
     
     # Salva o contrato
     ${new_contract_number}=    Save Contract
-    
-    # Retorna ao menu principal
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/tbar[0]/okcd    /n
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
     
     RETURN    ${new_contract_number}
 
@@ -138,58 +95,50 @@ Calculate Final Date
     
     RETURN    ${data_final}
 
-Fill Item Data
-    [Documentation]    Preenche dados do item do contrato
-    [Arguments]    ${contract_data}
-    
-    ${material}=    Get From Dictionary    ${contract_data}    material
-    ${quantidade}=    Get From Dictionary    ${contract_data}    quantidade
-    ${preco}=    Get From Dictionary    ${contract_data}    preco
-    
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/tblSAPMM06ETC_0220/ctxtEKPO-EMATN[3,0]    ${material}
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/tblSAPMM06ETC_0220/txtEKPO-KTMNG[5,0]    ${quantidade}
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/tblSAPMM06ETC_0220/txtEKPO-NETPR[7,0]    ${preco}
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
-
 Configure Item Conditions
     [Documentation]    Configura condições do item
     [Arguments]    ${contract_data}
     
     # Seleciona linha da tabela
-    Select Table Row    id:/app/con[0]/ses[0]/wnd[0]/usr/tblSAPMM06ETC_0220    0
+    Select Table Row    1
     
     # Acessa aba de condições
-    Click Button    id:/app/con[0]/ses[0]/wnd[0]/tbar[1]/btn[6]
+    Press Key Combination    F6
     
     # Preenche condições de pagamento novamente
-    ${cond_pagto}=    Get From Dictionary    ${contract_data}    cond_pagto
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-ZTERM    ${cond_pagto}
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
+    Fill Text Field    Condições pgto.    ${contract_data['COND.PAG']}
+    Press Key Combination    Enter
 
 Save Contract
     [Documentation]    Salva o contrato e captura o número gerado
     
     # Salva o contrato
-    Click Button    id:/app/con[0]/ses[0]/wnd[0]/tbar[0]/btn[11]
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
-    
+    Press Key Combination    Ctrl+S
+    Select Text Field    Item
+    Press Key Combination    Enter
+    Press Key Combination    Enter
+
+    ${window_title}=    Get Window Title
     # Confirma salvamento - primeiro popup
-    ${popup_exists}=    Run Keyword And Return Status    Element Should Be Visible    id:/app/con[0]/ses[0]/wnd[1]/usr/btnSPOP-OPTION1
-    Run Keyword If    ${popup_exists}    Click Button    id:/app/con[0]/ses[0]/wnd[1]/usr/btnSPOP-OPTION1
+    IF    $window_title == 'Gravar doc.'
+        Push Button    Sim
+    END
+    ${window_title2}=    Get Window Title
+    IF    $window_title2 == 'Gravar doc.'
+        Push Button    Sim
+    END
     
-    # Confirma salvamento - segundo popup se existir
-    ${popup2_exists}=    Run Keyword And Return Status    Element Should Be Visible    id:/app/con[0]/ses[0]/wnd[1]/usr/btnSPOP-OPTION1
-    Run Keyword If    ${popup2_exists}    Click Button    id:/app/con[0]/ses[0]/wnd[1]/usr/btnSPOP-OPTION1
-    
+    ${statusBar}=    Read Statusbar
     # Captura número do contrato da barra de status
-    ${status_text}=    Get Element Attribute    id:/app/con[0]/ses[0]/wnd[0]/sbar    text
-    ${contract_number}=    Get Substring    ${status_text}    -10
+    ${contract_number}=    Get Substring    ${statusBar['message']}    -10
     
     RETURN    ${contract_number}
-
-Save And Close Excel
+Save Return to Excel
+    [Documentation]    Salva o retorno da transação no Excel.
+    [Arguments]    ${index}    ${contractNumber}
+    Set Cell Value    ${index}    16    ${contractNumber}
+    Save Workbook
+Save Contract to Excel
     [Documentation]    Salva e fecha o arquivo Excel
     Save Workbook
     Close Workbook
