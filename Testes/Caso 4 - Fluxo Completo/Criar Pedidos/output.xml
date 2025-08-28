@@ -1,265 +1,220 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.12.0 on win32)" generated="2025-08-26T14:08:13.583986" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3.2 (Python 3.12.0 on win32)" generated="2025-08-28T14:23:12.278402" rpa="false" schemaversion="5">
 <suite id="s1" name="CRIAR PEDIDOS" source="C:\Users\P60P\OneDrive - VIBRA\Documentos\github\testeS4\Testes\Caso 4 - Fluxo Completo\Criar Pedidos\CRIAR_PEDIDOS.robot">
 <test id="s1-t1" name="Create Purchase Orders From Excel" line="25">
 <kw name="Open Excel Worksheet" owner="sap_common">
 <kw name="Join Path" owner="OperatingSystem">
-<msg time="2025-08-26T14:08:14.427374" level="INFO">${caminho_planilha} = C:\Users\P60P\OneDrive - VIBRA\Documentos\github\testeS4\Dados\Dados apresentação 22-08.xlsx</msg>
+<msg time="2025-08-28T14:23:13.413553" level="INFO">${caminho_planilha} = C:\Users\P60P\OneDrive - VIBRA\Documentos\github\testeS4\Dados\Dados apresentação 22-08.xlsx</msg>
 <var>${caminho_planilha}</var>
 <arg>C:\\Users\\P60P\\OneDrive - VIBRA\\Documentos\\github\\testeS4\\Resources</arg>
 <arg>..</arg>
 <arg>Dados</arg>
 <arg>${nomePlanilha}</arg>
 <doc>Joins the given path part(s) to the given base path.</doc>
-<status status="PASS" start="2025-08-26T14:08:14.427374" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-28T14:23:13.397930" elapsed="0.015623"/>
 </kw>
 <kw name="Open Workbook" owner="RPA.Excel.Files">
-<msg time="2025-08-26T14:08:14.427374" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x00000211BE9D0860&gt;</msg>
+<msg time="2025-08-28T14:23:13.427126" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x000001AB9DB78DD0&gt;</msg>
 <arg>${caminho_planilha}</arg>
 <doc>Open an existing Excel workbook.</doc>
-<status status="PASS" start="2025-08-26T14:08:14.427374" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-28T14:23:13.413553" elapsed="0.013573"/>
 </kw>
 <kw name="Read Worksheet As Table" owner="RPA.Excel.Files">
-<msg time="2025-08-26T14:08:14.442683" level="INFO">Created table: Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', 'Data de Remessa', 'NV CONTRATO', 'NV PEDIDO', 'MIGO', 'MIRO'], rows=2)</msg>
-<msg time="2025-08-26T14:08:14.442683" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
+<msg time="2025-08-28T14:23:13.427126" level="INFO">Created table: Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', 'Data de Remessa', 'NV CONTRATO', 'NV PEDIDO', 'MIGO', 'MIRO'], rows=2)</msg>
+<msg time="2025-08-28T14:23:13.427126" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
 <var>${testData}</var>
 <arg>header=True</arg>
 <doc>Read the contents of a worksheet into a Table container. Allows
 sorting/filtering/manipulating using the ``RPA.Tables`` library.</doc>
-<status status="PASS" start="2025-08-26T14:08:14.427374" elapsed="0.015309"/>
+<status status="PASS" start="2025-08-28T14:23:13.427126" elapsed="0.000000"/>
 </kw>
 <return>
 <value>${testData}</value>
-<status status="PASS" start="2025-08-26T14:08:14.442683" elapsed="0.000000"/>
+<status status="PASS" start="2025-08-28T14:23:13.427126" elapsed="0.000000"/>
 </return>
-<msg time="2025-08-26T14:08:14.442683" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
+<msg time="2025-08-28T14:23:13.427126" level="INFO">${testData} = Table(columns=['Pedido Origem', 'Preço', 'TIP DE PEDIDO', 'FORNECEDOR', 'COND.PAG', 'INCOTERM', 'ORG. COMPRAS', 'GP. COMPRADOR', 'EMPRESA', 'MATERIAL', 'QNTD', 'CENTRO', 'TP CONTRATO', 'ITEM CONT.', '...</msg>
 <var>${testData}</var>
 <arg>Dados apresentação 22-08.xlsx</arg>
 <doc>Abre o arquivo Excel com os dados para a execução dos casos de teste.</doc>
-<status status="PASS" start="2025-08-26T14:08:14.427374" elapsed="0.015309"/>
+<status status="PASS" start="2025-08-28T14:23:13.397930" elapsed="0.029196"/>
 </kw>
 <kw name="Prepare SAP" owner="sap_common">
 <kw name="Connect to Running SAP" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:17.179869" level="INFO">Connected to a running SAP instance.</msg>
+<msg time="2025-08-28T14:23:16.558521" level="INFO">Connected to a running SAP instance.</msg>
 <doc>Connect to an already running SAP instance and take control of it.</doc>
-<status status="PASS" start="2025-08-26T14:08:14.444878" elapsed="2.734991"/>
+<status status="PASS" start="2025-08-28T14:23:13.427126" elapsed="3.131395"/>
 </kw>
 <kw name="Maximize window" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:17.181516" level="INFO">The window in the foreground was maximized.</msg>
+<msg time="2025-08-28T14:23:16.558521" level="INFO">The window in the foreground was maximized.</msg>
 <doc>Maximize the window in the foreground.</doc>
-<status status="PASS" start="2025-08-26T14:08:17.179869" elapsed="0.001647"/>
+<status status="PASS" start="2025-08-28T14:23:16.558521" elapsed="0.000000"/>
 </kw>
 <doc>Conecta e prepara a instância do SAP</doc>
-<status status="PASS" start="2025-08-26T14:08:14.442683" elapsed="2.738833"/>
+<status status="PASS" start="2025-08-28T14:23:13.427126" elapsed="3.131395"/>
 </kw>
 <for flavor="IN">
 <iter>
 <kw name="Create Single Purchase Order">
 <kw name="Execute Transaction" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:18.868328" level="INFO">The transaction with T-Code /nme21n was executed.</msg>
+<msg time="2025-08-28T14:23:19.050058" level="INFO">The transaction with T-Code /nme21n was executed.</msg>
 <arg>/nme21n</arg>
 <doc>Execute the transaction with the given T-Code.</doc>
-<status status="PASS" start="2025-08-26T14:08:17.184627" elapsed="1.683701"/>
+<status status="PASS" start="2025-08-28T14:23:16.573531" elapsed="2.476527"/>
 </kw>
 <kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:22.553595" level="INFO">The tab 'Comunicação' was selected.</msg>
-<arg>Comunicação</arg>
-<doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:18.868328" elapsed="3.685267"/>
-</kw>
-<kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:25.528731" level="INFO">The tab 'Remessa/fatura' was selected.</msg>
-<arg>Remessa/fatura</arg>
-<doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:22.553595" elapsed="2.975136"/>
-</kw>
-<kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:25.623107" level="INFO">The text field with the locator 'Chave de condições de pagamento' was filled.</msg>
-<arg>Chave de condições de pagamento</arg>
-<arg>${row_data['COND.PAG']}</arg>
-<doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:25.528731" elapsed="0.094376"/>
-</kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:28.761933" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-26T14:08:25.623107" elapsed="3.138826"/>
-</kw>
-<kw name="Select Tab" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:30.806649" level="INFO">The tab 'Dados organizacionais' was selected.</msg>
+<msg time="2025-08-28T14:23:22.464970" level="INFO">The tab 'Dados organizacionais' was selected.</msg>
 <arg>Dados organizacionais</arg>
 <doc>Select the tab with the name provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:28.763982" elapsed="2.042667"/>
+<status status="PASS" start="2025-08-28T14:23:19.050058" elapsed="3.414912"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:30.847458" level="INFO">The text field with the locator 'Organização de compras' was filled.</msg>
+<msg time="2025-08-28T14:23:22.496712" level="INFO">The text field with the locator 'Organização de compras' was filled.</msg>
 <arg>Organização de compras</arg>
 <arg>${row_data['ORG. COMPRAS']}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:30.806649" elapsed="0.040809"/>
+<status status="PASS" start="2025-08-28T14:23:22.464970" elapsed="0.031742"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:30.856951" level="INFO">The text field with the locator 'Grupo de compradores' was filled.</msg>
+<msg time="2025-08-28T14:23:22.512347" level="INFO">The text field with the locator 'Grupo de compradores' was filled.</msg>
 <arg>Grupo de compradores</arg>
 <arg>${row_data['GP. COMPRADOR']}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:30.847458" elapsed="0.009493"/>
-</kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:33.677404" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-26T14:08:30.856951" elapsed="2.836121"/>
+<status status="PASS" start="2025-08-28T14:23:22.496712" elapsed="0.015635"/>
 </kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:33.720837" level="INFO">The text field with the locator 'Fornecedor/centro fornecedor' was filled.</msg>
+<msg time="2025-08-28T14:23:22.527972" level="INFO">The text field with the locator 'Fornecedor/centro fornecedor' was filled.</msg>
 <arg>Fornecedor/centro fornecedor</arg>
 <arg>${row_data['FORNECEDOR']}</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:33.693072" elapsed="0.027765"/>
+<status status="PASS" start="2025-08-28T14:23:22.512347" elapsed="0.015625"/>
+</kw>
+<kw name="Select Tab" owner="RoboSAPiens">
+<msg time="2025-08-28T14:23:25.239474" level="INFO">The tab 'Remessa/fatura' was selected.</msg>
+<arg>Remessa/fatura</arg>
+<doc>Select the tab with the name provided.</doc>
+<status status="PASS" start="2025-08-28T14:23:22.527972" elapsed="2.711502"/>
 </kw>
 <kw name="Fill Cell" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:33.952472" level="INFO">The cell with the locator '1, Material' was filled.</msg>
+<msg time="2025-08-28T14:23:25.347642" level="INFO">The cell with the locator '1, Material' was filled.</msg>
 <arg>1</arg>
 <arg>Material</arg>
 <arg>${row_data['MATERIAL']}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:33.720837" elapsed="0.231635"/>
+<status status="PASS" start="2025-08-28T14:23:25.239474" elapsed="0.108168"/>
 </kw>
 <kw name="Fill Cell" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:34.007976" level="INFO">The cell with the locator '1, Qtd.pedido' was filled.</msg>
+<msg time="2025-08-28T14:23:25.400488" level="INFO">The cell with the locator '1, Qtd.pedido' was filled.</msg>
 <arg>1</arg>
 <arg>Qtd.pedido</arg>
 <arg>${row_data['QNTD']}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:33.952472" elapsed="0.055504"/>
+<status status="PASS" start="2025-08-28T14:23:25.347642" elapsed="0.052846"/>
 </kw>
 <kw name="Fill Cell" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:34.070985" level="INFO">The cell with the locator '1, Cen.' was filled.</msg>
+<msg time="2025-08-28T14:23:25.458481" level="INFO">The cell with the locator '1, Cen.' was filled.</msg>
 <arg>1</arg>
 <arg>Cen.</arg>
 <arg>${row_data['CENTRO']}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:34.007976" elapsed="0.063009"/>
-</kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:38.549506" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
-<doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-26T14:08:34.070985" elapsed="4.478521"/>
+<status status="PASS" start="2025-08-28T14:23:25.400488" elapsed="0.057993"/>
 </kw>
 <if>
 <branch type="IF" condition="'${row_data}[NV CONTRATO]' != '${EMPTY}'">
 <kw name="Fill Cell" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:38.618370" level="INFO">The cell with the locator '1, Contrato básico' was filled.</msg>
+<msg time="2025-08-28T14:23:25.521458" level="INFO">The cell with the locator '1, Contrato básico' was filled.</msg>
 <arg>1</arg>
 <arg>Contrato básico</arg>
 <arg>${row_data['NV CONTRATO']}</arg>
 <doc>Fill the cell at the intersection of the row and column with the content provided.</doc>
-<status status="PASS" start="2025-08-26T14:08:38.549506" elapsed="0.068864"/>
+<status status="PASS" start="2025-08-28T14:23:25.458481" elapsed="0.062977"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:42.437222" level="INFO">The key combination 'Enter' was pressed.</msg>
+<msg time="2025-08-28T14:23:29.063556" level="INFO">The key combination 'Enter' was pressed.</msg>
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-26T14:08:38.618370" elapsed="3.818852"/>
+<status status="PASS" start="2025-08-28T14:23:25.521458" elapsed="3.542098"/>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:46.026290" level="INFO">The key combination 'Enter' was pressed.</msg>
-<arg>Enter</arg>
+<msg time="2025-08-28T14:23:29.516298" level="INFO">The key combination 'Ctrl+F2' was pressed.</msg>
+<arg>Ctrl+F2</arg>
 <doc>Press the given key combination.</doc>
-<status status="PASS" start="2025-08-26T14:08:42.437222" elapsed="3.589068"/>
+<status status="PASS" start="2025-08-28T14:23:29.063556" elapsed="0.452742"/>
 </kw>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<msg time="2025-08-26T14:08:46.026290" level="FAIL">NotFound: The key combination 'Strg+F2' is not supported. See the keyword documentation for valid key combinations.</msg>
-<arg>Strg+F2</arg>
-<doc>Press the given key combination.</doc>
-<status status="FAIL" start="2025-08-26T14:08:46.026290" elapsed="0.000000">NotFound: The key combination 'Strg+F2' is not supported. See the keyword documentation for valid key combinations.</status>
-</kw>
-<status status="FAIL" start="2025-08-26T14:08:38.549506" elapsed="7.476784">NotFound: The key combination 'Strg+F2' is not supported. See the keyword documentation for valid key combinations.</status>
+<status status="PASS" start="2025-08-28T14:23:25.458481" elapsed="4.057817"/>
 </branch>
-<status status="FAIL" start="2025-08-26T14:08:38.549506" elapsed="7.476784">NotFound: The key combination 'Strg+F2' is not supported. See the keyword documentation for valid key combinations.</status>
+<status status="PASS" start="2025-08-28T14:23:25.458481" elapsed="4.057817"/>
 </if>
-<kw name="Press Key Combination" owner="RoboSAPiens">
-<arg>F5</arg>
-<doc>Press the given key combination.</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.026290" elapsed="0.000000"/>
-</kw>
-<kw name="Select Tab" owner="RoboSAPiens">
-<arg>Remessa/fatura</arg>
-<doc>Select the tab with the name provided.</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.026290" elapsed="0.000000"/>
-</kw>
 <kw name="Fill Text Field" owner="RoboSAPiens">
-<arg>Incoterms parte 1</arg>
+<msg time="2025-08-28T14:23:29.593304" level="FAIL">NotFound: The text field with the locator 'ctxtMEPO1226-INCO1' could not be found. Hint: Check the spelling</msg>
+<arg>ctxtMEPO1226-INCO1</arg>
 <arg>${row_data['INCOTERM']}</arg>
+<arg>exact=False</arg>
 <doc>Fill the text field specified by the locator with the content provided.</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.026290" elapsed="0.000000"/>
+<status status="FAIL" start="2025-08-28T14:23:29.516298" elapsed="0.077006">NotFound: The text field with the locator 'ctxtMEPO1226-INCO1' could not be found. Hint: Check the spelling</status>
 </kw>
 <kw name="Press Key Combination" owner="RoboSAPiens">
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.026290" elapsed="0.015630"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Press Key Combination" owner="RoboSAPiens">
 <arg>Enter</arg>
 <doc>Press the given key combination.</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </kw>
 <var name="${i}"/>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </iter>
 <var>${i}</var>
-<value>6</value>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<value>3</value>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </for>
 <kw name="Press Key Combination" owner="RoboSAPiens">
 <arg>CTRL+S</arg>
 <doc>Press the given key combination.</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </kw>
 <kw name="Handle Confirmation Dialog">
 <doc>Trata janelas de confirmação que podem aparecer</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </kw>
 <kw name="Get Purchase Order Number">
 <var>${po_number}</var>
 <doc>Extrai o número do pedido criado da barra de status</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </kw>
 <return>
 <value>${po_number}</value>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </return>
 <var>${purchase_order_number}</var>
 <arg>${row_data}</arg>
 <doc>Cria um único pedido de compra com os dados fornecidos</doc>
-<status status="FAIL" start="2025-08-26T14:08:17.184627" elapsed="28.857293">NotFound: The key combination 'Strg+F2' is not supported. See the keyword documentation for valid key combinations.</status>
+<status status="FAIL" start="2025-08-28T14:23:16.573531" elapsed="13.019773">NotFound: The text field with the locator 'ctxtMEPO1226-INCO1' could not be found. Hint: Check the spelling</status>
 </kw>
 <kw name="Update Excel With PO Number">
 <arg>${row_data}</arg>
 <arg>${purchase_order_number}</arg>
 <doc>Atualiza a planilha Excel com o número do pedido gerado</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </kw>
 <var name="${row_data}">{'Pedido Origem': 4503273185, 'Preço': 6, 'TIP DE PEDIDO': 'ZD', 'FORNECEDOR': 10001859, 'COND.PAG': 'Z000', 'INCOTERM': 'Z13', 'ORG. COMPRAS': 5821, 'GP. COMPRADOR': 951, 'EMPRESA': 2000, 'MATERIAL':...</var>
-<status status="FAIL" start="2025-08-26T14:08:17.184627" elapsed="28.857293">NotFound: The key combination 'Strg+F2' is not supported. See the keyword documentation for valid key combinations.</status>
+<status status="FAIL" start="2025-08-28T14:23:16.573531" elapsed="13.019773">NotFound: The text field with the locator 'ctxtMEPO1226-INCO1' could not be found. Hint: Check the spelling</status>
 </iter>
 <var>${row_data}</var>
 <value>@{testData}</value>
-<status status="FAIL" start="2025-08-26T14:08:17.184117" elapsed="28.857803">NotFound: The key combination 'Strg+F2' is not supported. See the keyword documentation for valid key combinations.</status>
+<status status="FAIL" start="2025-08-28T14:23:16.558521" elapsed="13.034783">NotFound: The text field with the locator 'ctxtMEPO1226-INCO1' could not be found. Hint: Check the spelling</status>
 </for>
 <kw name="Save And Close Excel">
 <doc>Salva e fecha a planilha Excel</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
 <arg>Pedidos criados com sucesso! Conferir coluna Q do Excel.</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" start="2025-08-26T14:08:46.041920" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-08-28T14:23:29.593304" elapsed="0.000000"/>
 </kw>
 <doc>Cria múltiplos pedidos de compra lendo dados do Excel
 
@@ -283,7 +238,7 @@ Q: Número do Pedido (será preenchido)</doc>
 <tag>ME21N</tag>
 <tag>Order</tag>
 <tag>Purchase</tag>
-<status status="FAIL" start="2025-08-26T14:08:14.423614" elapsed="31.618306">NotFound: The key combination 'Strg+F2' is not supported. See the keyword documentation for valid key combinations.</status>
+<status status="FAIL" start="2025-08-28T14:23:13.397930" elapsed="16.195374">NotFound: The text field with the locator 'ctxtMEPO1226-INCO1' could not be found. Hint: Check the spelling</status>
 </test>
 <doc>Caso de teste para criação de Pedidos de Compra (ME21N)
 Convertido de script VBS para Robot Framework usando RoboSAPiens
@@ -291,7 +246,7 @@ Convertido de script VBS para Robot Framework usando RoboSAPiens
 Este teste automatiza a criação de múltiplos pedidos de compra
 na transação ME21N do SAP, lendo os dados de uma planilha Excel
 e salvando os números dos pedidos gerados.</doc>
-<status status="FAIL" start="2025-08-26T14:08:13.592826" elapsed="32.449094"/>
+<status status="FAIL" start="2025-08-28T14:23:12.293770" elapsed="17.299534"/>
 </suite>
 <statistics>
 <total>

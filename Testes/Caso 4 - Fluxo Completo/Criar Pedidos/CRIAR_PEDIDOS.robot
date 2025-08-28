@@ -102,46 +102,42 @@ Create Single Purchase Order
     Execute Transaction   /nme21n
     
     # Preencher condições de pagamento
-    Select Tab    Comunicação
-    Select Tab    Remessa/fatura
-    Fill TextField    Chave de condições de pagamento    ${row_data['COND.PAG']}
-    Press Key Combination    Enter
+    # Select Tab    Comunicação
+    # Select Tab    Remessa/fatura
+    # Fill TextField    Chave de condições de pagamento    ${row_data['COND.PAG']}
     
     # Preencher organização de compras e grupo de compradores
     Select Tab    Dados organizacionais
     Fill TextField    Organização de compras    ${row_data['ORG. COMPRAS']}
     Fill TextField    Grupo de compradores    ${row_data['GP. COMPRADOR']}
-    Press Key Combination    Enter
     
     # Preencher fornecedor
     Fill TextField    Fornecedor/centro fornecedor   ${row_data['FORNECEDOR']}
+    Select Tab    Remessa/fatura
     
     # Preencher dados do item
     Fill Cell    1    Material    ${row_data['MATERIAL']}
     Fill Cell    1    Qtd.pedido    ${row_data['QNTD']}
     Fill Cell    1    Cen.   ${row_data['CENTRO']}
-    Press Key Combination    Enter
     
     # Preencher contrato se existir
     IF    '${row_data}[NV CONTRATO]' != '${EMPTY}'
         Fill Cell    1    Contrato básico   ${row_data['NV CONTRATO']}
         Press Key Combination    Enter
-        # Fill Cell    1    Item contr.    ${row_data['ITEM CONT.']}
-        Press Key Combination    Enter
-        Press Key Combination    Strg+F2
+        Press Key Combination    Ctrl+F2
+        
     END
     
     # Navegar para aba de condições comerciais
     # Simular clique na aba TABHDT1
-    Press Key Combination    F5    # Ajustar conforme necessário
+    #Press Key Combination    F5    # Ajustar conforme necessário
     
-    # Preencher Incoterm
-    Select Tab    Remessa/fatura
-    Fill TextField    Incoterms parte 1    ${row_data['INCOTERM']}
+    # Preencher Incoterm1 
+    Fill TextField     ctxtMEPO1226-INCO1    ${row_data['INCOTERM']}    exact=False
     Press Key Combination    Enter
     
     # Simular múltiplos ENTER conforme script original
-    FOR    ${i}    IN RANGE    6
+    FOR    ${i}    IN RANGE    3
         Press Key Combination    Enter
     END
     
