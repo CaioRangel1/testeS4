@@ -5,6 +5,7 @@ Library          Collections
 Library          String
 Library          RoboSAPiens
 Library          RPA.Excel.Files
+Resource         ../../../Resources/sap_common.robot
 
 *** Variables ***
 ${EXCEL_FILE}         contratos.xlsx
@@ -16,11 +17,11 @@ Criar Contratos SAP
     [Documentation]    Cria contratos no SAP ME31K baseado em dados do Excel
     [Tags]             sap    me31k    contratos    excel
     
-    # Conecta ao SAP
-    Connect To SAP
+    Prepare SAP
+    ${testData} =    Open Excel Worksheet    Dados apresentação 22-08.xlsx
     
-    # Abre Excel e processa contratos
-    Open Excel And Process Contracts
+    Execute Transaction    /nme31k
+    Process Contracts    ${testData}
     
     # Salva e fecha Excel
     Save And Close Excel
@@ -28,37 +29,25 @@ Criar Contratos SAP
     Log    Criação de contratos finalizada com sucesso!
 
 *** Keywords ***
-Connect To SAP
-    [Documentation]    Conecta ao SAP e maximiza a janela
-    Connect To Server
-    Maximize Sap Window
-
-Open Excel And Process Contracts
-    [Documentation]    Abre Excel e processa cada linha para criar contratos
-    Open Workbook    ${EXCEL_FILE}
+Process Contracts
+    [Documentation]    Processa cada linha do excel para criar contratos
+    [Arguments]    ${testData}
     
-    # Obtém dados do Excel
-    ${worksheet_data}=    Read Worksheet    name=${WORKSHEET_NAME}    header=True
-    ${total_rows}=    Get Length    ${worksheet_data}
+    ${total_rows}=    Get Length    ${testData}
     
     Log    Total de linhas para processar: ${total_rows}
     
     # Processa cada linha (contrato)
     ${row_number}=    Set Variable    ${LINHA_INICIAL}
-    FOR    ${row_data}    IN    @{worksheet_data}
-        ${column_a_value}=    Get From Dictionary    ${row_data}    ${row_data.keys()[0]}    default=${EMPTY}
-        
-        # Para se célula da coluna A estiver vazia
-        Run Keyword If    '${column_a_value}' == '${EMPTY}'    Exit For Loop
-        
+    FOR    ${index}    ${row_data}    IN ENUMERATE    @{testData}        
         # Extrai dados da linha atual
-        ${contract_data}=    Extract Contract Data From Row    ${row_data}
+        # ${contract_data}=    Extract Contract Data From Row    ${row_data}
         
         # Cria contrato no SAP
-        ${new_contract_number}=    Create Contract    ${contract_data}
+        ${new_contract_number}=    Create Contract    ${row_data}
         
         # Atualiza Excel com número do novo contrato
-        Write Table Cell    row=${row_number}    column=16    value=${new_contract_number}    name=${WORKSHEET_NAME}
+        Fill Cell   ${row_number}    16    value=${new_contract_number}
         
         ${row_number}=    Evaluate    ${row_number} + 1
         Sleep    1s
@@ -93,33 +82,29 @@ Extract Contract Data From Row
 Create Contract
     [Documentation]    Cria um contrato no SAP ME31K
     [Arguments]    ${contract_data}
-    
-    # Acessa transação ME31K
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/tbar[0]/okcd    /nme31k
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
-    
+
     # Preenche dados do cabeçalho
-    ${fornecedor}=    Get From Dictionary    ${contract_data}    fornecedor
-    ${tipo_contrato}=    Get From Dictionary    ${contract_data}    tipo_contrato
-    ${org_compra}=    Get From Dictionary    ${contract_data}    org_compra
-    ${grp_comprador}=    Get From Dictionary    ${contract_data}    grp_comprador
-    
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-LIFNR    ${fornecedor}
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/ctxtRM06E-EVART    ${tipo_contrato}
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-EKORG    ${org_compra}
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-EKGRP    ${grp_comprador}
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
+    ${fornecedor}=    Set Variable    ${contract_data['FORNECEDOR']}
+    ${tipo_contrato}=    Set Variable    ${contract_data['TP CONTRATO']}
+    ${org_compra}=    Set Variable    ${contract_data['ORG. COMPRAS']}
+    ${grp_comprador}=    Set Variable    ${contract_data['GP. COMPRADOR']}
+
+    Fill Text Field    Nº conta do fornecedor    ${fornecedor}
+    Fill Text Field    Tipo de contrato    ${tipo_contrato}
+    Fill Text Field    Organização de compras    ${org_compra}
+    Fill Text Field    Grupo de compradores    ${grp_comprador}
+    Press Key Combination    Enter
     
     # Captura data inicial e calcula data final
-    ${data_inicial}=    Get Element Attribute    id:/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-KDATB    text
+    ${data_inicial}=    Read Text Field    Início do período de validade
     ${data_final}=    Calculate Final Date    ${data_inicial}
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-KDATE    ${data_final}
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
+    Fill Text Field    Fim da validade    ${data_final}
+    # Press Key Combination    Enter
     
     # Preenche condições de pagamento
-    ${cond_pagto}=    Get From Dictionary    ${contract_data}    cond_pagto
-    Fill Text In Text Field    id:/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-ZTERM    ${cond_pagto}
-    Send VKey    0    /app/con[0]/ses[0]/wnd[0]
+    ${cond_pagto}=    Set Variable    ${contract_data['COND.PAG']}
+    Export Window    window    C:/Users/ETH6/OneDrive - VIBRA/Documentos/GitHub/testeS4/Testes/Caso 4 - Fluxo Completo/Criar contratos/
+    Fill Text Field    Condições pgto.    ${cond_pagto}
     
     # Preenche dados do item
     Fill Item Data    ${contract_data}

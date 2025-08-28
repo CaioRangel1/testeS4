@@ -1,0 +1,650 @@
+[
+  {
+    "Text": "Ext. Dtls.",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/btnEXT_DTLS_PB",
+    "Left": 604,
+    "Top": 624,
+    "Width": 129,
+    "Height": 22
+  },
+  {
+    "Text": "Informações Adicionais",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ssubCUSTSCR1:SAPLXM06:0201/btnZXM06I01INFORMACOES_ADICIONAIS",
+    "Left": 23,
+    "Top": 670,
+    "Width": 199,
+    "Height": 22
+  },
+  {
+    "Text": "Visualizar Formulas",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ssubCUSTSCR1:SAPLXM06:0201/btnVISUALIZAR_FORMULAS",
+    "Left": 222,
+    "Top": 670,
+    "Width": 173,
+    "Height": 22
+  },
+  {
+    "Text": "Avaliação Fornecedores",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ssubCUSTSCR1:SAPLXM06:0201/btnAVALIACAO_FORNECEDORES",
+    "Left": 396,
+    "Top": 670,
+    "Width": 198,
+    "Height": 22
+  },
+  {
+    "Text": "Mercado Eletrônico",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ssubCUSTSCR1:SAPLXM06:0201/btnBT_ME",
+    "Left": 23,
+    "Top": 692,
+    "Width": 199,
+    "Height": 22
+  },
+  {
+    "Text": "Notificação p/ Liberação",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ssubCUSTSCR1:SAPLXM06:0201/btnBT_LIBERACAO",
+    "Left": 465,
+    "Top": 692,
+    "Width": 225,
+    "Height": 22
+  },
+  {
+    "Text": "Contrato Jurídico",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ssubCUSTSCR1:SAPLXM06:0201/btnBT_CONT_JUR",
+    "Left": 23,
+    "Top": 715,
+    "Width": 199,
+    "Height": 22
+  },
+  {
+    "Text": "Criação Via Integração",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ssubCUSTSCR1:SAPLXM06:0201/btnBT_CR_INTEG",
+    "Left": 222,
+    "Top": 715,
+    "Width": 199,
+    "Height": 22
+  },
+  {
+    "Text": "Contrato",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblRM06E-EVRTN",
+    "Left": 23,
+    "Top": 217,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Empresa",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-BUKRS",
+    "Left": 266,
+    "Top": 217,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Grupo de compradores",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-EKGRP",
+    "Left": 500,
+    "Top": 217,
+    "Width": 181,
+    "Height": 21
+  },
+  {
+    "Text": "Tipo contrato",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblRM06E-EVART",
+    "Left": 266,
+    "Top": 240,
+    "Width": 138,
+    "Height": 20
+  },
+  {
+    "Text": "Organiz.compras",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-EKORG",
+    "Left": 500,
+    "Top": 240,
+    "Width": 181,
+    "Height": 20
+  },
+  {
+    "Text": "Fornecedor",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-LIFNR",
+    "Left": 23,
+    "Top": 262,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Data contrato",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblRM06E-VEDAT",
+    "Left": 32,
+    "Top": 308,
+    "Width": 138,
+    "Height": 20
+  },
+  {
+    "Text": "Intervalo nºs item",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-PINCR",
+    "Left": 283,
+    "Top": 308,
+    "Width": 181,
+    "Height": 20
+  },
+  {
+    "Text": "Interv.subitens",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-UPINC",
+    "Left": 526,
+    "Top": 308,
+    "Width": 138,
+    "Height": 20
+  },
+  {
+    "Text": "Iníc.per.val.",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-KDATB",
+    "Left": 32,
+    "Top": 330,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Fim da validade",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-KDATE",
+    "Left": 283,
+    "Top": 330,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Idioma",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-SPRAS",
+    "Left": 526,
+    "Top": 330,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Condições pgto.",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-ZTERM",
+    "Left": 32,
+    "Top": 421,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Val.fixado",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-KTWRT",
+    "Left": 344,
+    "Top": 421,
+    "Width": 94,
+    "Height": 21
+  },
+  {
+    "Text": "Pagamento em",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-ZBD1T",
+    "Left": 32,
+    "Top": 444,
+    "Width": 138,
+    "Height": 20
+  },
+  {
+    "Text": "Dias",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblTAGE1",
+    "Left": 205,
+    "Top": 444,
+    "Width": 51,
+    "Height": 20
+  },
+  {
+    "Text": "%",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblPROZ1",
+    "Left": 318,
+    "Top": 444,
+    "Width": 18,
+    "Height": 20
+  },
+  {
+    "Text": "T/C",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-WKURS",
+    "Left": 344,
+    "Top": 444,
+    "Width": 94,
+    "Height": 20
+  },
+  {
+    "Text": "Pagamento em",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-ZBD2T",
+    "Left": 32,
+    "Top": 466,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Dias",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblTAGE2",
+    "Left": 205,
+    "Top": 466,
+    "Width": 51,
+    "Height": 21
+  },
+  {
+    "Text": "%",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblPROZ2",
+    "Left": 318,
+    "Top": 466,
+    "Width": 18,
+    "Height": 21
+  },
+  {
+    "Text": "Incoterms",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-INCO1",
+    "Left": 344,
+    "Top": 466,
+    "Width": 94,
+    "Height": 21
+  },
+  {
+    "Text": "Pagamento em",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-ZBD3T",
+    "Left": 32,
+    "Top": 489,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Dias líq.",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblTAGE3",
+    "Left": 205,
+    "Top": 489,
+    "Width": 103,
+    "Height": 21
+  },
+  {
+    "Text": "Data da cotação",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-IHRAN",
+    "Left": 32,
+    "Top": 557,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Cotação",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-ANGNR",
+    "Left": 318,
+    "Top": 557,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Sua referência",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-IHREZ",
+    "Left": 32,
+    "Top": 580,
+    "Width": 138,
+    "Height": 20
+  },
+  {
+    "Text": "Vendedor",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-VERKF",
+    "Left": 318,
+    "Top": 580,
+    "Width": 138,
+    "Height": 20
+  },
+  {
+    "Text": "N/referência",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-UNSEZ",
+    "Left": 32,
+    "Top": 602,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Telefone",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-TELF1",
+    "Left": 318,
+    "Top": 602,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Forneced.p/rem.",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-LLIEF",
+    "Left": 32,
+    "Top": 625,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "Emissor fatura",
+    "Label": "",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/lblEKKO-LIFRE",
+    "Left": 318,
+    "Top": 625,
+    "Width": 138,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Contrato",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtRM06E-EVRTN",
+    "Left": 170,
+    "Top": 217,
+    "Width": 95,
+    "Height": 21
+  },
+  {
+    "Text": "2000",
+    "Label": "Empresa",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-BUKRS",
+    "Left": 404,
+    "Top": 217,
+    "Width": 43,
+    "Height": 21
+  },
+  {
+    "Text": "951",
+    "Label": "Grupo de compradores",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-EKGRP",
+    "Left": 682,
+    "Top": 217,
+    "Width": 34,
+    "Height": 21
+  },
+  {
+    "Text": "ZDDR",
+    "Label": "Tipo contrato",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtRM06E-EVART",
+    "Left": 404,
+    "Top": 240,
+    "Width": 43,
+    "Height": 20
+  },
+  {
+    "Text": "5821",
+    "Label": "Organiz.compras",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-EKORG",
+    "Left": 682,
+    "Top": 240,
+    "Width": 42,
+    "Height": 20
+  },
+  {
+    "Text": "10001859",
+    "Label": "Fornecedor",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-LIFNR",
+    "Left": 170,
+    "Top": 262,
+    "Width": 95,
+    "Height": 21
+  },
+  {
+    "Text": "PETROLEO BRASILEIRO SA PETROBRAS",
+    "Label": "Fornecedor",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtLFA1-NAME1",
+    "Left": 266,
+    "Top": 262,
+    "Width": 311,
+    "Height": 21
+  },
+  {
+    "Text": "28.08.2025",
+    "Label": "Data contrato",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtRM06E-VEDAT",
+    "Left": 170,
+    "Top": 308,
+    "Width": 95,
+    "Height": 20
+  },
+  {
+    "Text": "10",
+    "Label": "Intervalo nºs item",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-PINCR",
+    "Left": 465,
+    "Top": 308,
+    "Width": 51,
+    "Height": 20
+  },
+  {
+    "Text": "1",
+    "Label": "Interv.subitens",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-UPINC",
+    "Left": 664,
+    "Top": 308,
+    "Width": 52,
+    "Height": 20
+  },
+  {
+    "Text": "28.08.2025",
+    "Label": "Iníc.per.val.",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-KDATB",
+    "Left": 170,
+    "Top": 330,
+    "Width": 95,
+    "Height": 21
+  },
+  {
+    "Text": "28.08.2026",
+    "Label": "Fim da validade",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-KDATE",
+    "Left": 422,
+    "Top": 330,
+    "Width": 94,
+    "Height": 21
+  },
+  {
+    "Text": "PT",
+    "Label": "Idioma",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-SPRAS",
+    "Left": 664,
+    "Top": 330,
+    "Width": 26,
+    "Height": 21
+  },
+  {
+    "Text": "TD01",
+    "Label": "Condições pgto.",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-ZTERM",
+    "Left": 170,
+    "Top": 421,
+    "Width": 43,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Val.fixado",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-KTWRT",
+    "Left": 439,
+    "Top": 421,
+    "Width": 181,
+    "Height": 21
+  },
+  {
+    "Text": "BRL",
+    "Label": "Val.fixado",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-WAERS",
+    "Left": 621,
+    "Top": 421,
+    "Width": 51,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Pagamento em",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-ZBD1T",
+    "Left": 170,
+    "Top": 444,
+    "Width": 34,
+    "Height": 20
+  },
+  {
+    "Text": "",
+    "Label": "Dias",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-ZBD1P",
+    "Left": 257,
+    "Top": 444,
+    "Width": 60,
+    "Height": 20
+  },
+  {
+    "Text": "1,00000",
+    "Label": "T/C",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-WKURS",
+    "Left": 439,
+    "Top": 444,
+    "Width": 112,
+    "Height": 20
+  },
+  {
+    "Text": "",
+    "Label": "Pagamento em",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-ZBD2T",
+    "Left": 170,
+    "Top": 466,
+    "Width": 34,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Dias",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-ZBD2P",
+    "Left": 257,
+    "Top": 466,
+    "Width": 60,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Incoterms",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-INCO1",
+    "Left": 439,
+    "Top": 466,
+    "Width": 34,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Incoterms",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-INCO2",
+    "Left": 474,
+    "Top": 466,
+    "Width": 250,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Pagamento em",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-ZBD3T",
+    "Left": 170,
+    "Top": 489,
+    "Width": 34,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Data da cotação",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-IHRAN",
+    "Left": 170,
+    "Top": 557,
+    "Width": 95,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Cotação",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-ANGNR",
+    "Left": 456,
+    "Top": 557,
+    "Width": 95,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Sua referência",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-IHREZ",
+    "Left": 170,
+    "Top": 580,
+    "Width": 112,
+    "Height": 20
+  },
+  {
+    "Text": "",
+    "Label": "Vendedor",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-VERKF",
+    "Left": 456,
+    "Top": 580,
+    "Width": 268,
+    "Height": 20
+  },
+  {
+    "Text": "",
+    "Label": "N/referência",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-UNSEZ",
+    "Left": 170,
+    "Top": 602,
+    "Width": 112,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Telefone",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/txtEKKO-TELF1",
+    "Left": 456,
+    "Top": 602,
+    "Width": 147,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Forneced.p/rem.",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-LLIEF",
+    "Left": 170,
+    "Top": 625,
+    "Width": 95,
+    "Height": 21
+  },
+  {
+    "Text": "",
+    "Label": "Emissor fatura",
+    "Id": "/app/con[0]/ses[0]/wnd[0]/usr/ctxtEKKO-LIFRE",
+    "Left": 456,
+    "Top": 625,
+    "Width": 95,
+    "Height": 21
+  }
+]
